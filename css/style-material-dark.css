@@ -1,0 +1,299 @@
+
+
+body {
+	background-color: #111111;
+	color: rgba(255, 255, 255, 0.87);
+}
+
+.text-primary {
+	color: rgba(255, 255, 255, 0.87);
+}
+
+.card, .box, .player {
+	background-color: #212121;
+}
+
+.divider {
+	border-color: rgba(255,255,255, 0.12);
+}
+
+#instructions .double-outer-border, #login fieldset{
+	background-color: #212121;
+}
+
+.shadowbutton {
+	background: rgba(204,204,204, 0.15);
+	color: #fff;
+}
+
+.gametype {
+	color: #fff;
+}
+
+
+.shadowbutton.blue-glow {
+	background-color: #1976D2; /*blue 700 */
+}
+
+.shadowbutton.red-glow {
+	background-color: #D32F2F; /*red 700 */
+}
+
+.shadowbutton.green-glow {
+	background-color: #388E3C; /*green 700*/
+}
+
+.shadowbutton.yellow-glow {
+	background-color: #F9A825; /* yellow 800 */
+}
+
+#settings-icon {
+	background-image: url("../images/settings_gear.png");
+}
+
+
+#settings {
+	background-color: #00796B; /* teal 700 */
+}
+
+.home_card .styled-select .chosen-drop, #languageswitcher.styled-select .chosen-drop
+{
+	background: #616161;
+	color: rgba(255, 255, 255, 1.0);
+}
+.home_card .styled-select .chosen-results {
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.home_card .styled-select .highlighted
+{
+	background: #757575;
+	color: rgba(255, 255, 255, 1.0);
+}
+
+.home_card .styled-select .no-results
+{
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.home_card .styled-select .chosen-single
+{
+	color: rgba(255, 255, 255, 0.87);
+	border-bottom: 2px solid rgba(255,255,255,0.12);
+}
+
+#languageswitcher.styled-select .chosen-single {
+	color: rgba(255, 255, 255, 0.87);
+}
+
+
+.home_card .styled-select .chosen-container-single .chosen-single div b, #languageswitcher.styled-select .chosen-container-single .chosen-single div b
+{
+	background-image: url('chosen-sprite.png');
+}
+
+.home_card .styled-select .chosen-search input {
+	border-color: rgba(255,255,255,0.12);
+	background-image: url('chosen-sprite.png');
+}
+
+
+
+.home_card .info-card {
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.inset-input {
+	border-color: rgba(255,255,255, 0.12);
+}
+
+.join-actions {
+	border-top: 1px solid rgba(255,255,255, 0.12);
+}
+
+
+.admin-link {
+	background-image: url("../images/admin_light.png");
+}
+.back-icon.header-navigation
+{
+  background-image: url(../images/back-icon-light.png);
+}
+
+#overlay {
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+#overlay > div {
+	background-color: #212121;
+}
+
+#overlay p {
+	color: rgba(255, 255, 255, 0.7);
+}
+
+#overlay h2 {
+	color: rgba(255, 255, 255, 1.0);
+}
+
+#overlay .inset-input {
+	color: rgba(255,255,255, 1.0);
+}
+
+.turn-row .arrow-start, .editable-turns .turn-row .arrow-start {
+	color: rgba(255, 255, 255, 0.3);
+}
+
+.turn-row .arrow-end {
+	color: rgba(255, 255, 255, 0.3);
+}
+
+.turn--1 {
+	background-color: rgba(255, 255, 255, 0.87);
+}
+
+.turn-0 {
+	background-color: #0097A7; /* cyan 700 */
+}
+
+.turn-1 {
+	background-color: #FFA000; /* amber 700 */
+}
+
+.turn-do-0 {
+	color: #2E7D32;
+}
+
+.turn-do-1 {
+	color: #C62828;
+}
+
+.turn-global b {
+	color: rgba(255, 255, 255, 0.54);
+}
+
+.turn .turn-hidden {
+	border-left-color: rgba(255,255,255,0.87);
+	border-right-color: rgba(255,255,255,0.87);
+}
+
+#draft-title .draft-title-small {
+	color: rgba(255,255,255, 0.7);
+}
+
+.editable-turns .turn-delete, .editable-turns .turn-add,
+.editable-turns .pre-turn-delete, .editable-turns .pre-turn-add {
+	color: rgba(255, 255, 255, 1.0);
+	background-color: #424242;
+}
+
+.player.player-inactive {
+	background-color: rgba(33, 33, 33, 0.33);
+}
+
+.player .head-text {
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.pick {
+	background: #2E7D32; /* green 800 */
+}
+
+.ban {
+	background: #C62828; /* red 800 */
+}
+
+.extra-info {
+	color: rgba(255,255,255, 0.7);
+}
+
+#instructions .red-glow, .action-string .red-glow {
+	color: #f44336;
+}
+
+#instructions .green-glow, .action-string .green-glow {
+	color: #4caf50;
+}
+
+#instructions .blue-glow, .action-string .blue-glow {
+	color: #1976D2;
+}
+
+#spectator-play {
+	background-image: url('../images/play-light.png');
+}
+
+#spectator-pause {
+	background-image: url('../images/pause-light.png');
+}
+
+#spectator-next {
+	background-image: url('../images/skip_to_next-light.png');
+}
+
+#spectator-forward {
+	background-image: url('../images/fast_forward-light.png');
+}
+
+.header .shadowbutton, .admin .shadowbutton, .preset-turns .shadowbutton {
+	background: rgba(204,204,204, 0.15);
+	color: #fff;
+}
+
+.admin .info-card {
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.chooser {
+	background: rgba(0,0,0,0.2);
+}
+
+.choice {
+	background: rgba(204,204,204, 0.25);
+}
+
+.choice-banned {
+	background-color: rgba(198, 40, 40, 0.4); 
+}
+
+.choice-chosen {
+	background-color: rgba(46, 125, 50, 0.4); 
+}
+
+.choice-ban:hover {
+	background: #C62828; /* red 800 */
+}
+
+.choice-pick:hover {
+	background: #2E7D32; /* green 800 */
+}
+
+.aoecm-tooltip
+{
+  border-radius:2px;
+  border: none;
+  background: #424242;
+ }
+
+.recent-games {
+    border: 1px solid rgba(255,255,255, 0.12);
+ }
+
+ .recent-games td, .recent-games th {
+    border-width: 0 0 1px;
+    border-bottom: 1px solid rgba(255,255,255, 0.12);
+}
+
+.tabs label {
+	color: rgba(255,255,255, 0.38);
+}
+
+input[type="checkbox"] + label span
+{
+	background:url(../images/check_material_sheet.png) left top no-repeat;
+}
+
+input[type="checkbox"]:checked + label span
+{
+	background:url(../images/check_material_sheet.png) -20px top no-repeat;
+}

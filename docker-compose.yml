@@ -1,0 +1,44 @@
+version: '2'
+services: 
+    nginx: 
+        build: ./nginx
+        ports: 
+            - "3083:80"
+        volumes:
+            - ./:/src  
+        environment:
+            - VIRTUAL_HOST=aoe2cm.app
+        #    - VIRTUAL_PORT=3083
+        links:
+            - fpm
+        networks:
+            - aoe2-tier
+            - default
+    fpm:
+        build: .
+        volumes:
+            - ./:/src
+        links:
+            - db
+    db:
+        image: mysql
+        environment: 
+            - MYSQL_ROOT_PASSWORD=adminpass
+            - MYSQL_DATABASE=aoecm
+            - MYSQL_USER=aoecm
+            - MYSQL_PASSWORD=pass4aoe
+        volumes:
+            - dbdata:/var/lib/mysql
+
+volumes:
+  # for persistance of database data
+  dbdata:
+    driver: local
+
+networks:
+  aoe2-tier:
+    external:
+        name: aoe2-proxy
+
+        
+        

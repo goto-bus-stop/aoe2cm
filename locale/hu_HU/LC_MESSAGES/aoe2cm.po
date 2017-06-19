@@ -1,0 +1,1964 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-31 16:48+0100\n"
+"PO-Revision-Date: 2016-01-31 16:48+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: hu_HU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.6\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: controllers/draft.class.php:157
+msgid "Practice Opponent"
+msgstr "Gyakorló Ellenfél"
+
+#: controllers/draft.class.php:225
+msgid "spectate"
+msgstr "visszanéz"
+
+#: controllers/draft.class.php:248 lib/TurnsGrid.class.php:417
+msgid "Host"
+msgstr "Kezdő"
+
+#: controllers/draft.class.php:248 lib/TurnsGrid.class.php:417
+msgid "Guest"
+msgstr "Vendég"
+
+#: controllers/home.class.php:12
+msgid "AoE2 Captains mode"
+msgstr "AoE2 Kapitány mód"
+
+#: controllers/home.class.php:27 views/home.php:159
+msgid "Captains mode"
+msgstr "Kapitány mód"
+
+#: lib/civgrid.class.php:78 lib/civgrid.class.php:344
+msgid "Unknown"
+msgstr "Ismeretlen"
+
+#: lib/civgrid.class.php:79 lib/civgrid.class.php:345
+msgid "Different meanings based on the situation."
+msgstr "Különböző jelentés a szituáció alapján."
+
+#: lib/civgrid.class.php:81 lib/civgrid.class.php:347
+msgid ""
+"Random civ - when you see this as badge, <br />it means one of the captains "
+"didn't pick in time and a random civilization was picked for him."
+msgstr ""
+"Véletlenszerűen választott civilizáció - amikor ezt a bélyeget látod, <br /"
+">azt jelenti, hogy valamelyik kapitány nem választott időben civilizációt "
+"<br /> és egy véletlenszerű civilizáció lett választva helyette."
+
+#: lib/civgrid.class.php:82 lib/civgrid.class.php:348
+msgid ""
+"No ban - when you see this as banned, <br />it means no civilization got "
+"banned"
+msgstr ""
+"Semmilyen tiltás - amikor ez jelenik meg mint tiltott civilizáció, <br> "
+"semmilyen civilizáció nem lett tiltva az adott körben."
+
+#: lib/civgrid.class.php:87 lib/civgrid.class.php:353
+msgid "Aztecs"
+msgstr "Azték"
+
+#: lib/civgrid.class.php:88 lib/civgrid.class.php:354
+msgid "Infantry and Monk civilization"
+msgstr "Gyalogság és Pap civilizáció"
+
+#: lib/civgrid.class.php:90 lib/civgrid.class.php:356
+msgid "Villagers carry +5"
+msgstr "Parasztok +5 anyagot szállítanak"
+
+#: lib/civgrid.class.php:91 lib/civgrid.class.php:357
+#, no-php-format
+msgid "Military units created 15% faster"
+msgstr "Hadi egységek 15% gyorsabban vannak létrehozva"
+
+#: lib/civgrid.class.php:92 lib/civgrid.class.php:358
+msgid "+5 Monk hit points for each Monastery technology"
+msgstr "+5 HP papoknak minden befejezett pap technológiával"
+
+#: lib/civgrid.class.php:93
+msgid "Loom free"
+msgstr "Szövőszék ingyen"
+
+#: lib/civgrid.class.php:95 lib/civgrid.class.php:361
+msgid "Jaguar Warrior"
+msgstr "Jaguár harcos"
+
+#: lib/civgrid.class.php:96
+msgid "Garland Wars(+4 infantry attack)"
+msgstr "Virágfüzéres háború (+4 támadás gyalogos egységeknek)"
+
+#: lib/civgrid.class.php:98 lib/civgrid.class.php:364
+#, no-php-format
+msgid "Relics generate +33% gold"
+msgstr "Relikviák 33% több aranyat generálnak"
+
+#: lib/civgrid.class.php:101 lib/civgrid.class.php:380
+msgid "Britons"
+msgstr "Brittek"
+
+#: lib/civgrid.class.php:102 lib/civgrid.class.php:381
+msgid "Foot archer civilization"
+msgstr "Gyalogos íjász civilizáció"
+
+#: lib/civgrid.class.php:104 lib/civgrid.class.php:383
+#, no-php-format
+msgid "Town Centers cost -50% wood upon reaching the Castle Age"
+msgstr "Városközpontok 50% kevesebb fába kerülnek Kastély Kor után"
+
+#: lib/civgrid.class.php:105 lib/civgrid.class.php:384
+#, no-php-format
+msgid ""
+"Foot archers (excluding Skirmishers) have +1 range in Castle Age, <br /> +1 "
+"in Imperial Age (for +2 total)"
+msgstr ""
+"Gyalogos íjászok (dárdavetőkön kívül) +1 hatótávolságúak Kastély Kortól <br /"
+"> és +1 Imperiális Kortól (+2 összesen)"
+
+#: lib/civgrid.class.php:106 lib/civgrid.class.php:385
+#, no-php-format
+msgid "Shepherds work 25% faster"
+msgstr "Pásztorok 25% gyorsabban dolgoznak"
+
+#: lib/civgrid.class.php:108 lib/civgrid.class.php:387
+msgid "Longbowman"
+msgstr "Hosszúíjász"
+
+#: lib/civgrid.class.php:109
+msgid "Yeomen (+1 Foot archer range; +2 tower attack)"
+msgstr "Önkéntesek (+1 gyalog íjász lőtáv, +2 torony lőtáv)"
+
+#: lib/civgrid.class.php:111 lib/civgrid.class.php:390
+#, no-php-format
+msgid "Archery Ranges work 20% faster"
+msgstr "Íjászat 20% gyorsabban dolgozik"
+
+#: lib/civgrid.class.php:114 lib/civgrid.class.php:393
+msgid "Byzantines"
+msgstr "Bizánciak"
+
+#: lib/civgrid.class.php:115 lib/civgrid.class.php:394
+msgid "Defensive civilization"
+msgstr "Defenzív civilizáció"
+
+#: lib/civgrid.class.php:117 lib/civgrid.class.php:396
+#, no-php-format
+msgid ""
+"Buildings have +10% HP in Dark Age, +20% HP in Feudal Age,<br /> +30% in "
+"Castle Age, +40% in Imperial Age."
+msgstr ""
+"Épületek +10% HP Korai Középkorban, +20% HP Feudális korban, +30% Kastély "
+"Korban, +40% Imperiális Korban"
+
+#: lib/civgrid.class.php:118 lib/civgrid.class.php:397
+#, no-php-format
+msgid "Counter units cost 25% less"
+msgstr "Ellen-egységeg 25%-al olcsóbbak"
+
+#: lib/civgrid.class.php:119 lib/civgrid.class.php:398
+#, no-php-format
+msgid "Fire Ships attack 20% faster"
+msgstr "Gyújtóhajók 20% gyorsabban támadnak"
+
+#: lib/civgrid.class.php:120 lib/civgrid.class.php:399
+#, no-php-format
+msgid "Imperial Age costs -33%"
+msgstr "Imperiális Kor 33%-al olcsóbb"
+
+#: lib/civgrid.class.php:121 lib/civgrid.class.php:400
+msgid "Town Watch is free"
+msgstr "Toronyőr ingyenes"
+
+#: lib/civgrid.class.php:123 lib/civgrid.class.php:402
+msgid "Cataphract"
+msgstr "Kataphraktosz"
+
+#: lib/civgrid.class.php:124
+msgid "Logistica (Cataphracts cause trample damage)"
+msgstr "Logisztika (Kataphraktosz extra eltaposó támadás)"
+
+#: lib/civgrid.class.php:126 lib/civgrid.class.php:405
+#, no-php-format
+msgid "Monks +50% heal speed"
+msgstr "Papok 50%-al gyorsabban gyógyítanak"
+
+#: lib/civgrid.class.php:129 lib/civgrid.class.php:408
+msgid "Celts"
+msgstr "Kelták"
+
+#: lib/civgrid.class.php:130 lib/civgrid.class.php:171
+#: lib/civgrid.class.php:199 lib/civgrid.class.php:295
+#: lib/civgrid.class.php:409 lib/civgrid.class.php:465
+#: lib/civgrid.class.php:493 lib/civgrid.class.php:534
+#: lib/civgrid.class.php:576 lib/civgrid.class.php:684
+msgid "Infantry civilization"
+msgstr "Gyalogság civilizáció"
+
+#: lib/civgrid.class.php:132 lib/civgrid.class.php:411
+#, no-php-format
+msgid "Infantry move 15% faster"
+msgstr "Gyalogság 15% gyorsabban mozog"
+
+#: lib/civgrid.class.php:133 lib/civgrid.class.php:412
+#, no-php-format
+msgid "Lumberjacks work 15% faster"
+msgstr "Favágók 15% gyorsabban dolgoznak"
+
+#: lib/civgrid.class.php:134 lib/civgrid.class.php:413
+#, no-php-format
+msgid "Siege weapons fire 20% faster"
+msgstr "Ostromfegyverek 20% gyorsabban töltenek újra"
+
+#: lib/civgrid.class.php:135 lib/civgrid.class.php:414
+msgid "Sheep cannot be stolen if within one Celt unit's line of sight"
+msgstr "Bárányok nem lophatóak el, míg legalább egy Kelta egység látja"
+
+#: lib/civgrid.class.php:137 lib/civgrid.class.php:416
+msgid "Woad Raider"
+msgstr "Woad Fosztogató"
+
+#: lib/civgrid.class.php:138
+#, no-php-format
+msgid "Furor Celtica (Siege Workshop Units +50% HP)"
+msgstr "Kelta extázis (Ostromgépek +50% HP)"
+
+#: lib/civgrid.class.php:140 lib/civgrid.class.php:419
+#, no-php-format
+msgid "Siege Workshops work 20% faster"
+msgstr "Ostromgépműhelyek 20% gyorsabban dolgoznak"
+
+#: lib/civgrid.class.php:143 lib/civgrid.class.php:422
+msgid "Chinese"
+msgstr "Kínaiak"
+
+#: lib/civgrid.class.php:144 lib/civgrid.class.php:227
+#: lib/civgrid.class.php:423 lib/civgrid.class.php:438
+#: lib/civgrid.class.php:589
+msgid "Archer civilization"
+msgstr "Íjász civilizáció"
+
+#: lib/civgrid.class.php:146 lib/civgrid.class.php:425
+msgid "Start game with 3 extra villagers but -50 Wood and -150 Food"
+msgstr "3 paraszttal többel, de -50 Fával és -150 Hússal kezdenek"
+
+#: lib/civgrid.class.php:147 lib/civgrid.class.php:426
+#, no-php-format
+msgid ""
+"Technologies cost -10% in Feudal Age, -15% in Castle Age,<br /> -20% in "
+"Imperial Age"
+msgstr ""
+"Technológiák -10%-al Feudális Korban, -15%-al Kastély Korban, <br /> és -20%-"
+"al olcsóbb az Imperiális Korban"
+
+#: lib/civgrid.class.php:148 lib/civgrid.class.php:427
+msgid "Town Centers support 10 population instead of 5"
+msgstr "Városközpontok 10 hellyel többet biztosítanak"
+
+#: lib/civgrid.class.php:149 lib/civgrid.class.php:429
+#, no-php-format
+msgid "Demolition Ships have +50% HP"
+msgstr "Robbantóhajóknak +50% HP-jük van"
+
+#: lib/civgrid.class.php:151 lib/civgrid.class.php:431
+msgid "Chu Ko Nu"
+msgstr "Csu Ko Nu"
+
+#: lib/civgrid.class.php:152
+msgid "Rocketry (+2 Chu Ko Nu pierce attack, +4 scorpions)"
+msgstr ""
+"Rakétatechnika (+2 szúrótámadás Chu Ko Nuknak, +4 szúrótámadás skorpiáknak"
+
+#: lib/civgrid.class.php:154 lib/civgrid.class.php:434
+msgid "Farms provide +45 food"
+msgstr "Farmok +45 ételt nyújtanak"
+
+#: lib/civgrid.class.php:157 lib/civgrid.class.php:450
+msgid "Franks"
+msgstr "Frankok"
+
+#: lib/civgrid.class.php:158 lib/civgrid.class.php:186
+#: lib/civgrid.class.php:254 lib/civgrid.class.php:451
+#: lib/civgrid.class.php:480 lib/civgrid.class.php:563
+#: lib/civgrid.class.php:616
+msgid "Cavalry civilization"
+msgstr "Lovagsági civilizáció"
+
+#: lib/civgrid.class.php:160 lib/civgrid.class.php:454
+#, no-php-format
+msgid "Castles are 25% cheaper"
+msgstr "Kastélyok 25%-al olcsóbbak"
+
+#: lib/civgrid.class.php:161 lib/civgrid.class.php:455
+#, no-php-format
+msgid "Knights have +20% HP"
+msgstr "Lovagok +20% HP-t kapnak"
+
+#: lib/civgrid.class.php:162 lib/civgrid.class.php:456
+msgid "Farm upgrades are free (Mill is required to receive bonus)"
+msgstr "Farm technológiák ingyenesek (Malom szükséges)"
+
+#: lib/civgrid.class.php:164 lib/civgrid.class.php:458
+msgid "Throwing Axeman"
+msgstr "Fejszedobáló"
+
+#: lib/civgrid.class.php:165
+msgid "Bearded Axe (+1 Throwing Axeman range)"
+msgstr "Szakállas Fejsze (+1 lőtáv Fejszedobálóknak)"
+
+#: lib/civgrid.class.php:167 lib/civgrid.class.php:461
+msgid "Knights have +2 line of sight"
+msgstr "Lovagok +2-vel távolabb látnak"
+
+#: lib/civgrid.class.php:170 lib/civgrid.class.php:464
+msgid "Goths"
+msgstr "Gótok"
+
+#: lib/civgrid.class.php:173
+#, no-php-format
+msgid "Infantry cost 33% less (starting in Feudal Age)"
+msgstr "Gyalogság 33%-al olcsóbb (Feudális Kortól kezdve)"
+
+#: lib/civgrid.class.php:174 lib/civgrid.class.php:468
+msgid "Infantry have +1 attack against buildings"
+msgstr "Gyalogságnak +1 támadása van épületek ellen"
+
+#: lib/civgrid.class.php:175 lib/civgrid.class.php:469
+msgid "Villagers have +5 attack versus wild boar"
+msgstr "Parasztok +5 támadást kapnak vaddisznók ellen"
+
+#: lib/civgrid.class.php:176 lib/civgrid.class.php:470
+msgid "Hunters carry +15 meat"
+msgstr "Vadászok +15 húst hordoznak"
+
+#: lib/civgrid.class.php:177 lib/civgrid.class.php:471
+msgid "+10 to population limit in Imperial Age"
+msgstr "+10 populáció korlát Imperiális korban"
+
+#: lib/civgrid.class.php:179 lib/civgrid.class.php:473
+msgid "Huskarl"
+msgstr "Huszkarl"
+
+#: lib/civgrid.class.php:180 lib/civgrid.class.php:474
+#, no-php-format
+msgid ""
+"Anarchy (Create Huskarls at Barracks),Perfusion (Barracks units created 50% "
+"faster)"
+msgstr "Anarchia (Huszkarlok "
+
+#: lib/civgrid.class.php:182 lib/civgrid.class.php:476
+#, no-php-format
+msgid "Barracks operate 20% faster"
+msgstr "Kaszárnya 20% gyorsabban dolgozik"
+
+#: lib/civgrid.class.php:185 lib/civgrid.class.php:479
+msgid "Huns"
+msgstr "Hunok"
+
+#: lib/civgrid.class.php:188 lib/civgrid.class.php:482
+msgid ""
+"Houses are not required to support population, start game with -100 Wood"
+msgstr "Nincs szükségüg házakra a népesség ellátására, de -100 Fával kezdenek"
+
+#: lib/civgrid.class.php:189
+#, no-php-format
+msgid "Cavalry Archers cost -25% in Castle Age, -30% in Imperial Age"
+msgstr ""
+"Lovasíjászok -25%-al olcsóbbak Kastély Korban és -30%-al Imperiális Korban"
+
+#: lib/civgrid.class.php:190 lib/civgrid.class.php:484
+#, no-php-format
+msgid "Trebuchets are 35% more accurate"
+msgstr "Trebuchék 35%-al pontosabbak"
+
+#: lib/civgrid.class.php:192 lib/civgrid.class.php:486
+msgid "Tarkan"
+msgstr "Tarkány"
+
+#: lib/civgrid.class.php:193
+#, no-php-format
+msgid "Atheism (+100 years Wonder/Relic victory time; -50% Spies/Treason cost)"
+msgstr ""
+"Ateizmus (+100 év Csoda/Relikvia győzelem ideje, -50% Kém és Árulás ár)"
+
+#: lib/civgrid.class.php:195 lib/civgrid.class.php:489
+#, no-php-format
+msgid "Stables are 20% faster"
+msgstr "Itállók 20%-al gyorsabbak"
+
+#: lib/civgrid.class.php:198 lib/civgrid.class.php:533
+msgid "Japanese"
+msgstr "Japánok"
+
+#: lib/civgrid.class.php:201 lib/civgrid.class.php:536
+msgid "Fishing Ships have 2x HP and +2 armor"
+msgstr "Halászhajóknak 2x több HP-jük és +2 védelmük van"
+
+#: lib/civgrid.class.php:202 lib/civgrid.class.php:537
+#, no-php-format
+msgid ""
+"Fishing Ships work +5% faster in Dark Age, +10% in Feudal Age, <br />+15% in "
+"Castle Age, +20% in Imperial Age"
+msgstr ""
+"Halászhajók gyorsabban dolgoznak +5%-al Sötét Korban, +10%-al Feudális "
+"Korban, <br /> 15%-al Kastély korban és +20%-al Imperiális korban"
+
+#: lib/civgrid.class.php:203 lib/civgrid.class.php:538
+#, no-php-format
+msgid "Lumber Camps, Mining Camps, and Mills are 50% cheaper"
+msgstr "Favágó Sátor, Bányászsátor és a Malom 50%-al olcsóbb"
+
+#: lib/civgrid.class.php:204 lib/civgrid.class.php:539
+#, no-php-format
+msgid "Infantry attack 25% faster (starting in Feudal Age)"
+msgstr "Gyalogság 25%-al gyorsabban támad (Feudális kortól)"
+
+#: lib/civgrid.class.php:206 lib/civgrid.class.php:541
+msgid "Samurai"
+msgstr "Szamuráj"
+
+#: lib/civgrid.class.php:207
+msgid "Kataparuto (Trebuchets fire, pack/unpack faster)"
+msgstr ""
+"Kataparuto (Trebechetek gyorsabban töltenek újra és comagolnak szét és össze)"
+
+#: lib/civgrid.class.php:209 lib/civgrid.class.php:544
+#, no-php-format
+msgid "Galleys have +50% line of sight"
+msgstr "Gályák +50% messzebb látnak"
+
+#: lib/civgrid.class.php:212 lib/civgrid.class.php:547
+msgid "Koreans"
+msgstr "Kóreaiak"
+
+#: lib/civgrid.class.php:213 lib/civgrid.class.php:548
+msgid "Tower and naval civilization"
+msgstr "Torony és tengerész civilizáció"
+
+#: lib/civgrid.class.php:215 lib/civgrid.class.php:550
+msgid "Villagers have +3 line of sight"
+msgstr "Parasztok +3-al tovább látnak"
+
+#: lib/civgrid.class.php:216 lib/civgrid.class.php:551
+#, no-php-format
+msgid "Stone miners work 20% faster"
+msgstr "Kőbányászok 20%-al gyorsabban dolgoznak"
+
+#: lib/civgrid.class.php:217 lib/civgrid.class.php:552
+msgid "Guard Tower and Keep upgrades are free"
+msgstr "Őrtorony és Öregtorony technológiák ingyenesek"
+
+#: lib/civgrid.class.php:218 lib/civgrid.class.php:553
+msgid ""
+"Towers (except bombard towers) have +1 range in Castle Age, +2 in Imperial "
+"Age"
+msgstr ""
+"Tornyoknak (Ágyús tornyokat kivéve) +1 lőtávuk van Kastély Korban, +2 "
+"Imperiális Korban"
+
+#: lib/civgrid.class.php:220 lib/civgrid.class.php:556
+msgid "War Wagon, Turtle Ship (Dock)"
+msgstr "Hadi Szekér, Teknőshajó (Kikötő)"
+
+#: lib/civgrid.class.php:221
+msgid "Shinkichon (+1 range Mangonels, Onagers)"
+msgstr "Shinkicson (+1 lőtáv mangoneleknek és onagereknek)"
+
+#: lib/civgrid.class.php:223
+msgid "Mangonel line has +1 range"
+msgstr "Mangonel vonal +1 lőtáv"
+
+#: lib/civgrid.class.php:226 lib/civgrid.class.php:588
+msgid "Mayans"
+msgstr "Maják"
+
+#: lib/civgrid.class.php:229 lib/civgrid.class.php:591
+msgid "Start with Eagle Warrior"
+msgstr "Sasharcossal kezdenek"
+
+#: lib/civgrid.class.php:230 lib/civgrid.class.php:592
+msgid "Start game with 1 extra villager, -50 Food"
+msgstr "Eggyel több paraszttal kezdenek, de -50 Hússal"
+
+#: lib/civgrid.class.php:231 lib/civgrid.class.php:593
+#, no-php-format
+msgid "Natural resources last 20% longer"
+msgstr "Természetes készletek 20%-al tovább tartanak"
+
+#: lib/civgrid.class.php:232 lib/civgrid.class.php:594
+#, no-php-format
+msgid ""
+"Archers cost -10% in Feudal Age, -20% in Castle Age, -30% in Imperial Age"
+msgstr ""
+"Íjászok olcsóbbak -10%-al Feudális Korban, -20%-al Kastély Korban, -30%-al "
+"Imperiális Korban"
+
+#: lib/civgrid.class.php:234 lib/civgrid.class.php:596
+msgid "Plumed Archer"
+msgstr "Tollasíjász"
+
+#: lib/civgrid.class.php:235
+msgid "El Dorado (+40 Eagle Warrior HP)"
+msgstr "Eldorádó (+40 HP Sasharcosoknak)"
+
+#: lib/civgrid.class.php:237 lib/civgrid.class.php:599
+#, no-php-format
+msgid "Walls are 50% cheaper"
+msgstr "Falak 50%-al olcsóbbak"
+
+#: lib/civgrid.class.php:240 lib/civgrid.class.php:602
+msgid "Mongols"
+msgstr "Mongolok"
+
+#: lib/civgrid.class.php:241 lib/civgrid.class.php:603
+msgid "Cavalry Archer civilization"
+msgstr "Lovasíjász civilizáció"
+
+#: lib/civgrid.class.php:243 lib/civgrid.class.php:605
+#, no-php-format
+msgid "Cavalry Archers fire 20% faster"
+msgstr "Lovasíjászok 20%-al gyorsabban lőnek"
+
+#: lib/civgrid.class.php:244 lib/civgrid.class.php:606
+#, no-php-format
+msgid "Light Cavalry and Hussars have +30% HP"
+msgstr "Könnyű lovagság és huszárok +30% HP"
+
+#: lib/civgrid.class.php:245 lib/civgrid.class.php:607
+#, no-php-format
+msgid "Hunters work 50% faster"
+msgstr "Vadászok 50%-al gyorsabban dolgoznak"
+
+#: lib/civgrid.class.php:247 lib/civgrid.class.php:609
+msgid "Mangudai"
+msgstr "Mangudai"
+
+#: lib/civgrid.class.php:248
+#, no-php-format
+msgid "Drill (Siege Workshop units move 50% faster)"
+msgstr "Fúró (Ostrom műhelyből való gépek 50%al gyorsabbak)"
+
+#: lib/civgrid.class.php:250 lib/civgrid.class.php:612
+msgid "Scout line has +2 line of sight"
+msgstr "Felderítő lovagság vonala +2-vel messzebb lát"
+
+#: lib/civgrid.class.php:253 lib/civgrid.class.php:615
+msgid "Persians"
+msgstr "Perzsák"
+
+#: lib/civgrid.class.php:256 lib/civgrid.class.php:618
+msgid "Start game with +50 wood and food"
+msgstr "+50 Fával és Hússal kezdenek"
+
+#: lib/civgrid.class.php:257 lib/civgrid.class.php:619
+msgid "Town Center and Docks have 2x HP"
+msgstr "Városközpontnak és Kikötőnek 2x több az HP-je"
+
+#: lib/civgrid.class.php:258 lib/civgrid.class.php:620
+#, no-php-format
+msgid ""
+"Town Centers and Docks operate +10% faster in Feudal Age, <br /> +15% in "
+"Castle Age, +20% in Imperial Age"
+msgstr ""
+"Városközpont és Kikötő gyorsabban működik +10%-al Feudális Korban, <br /> "
+"+15%-al Kastély és +20%-al Imperiális Korban"
+
+#: lib/civgrid.class.php:260 lib/civgrid.class.php:622
+msgid "War Elephant"
+msgstr "Hadi Elefánt"
+
+#: lib/civgrid.class.php:261
+#, no-php-format
+msgid "Mahouts (+30% War Elephant speed)"
+msgstr "Mahouts (+30%-al gyorsabb elefántok)"
+
+#: lib/civgrid.class.php:263 lib/civgrid.class.php:625
+msgid "Knights have +2 attack versus Archers"
+msgstr "Lovagoknak +2 támadása van íjászok ellen"
+
+#: lib/civgrid.class.php:266 lib/civgrid.class.php:641
+msgid "Saracens"
+msgstr "Szaracénok"
+
+#: lib/civgrid.class.php:267 lib/civgrid.class.php:642
+msgid "Camel and Naval civilization"
+msgstr "Teve és Tengerészeti civilizáció"
+
+#: lib/civgrid.class.php:269 lib/civgrid.class.php:645
+#, no-php-format
+msgid "Market trade cost is only 5%"
+msgstr "Kereskedési adó csak 5%"
+
+#: lib/civgrid.class.php:270 lib/civgrid.class.php:646
+msgid "Transport Ships have 2x HP and carry capacity"
+msgstr "Szállítóhajónak 2x több az HP-je és kapacitása"
+
+#: lib/civgrid.class.php:271 lib/civgrid.class.php:647
+#, no-php-format
+msgid "Galleys attack 20% faster"
+msgstr "Gályák 20%-al gyorsabban támadnak"
+
+#: lib/civgrid.class.php:272 lib/civgrid.class.php:648
+msgid "Cavalry Archers have +4 attack against buildings"
+msgstr "Lovasíjászoknak +4 támadása van épületek ellen"
+
+#: lib/civgrid.class.php:274 lib/civgrid.class.php:650
+msgid "Mameluke"
+msgstr "Mameluk"
+
+#: lib/civgrid.class.php:275
+msgid "Zealotry (+30 camel, Mameluke HP)"
+msgstr "Fanatizmus (+30 teve és mameluk HP)"
+
+#: lib/civgrid.class.php:277 lib/civgrid.class.php:653
+msgid "Foot archers have +2 attack against buildings"
+msgstr "Gyalogíjászoknak +2 támadása van épületek ellen"
+
+#: lib/civgrid.class.php:280 lib/civgrid.class.php:669
+msgid "Spanish"
+msgstr "Spanyolok"
+
+#: lib/civgrid.class.php:281 lib/civgrid.class.php:670
+msgid "Gunpowder and Monk civilization"
+msgstr "Lőpor és Papi civilizáció"
+
+#: lib/civgrid.class.php:283 lib/civgrid.class.php:672
+#, no-php-format
+msgid "Villagers construct buildings 30% faster"
+msgstr "Parasztok 30%-al gyorsabban építenek"
+
+#: lib/civgrid.class.php:284 lib/civgrid.class.php:673
+msgid "Blacksmith upgrades do not cost any gold"
+msgstr "Kovács technológiák nem kerülnek aranyba"
+
+#: lib/civgrid.class.php:285 lib/civgrid.class.php:674
+msgid ""
+"Cannon Galleons benefit from Ballistics (improved fire rate and accuracy)"
+msgstr "Ágyús hajókra is hat a Ballisztika (gyorsabb támadás, pontosság)"
+
+#: lib/civgrid.class.php:286 lib/civgrid.class.php:675
+#, no-php-format
+msgid "Hand Cannoneers and Bombard Cannons fire 15% faster"
+msgstr "Puskások és Ágyúsok 15%-al gyorsabban lőnek"
+
+#: lib/civgrid.class.php:288 lib/civgrid.class.php:677
+msgid "Conquistador, Missionary"
+msgstr "Hódítók, Misszionáriusok"
+
+#: lib/civgrid.class.php:289
+msgid "Supremacy (Villager combat attributes increased)"
+msgstr "Fennhatóság (Parasztok hadi tulajdonságai erősebbek)"
+
+#: lib/civgrid.class.php:291 lib/civgrid.class.php:680
+#, no-php-format
+msgid "Trade units generate +33%"
+msgstr "Kereskedő egységek 33%-al többet termelnek"
+
+#: lib/civgrid.class.php:294 lib/civgrid.class.php:683
+msgid "Teutons"
+msgstr "Teutonok"
+
+#: lib/civgrid.class.php:297 lib/civgrid.class.php:686
+msgid "Monks have 2x healing range"
+msgstr "Papok gyógyítóereje 2x nagyobb hatótávolságú"
+
+#: lib/civgrid.class.php:298 lib/civgrid.class.php:687
+msgid "Towers can garrison 2x units"
+msgstr "Tornyok 2x több egységet szállásolnak el"
+
+#: lib/civgrid.class.php:299 lib/civgrid.class.php:688
+msgid "Murder Holes is free"
+msgstr "Gyiloklyuk ingyenes"
+
+#: lib/civgrid.class.php:300 lib/civgrid.class.php:689
+#, no-php-format
+msgid "Farms cost 33% less"
+msgstr "Farmok 33%-al olcsóbbak"
+
+#: lib/civgrid.class.php:301
+msgid "Town Centers have +2 attack and +5 line of sight"
+msgstr "Városközpontok +2 támadást és +5 látótávot kapnak"
+
+#: lib/civgrid.class.php:303 lib/civgrid.class.php:692
+msgid "Teutonic Knight"
+msgstr "Teuton Lovag"
+
+#: lib/civgrid.class.php:304
+msgid "Crenellations (+3 Castle range; garrisoned infantry fire arrows)"
+msgstr "Bástya (+3 lőtáv; szállásolt gyalogság is lő nyilakat)"
+
+#: lib/civgrid.class.php:306 lib/civgrid.class.php:695
+msgid "Units are more resistant to conversion"
+msgstr "Egységek jobban ellenálnak a hittérítésnek"
+
+#: lib/civgrid.class.php:309 lib/civgrid.class.php:698
+msgid "Turks"
+msgstr "Törökök"
+
+#: lib/civgrid.class.php:310 lib/civgrid.class.php:699
+msgid "Gunpowder civilization"
+msgstr "Lőpor civilizáció"
+
+#: lib/civgrid.class.php:312 lib/civgrid.class.php:701
+#, no-php-format
+msgid "Gunpowder Units have +25% HP"
+msgstr "Lőpor egységeg +25% HP"
+
+#: lib/civgrid.class.php:313 lib/civgrid.class.php:702
+#, no-php-format
+msgid "Gunpowder technologies cost 50% less"
+msgstr "Lőpor technológiák 50%-al olcsóbbak"
+
+#: lib/civgrid.class.php:314 lib/civgrid.class.php:703
+msgid "Chemistry is free"
+msgstr "Kémia ingyenes"
+
+#: lib/civgrid.class.php:315 lib/civgrid.class.php:704
+#, no-php-format
+msgid "Gold miners work 15% faster"
+msgstr "Aranybányászok 15%-al gyorsabban dolgoznak"
+
+#: lib/civgrid.class.php:316 lib/civgrid.class.php:705
+msgid "Light Cavalry and Hussar upgrades are free"
+msgstr "Könnyű-lovagság és Huszár technológiák ingyenesek"
+
+#: lib/civgrid.class.php:318 lib/civgrid.class.php:707
+msgid "Janissary"
+msgstr "Janicsár"
+
+#: lib/civgrid.class.php:319
+msgid "Artillery (+2 range Bombard Towers, Bombard Cannons, Cannon Galleons)"
+msgstr "Tüzérség (Ágyús tornyoknak, Ágyúknak és Ágyús hajóknak +2 lőtáv)"
+
+#: lib/civgrid.class.php:321 lib/civgrid.class.php:710
+#, no-php-format
+msgid "Gunpowder units are created 20% faster"
+msgstr "Lőpor egységek 20%-al gyorsabban jönnek létre"
+
+#: lib/civgrid.class.php:324 lib/civgrid.class.php:713
+msgid "Vikings"
+msgstr "Vikingek"
+
+#: lib/civgrid.class.php:325 lib/civgrid.class.php:714
+msgid "Infantry and naval civilization"
+msgstr "Gyalogság és Tengerész civilizáció"
+
+#: lib/civgrid.class.php:327
+#, no-php-format
+msgid "Warships cost 25% less"
+msgstr "Hadihajók -25%-al olcsóbbak"
+
+#: lib/civgrid.class.php:328 lib/civgrid.class.php:717
+#, no-php-format
+msgid ""
+"Infantry have +10% HP in Feudal Age, +15% in Castle Age, <br /> +20% in "
+"Imperial Age"
+msgstr ""
+"Gyalogság Feudális Kortól +10% HP, Kastély Kortól +15% HP, <br /> Imperiális "
+"Kortól +20% HP"
+
+#: lib/civgrid.class.php:329 lib/civgrid.class.php:718
+#, no-php-format
+msgid "Wheelbarrow and Hand Cart are free"
+msgstr "Talicska és Tolókocsi ingyenes"
+
+#: lib/civgrid.class.php:331 lib/civgrid.class.php:720
+msgid "Berserker, Longboat (Dock)"
+msgstr "Berszerk, Hosszúhajó (Kikötő)"
+
+#: lib/civgrid.class.php:332
+msgid "Berserkergang (Berserks regenerate faster)"
+msgstr "Vadbanda (Berszerkerek gyorsabban regenerálódnak)"
+
+#: lib/civgrid.class.php:334
+#, no-php-format
+msgid "Docks are 25% cheaper"
+msgstr "Kikötők 25%-al olcsóbbak"
+
+#: lib/civgrid.class.php:359
+msgid "Start with +50 gold"
+msgstr "+50 Arannyal kezdenek"
+
+#: lib/civgrid.class.php:362
+msgid ""
+"Atlatl(skirmishers +1 range, +1 pierce attack),Garland Wars(+4 infantry "
+"attack)"
+msgstr ""
+"Atlatl (dárdavetők +1 lőtáv, +1 támadás), Virágfüzér Háborúk (+4 támadás "
+"gyalogságnak)"
+
+#: lib/civgrid.class.php:367
+msgid "Berbers"
+msgstr "Berberek"
+
+#: lib/civgrid.class.php:368
+msgid "Cavalry and Naval civilization"
+msgstr "Lovas és Tengerész civilizáció"
+
+#: lib/civgrid.class.php:370
+#, no-php-format
+msgid "Villagers move 10% faster"
+msgstr "Parasztok 10%-al gyorsabban mozognak"
+
+#: lib/civgrid.class.php:371
+#, no-php-format
+msgid "Ships move 10% faster"
+msgstr "Hajók 10%-al gyorsabban mozognak"
+
+#: lib/civgrid.class.php:372
+#, no-php-format
+msgid "Stable units cost -20%"
+msgstr "Egységek az istállóból -20%-al olcsóbbak"
+
+#: lib/civgrid.class.php:374
+msgid "Camel Archers, Genitour"
+msgstr "Teveíjász, Lovas dárdavető"
+
+#: lib/civgrid.class.php:375
+#, no-php-format
+msgid ""
+"Kasbah(castles work 25% faster), Maghrabi Camel(camel troops regenerate)"
+msgstr ""
+"Kasbah (Kastélyok 25% gyorsabban dolgoznak), Maghrabi Teve (Tevék csapatok "
+"regenerálódnak)"
+
+#: lib/civgrid.class.php:377
+msgid "Genitour available in archery range"
+msgstr "Genitour elérhető az íjászatban"
+
+#: lib/civgrid.class.php:388
+#, no-php-format
+msgid ""
+"Yeomen (+1 Foot archer range; +2 tower attack), Warwolf(Trebuchets 100% "
+"accuracy +0.5 blast radius)"
+msgstr ""
+"Önkéntesek (+1 gyalog íjász lőtáv, +2 torony lőtáv), Hadifarkas (Trebuchék "
+"100% pontosság és +0.5 robbanó rádiusz)"
+
+#: lib/civgrid.class.php:403
+msgid ""
+"Greek Fire (Fire ships +1 range),Logistica (Cataphracts cause trample damage)"
+msgstr ""
+"Görögtűz (Gyújtóhajók +1 lőtáv), Logisztika (Kataphraktoszok taposó sérülést "
+"okoznak)"
+
+#: lib/civgrid.class.php:417
+#, no-php-format
+msgid ""
+"Stronghold (Castles, towers -20% reload time), Furor Celtica (Siege Workshop "
+"Units +50% HP)"
+msgstr ""
+"Erődítmény (Kastélyok, Tornyok -20% újratöltés), Kelta extázis (Ostromgépek "
+"+50% HP)"
+
+#: lib/civgrid.class.php:428
+msgid "Town Centers +5 LOS"
+msgstr "Városközpontok +5 látótáv"
+
+#: lib/civgrid.class.php:432
+#, no-php-format
+msgid ""
+"Great Wall (Walls, gates, towers +30% HP), Rocketry (+2 Chu Ko Nu pierce "
+"attack, +4 scorpions)"
+msgstr ""
+"Nagy Fal (Falak,kapuk,tornyok +30% HP), Rakétatechnika (+2 támadás Chu Ko "
+"Nuknak, +4 ballistáknak)"
+
+#: lib/civgrid.class.php:437
+msgid "Ethiopians"
+msgstr "Etiópiaiak"
+
+#: lib/civgrid.class.php:440
+msgid "Receive 100F 100G upon advancing to next age"
+msgstr "100 Fát és 100 Aranyat kapnak a következő korba való fejlődés után"
+
+#: lib/civgrid.class.php:441
+msgid "Pikeman and Halberdier upgrades are free"
+msgstr "Pikás és Alabárdos fejlesztések ingyenesek"
+
+#: lib/civgrid.class.php:442
+#, no-php-format
+msgid "Foot archers 15% faster reload"
+msgstr "Gyalogíjászok 15%-al gyorsabban lőnek"
+
+#: lib/civgrid.class.php:444
+msgid "Shotel Warrior"
+msgstr "Sotel Harcos"
+
+#: lib/civgrid.class.php:445
+msgid ""
+"Royal Heirs (Shotel warrior created 2x faster), Torsion Engines (+0.45 blast "
+"radius for siege workshop units)"
+msgstr ""
+"Királyi Örökösök (Sotel harcos 2x gyorsabban készül), Torziós Gépek (+0.45 "
+"robbanás rádiusz ostromműhelyi gépekgnek)"
+
+#: lib/civgrid.class.php:447
+msgid "Towers, outposts +3 LOS"
+msgstr "Tornyok, Őrszemek +3 látótáv"
+
+#: lib/civgrid.class.php:453
+#, no-php-format
+msgid "Foragers work 25% faster"
+msgstr "Gyűjtögetők 25%-al gyorsabban dolgoznak"
+
+#: lib/civgrid.class.php:459
+#, no-php-format
+msgid ""
+"Chivalry (stables work 40% faster), Bearded Axe (+1 Throwing Axeman range)"
+msgstr ""
+"Lovagiasság (Istállók 40%-al gyorsabban dolgoznak), Szakállas fejsze (+1 "
+"lőtáv Fejszedobálóknak)"
+
+#: lib/civgrid.class.php:467
+#, no-php-format
+msgid "Infantry cost 35% less (starting in Feudal Age)"
+msgstr "Gyalogság 35%-al olcsóbb (Feudális Kortól kezdve)"
+
+#: lib/civgrid.class.php:483
+#, no-php-format
+msgid "Cavalry Archers cost -10% in Castle Age, -20% in Imperial Age"
+msgstr "Lovasíjászokl olcsóbbak -10%-a Kastély és -20%-al Imperiális Korban"
+
+#: lib/civgrid.class.php:487
+msgid ""
+"Marauders (Tarkans available in stables), Atheism (+100 years Wonder/Relic "
+"victory time; -50% Spies/Treason cost)"
+msgstr ""
+"Fosztogatók (Tarkányok elérhetőek az istállóban), Ateizmus (+100 év Csoda/"
+"Relikvia győzelmeknél, -50%-al olcsóbb Kémek/Árulás)"
+
+#: lib/civgrid.class.php:492
+msgid "Incas"
+msgstr "Inkák"
+
+#: lib/civgrid.class.php:495
+msgid "Start with free llama"
+msgstr "Ingyenes lámával kezdenek"
+
+#: lib/civgrid.class.php:496
+msgid "Villagers affected by blacksmith upgrades"
+msgstr "Parasztokra is érvényesek a kovácsfejlesztések"
+
+#: lib/civgrid.class.php:497
+msgid "Houses support 10 population"
+msgstr "Hazak 10 egységet szállásolnak el"
+
+#: lib/civgrid.class.php:498
+#, no-php-format
+msgid "Buildings cost -15% stone"
+msgstr "Épületek -15%-al kevesebb kőbe kerülnek"
+
+#: lib/civgrid.class.php:500
+msgid "Kamayuk, Slinger (Archery Range)"
+msgstr "Kamayuk, Parittyás (Íjászat)"
+
+#: lib/civgrid.class.php:501
+msgid ""
+"Andean Sling (skirmishers, slinger no minimum range), Couriers (eagles, "
+"kamayuks, slingers +1/+2 armor)"
+msgstr ""
+"Andok Parittya (dárdavetőknak, parittyásoknak nincs minimum lőtáva), Futárok "
+"(Sasharcosok, kamayukok, parittyások +1/+2 védelem)"
+
+#: lib/civgrid.class.php:503
+#, no-php-format
+msgid "Farms built 50% faster"
+msgstr "Farmok 50%-al gyorsabban épülnek"
+
+#: lib/civgrid.class.php:506
+msgid "Indians"
+msgstr "Indiánok"
+
+#: lib/civgrid.class.php:507
+msgid "Camel and Gunpowder civilization"
+msgstr "Teve és Lőpor civilizáció"
+
+#: lib/civgrid.class.php:509
+#, no-php-format
+msgid ""
+"Villagers Cost -10% in Dark, -15% in Feudal, -20% in Castle, -25% in Imperial"
+msgstr ""
+"Parasztok olcsóbbak -10%-al Sötét, -15%-al Feudális, -20%-al Kastély és -25%-"
+"al Imperiális Korban"
+
+#: lib/civgrid.class.php:510
+#, no-php-format
+msgid "Fishermen(villagers) work 15% faster and carry +15"
+msgstr "Halászok (parasztok) 15%-al gyorsaban dolgoznak és +15 húst hordoznak"
+
+#: lib/civgrid.class.php:511
+msgid "Camels +1/+1 armor"
+msgstr "Tevék +1/+1 pajzs"
+
+#: lib/civgrid.class.php:513
+msgid "Elephant Archer, Imperial Camel (Stable)"
+msgstr "Elefántíjász, Imperiális Teve (Istálló)"
+
+#: lib/civgrid.class.php:514
+#, no-php-format
+msgid ""
+"Sultans (gold miners +10% faster, trade units +10% gold, relics +5G/min), "
+"Shatagni (hand cannoneers +1 range)"
+msgstr ""
+"Szultánok (Aranybányászok +10%-al gyorsabban dolgoznak, kereskedők +10% "
+"aranyat hoznak, relikviág +5 Arany/perc),<br />Shatagni (Puskások +1 lőtáv)"
+
+#: lib/civgrid.class.php:516
+msgid "Camels +6 attack vs buildings"
+msgstr "Tevék +6 támadás épületek ellen"
+
+#: lib/civgrid.class.php:519
+msgid "Italians"
+msgstr "Olaszok"
+
+#: lib/civgrid.class.php:520
+msgid "Archer and Naval civilization"
+msgstr "Íjász és Tengerész civilizáció"
+
+#: lib/civgrid.class.php:522
+#, no-php-format
+msgid "Advancing to the next age costs -15%"
+msgstr "Fejlődés a következő korba -15%-al olcsóbb"
+
+#: lib/civgrid.class.php:523
+#, no-php-format
+msgid "Dock techs cost -50%"
+msgstr "Kikötő technológiák 25%-al olcsóbbak"
+
+#: lib/civgrid.class.php:524
+msgid "Fishing ships +2 LOS"
+msgstr "Halászhajók +2 tovább látnak"
+
+#: lib/civgrid.class.php:525
+#, no-php-format
+msgid "Gunpowder units cost -15%"
+msgstr "Lőpor egységek -15%-al olcsóbbak"
+
+#: lib/civgrid.class.php:527
+msgid "Genoese crossbowman, Condottiero(Barracks)"
+msgstr "Genovai nyílpuskás, Condottiero (Kaszárnya)"
+
+#: lib/civgrid.class.php:528
+#, no-php-format
+msgid "Pavise (foot archers +1/+1 armor), Silk road (trade units cost -50%)"
+msgstr ""
+"Pavese (gyalogíjászok +1/+1 pajzs), Selyemút (kereskedő egységek -50%-al "
+"olcsóbbak)"
+
+#: lib/civgrid.class.php:530
+msgid "Condottiero available in imperial barracks"
+msgstr "Condottiero rendelkezésre áll imperiális kaszárnyában"
+
+#: lib/civgrid.class.php:542
+msgid ""
+"Yasama (towers shoot +3 arrows), Kataparuto (Trebuchets fire, pack/unpack "
+"faster)"
+msgstr ""
+"Yasama (Tornyok +3 nyilat lőnek), Kataparuto (Trebuchék töltenek újra és "
+"comagolnak szét és össze)"
+
+#: lib/civgrid.class.php:554
+#, no-php-format
+msgid ""
+"Fortifications (walls except gates, castles, towers) are built 25% faster"
+msgstr ""
+"Erődítmények (falak kapukon kívül, kastélyok, tornyok) 25%-al gyorsabban "
+"épülnek"
+
+#: lib/civgrid.class.php:557
+#, no-php-format
+msgid ""
+"Panokseon (turtle ships move 15% faster), Shinkichon (+1 range Mangonels, "
+"Onagers)"
+msgstr "Panokseon (Teknőshajó 15%-al gyorsabb), Shinkichon"
+
+#: lib/civgrid.class.php:559
+msgid "Mangonel minimum range 1 (instead of 3)"
+msgstr "Mangonel minimum lőtáv 1 (3 helyett)"
+
+#: lib/civgrid.class.php:562
+msgid "Magyars"
+msgstr "Magyarok"
+
+#: lib/civgrid.class.php:565
+msgid "Villagers kill wolves in 1 strike"
+msgstr "Parasztok egy vágással ölnek farkasokat"
+
+#: lib/civgrid.class.php:566
+msgid ""
+"Melee upgrades (forging, iron casting, blast furnace) in blacksmith free "
+"(requires blacksmith)"
+msgstr ""
+"Kard fejlesztések (kovácsolás, vasöntvény, nagyolvasztó kemence) a kovácsnál "
+"ingyenes (Kovács épület szükséges)"
+
+#: lib/civgrid.class.php:567
+#, no-php-format
+msgid "Scout line costs -10%"
+msgstr "Felderítő vonal -10%-al olcsóbb"
+
+#: lib/civgrid.class.php:569
+msgid "Magyar Huszar"
+msgstr "Magyar Huszár"
+
+#: lib/civgrid.class.php:570
+msgid ""
+"Mercenaries (Magyar Huszar costs no gold), Recurve bow (Cavalry archers +1 "
+"range)"
+msgstr ""
+"Zsoldosok (Magyar Huszár nem kerül aranyba), Reflexíj (Lovasíjászok +1 lőtáv)"
+
+#: lib/civgrid.class.php:572
+msgid "Foot archers (not skirmishers) +2 LOS"
+msgstr "Gyalogíjászok (dárdavetőkön kívül) +2 látótáv"
+
+#: lib/civgrid.class.php:575
+msgid "Malians"
+msgstr "Maliaiak"
+
+#: lib/civgrid.class.php:578
+msgid "Barracks units get +1 pierce armor per age"
+msgstr "Kaszárnya egységeg +1 szúrópajzsot kapnak minden korban"
+
+#: lib/civgrid.class.php:579
+#, no-php-format
+msgid "Buildings, farms wood cost -15%"
+msgstr "Épületek, farmok -15%-al kevesebb fába kerülnek"
+
+#: lib/civgrid.class.php:580
+msgid "Gold mining upgrades free"
+msgstr "Aranybányábani fejlesztések ingyenesek"
+
+#: lib/civgrid.class.php:582
+msgid "Gbeto"
+msgstr "Gbeto"
+
+#: lib/civgrid.class.php:583
+msgid ""
+"Tigui (TC fire arrows without garrisoned villagers), Farimba (Cavalry, "
+"camels +5 attack)"
+msgstr ""
+"Tigui (Városközpont nyilakat lő parasztok nélkül), Farimba (Lovasság, Tevék "
+"+5 támadás)"
+
+#: lib/civgrid.class.php:585
+#, no-php-format
+msgid "University operates 80% faster"
+msgstr "Egyetemek 80%-al gyorsabban fejlesztenek"
+
+#: lib/civgrid.class.php:597
+msgid ""
+"Obsidian Arrow (archer line +6 attack vs buildings), El Dorado (+40 Eagle "
+"Warrior HP)"
+msgstr ""
+"Obszidián nyíl (íjász vonal +6 támadás épületek ellen), Eldorádó (+40 HP "
+"Sasharcosoknak)"
+
+#: lib/civgrid.class.php:610
+#, no-php-format
+msgid ""
+"Nomads (destroyed houses don't loose population room), Drill (Siege Workshop "
+"units move 50% faster)"
+msgstr ""
+"Nomádok (elpusztított házak nem vesztik el szállásoló terüket), Fúró (Ostrom "
+"műhelyből való gépek 50%-al gyorsabbak)"
+
+#: lib/civgrid.class.php:623
+#, no-php-format
+msgid ""
+"Boiling Oil (Castles +9 attack vs rams), Mahouts (+30% War Elephant speed)"
+msgstr ""
+"Forró Olaj (Kastélyok +9 támadás faltörők ellen), Elefánthajcsárok (+30%-al "
+"gyorsabb elefántok)"
+
+#: lib/civgrid.class.php:628
+msgid "Portuguese"
+msgstr "Portugál"
+
+#: lib/civgrid.class.php:629
+msgid "Naval and Gunpowder civilization"
+msgstr "Tengerész és Lőpor civilizáció"
+
+#: lib/civgrid.class.php:631
+#, no-php-format
+msgid "All units cost -15% gold"
+msgstr "Minden egység -15%-al olcsóbb"
+
+#: lib/civgrid.class.php:632
+#, no-php-format
+msgid "All ships +10% HP"
+msgstr "Minden hajónak +10% HP"
+
+#: lib/civgrid.class.php:633
+msgid "Get Feitoria"
+msgstr "Feitoria elérhető"
+
+#: lib/civgrid.class.php:635
+msgid "Organ Gun, Caravel (dock)"
+msgstr "Orgonapuskásk, Karavella (Kikötő)"
+
+#: lib/civgrid.class.php:636
+msgid ""
+"Carrack (ships +1/+1 armor), Arquebus (gunpowder units affected by "
+"ballistics)"
+msgstr ""
+"Karakk (hajók +1/+1 pajzs), Szakállas puska (lőpor egységekre hat a "
+"ballisztika)"
+
+#: lib/civgrid.class.php:638
+msgid "Free cartography from Dark Age"
+msgstr "Térképészet Sötét Kortól érvényben van"
+
+#: lib/civgrid.class.php:644
+msgid "Market costs -75 wood"
+msgstr "Piac -75 Fával olcsóbb"
+
+#: lib/civgrid.class.php:651
+#, no-php-format
+msgid ""
+"Madrasah (monks return 33% of their cost), Zealotry (+30 camel, Mameluke HP)"
+msgstr ""
+"Medresze (papok halálakor áruk 33% százalékat visszakapod), Fanatizmus (+30 "
+"teve és mameluk HP)"
+
+#: lib/civgrid.class.php:656
+msgid "Slavs"
+msgstr "Szlávok"
+
+#: lib/civgrid.class.php:657
+msgid "Infantry and siege civilization"
+msgstr "Gyalogság és Ostromgép civilizáció"
+
+#: lib/civgrid.class.php:659
+#, no-php-format
+msgid "Farmers work ~15% faster without upgrades"
+msgstr "Farmerek 15%-al gyorsabban dolgoznak technológiák nélkül"
+
+#: lib/civgrid.class.php:660
+msgid "Tracking free"
+msgstr "Követés ingyenes"
+
+#: lib/civgrid.class.php:661
+#, no-php-format
+msgid "Siege units from siege workshop 15% cheaper"
+msgstr "Ostromgepek az ostromműhelyből 15%-al olcsóbbak"
+
+#: lib/civgrid.class.php:663
+msgid "Boyar"
+msgstr "Boyar"
+
+#: lib/civgrid.class.php:664
+msgid ""
+"Orthodoxy (monks +3/+3 armor), Druzhina (infantry do 5 damage to adjecent "
+"enemy units)"
+msgstr ""
+"Orotodoxia (papok +3/+3 pajzs), Druzsina (gyalogság 5 taposó támadást kap)"
+
+#: lib/civgrid.class.php:666
+msgid "Military buildings provide +5 population"
+msgstr "Katonai épületek +5 szállást biztosítanak"
+
+#: lib/civgrid.class.php:678
+msgid ""
+"Inquisition (monks convert faster), Supremacy (Villager combat attributes "
+"increased)"
+msgstr ""
+"Inkvizíció (papok gyorsabban hittérítenek), Fennhatóság (Parasztok hadi "
+"tulajdonsági jobbak)"
+
+#: lib/civgrid.class.php:690
+msgid "Town Centers garrison +10 units, shoot +5 arrows"
+msgstr "Városközpontok +10 egységet fogadnak be, +5 nyilat lőnek"
+
+#: lib/civgrid.class.php:693
+msgid ""
+"Ironclad (siege weapons +4/+0 armor), Crenellations (+3 Castle range; "
+"garrisoned infantry fire arrows)"
+msgstr ""
+"Pancélos (ostromgépek +4/+0 pajzs), Bástya (+3 lőtáv; szállásolt gyalogság "
+"is lő nyilakat)"
+
+#: lib/civgrid.class.php:708
+msgid ""
+"Sipahi (Cavalry archers +20HP), Artillery (+2 range Bombard Towers, Bombard "
+"Cannons, Cannon Galleons)"
+msgstr ""
+"Sipahi (Lovasíjászok +20 HP), Tüzérség (+2 lőtáv Ágyús tornyoknak, "
+"Ágyúsoknak és ágyús hajóknak)"
+
+#: lib/civgrid.class.php:716
+#, no-php-format
+msgid "Warships cost -10% in Feudal, -15% in Castle, -20% in Imperial Age"
+msgstr ""
+"Hadihajók olcsóbbak -10%-al Feudális, -15%-al Kastély és -20%-al Imperiális "
+"Korban"
+
+#: lib/civgrid.class.php:721
+msgid ""
+"Chieftains (Berserks +5 attack vs cavalry), Berserkergang (Berserks "
+"regenerate faster)"
+msgstr ""
+"Törzsfőnökök (Berszerkerek +5 támadás lovasság ellen), Vadbanda (Berszerkek "
+"gyorsabban regenerálódnak)"
+
+#: lib/civgrid.class.php:723
+#, no-php-format
+msgid "Docks cost -15%"
+msgstr "Kikötök -15%-al olcsóbbak"
+
+#: lib/TurnsGrid.class.php:165 lib/TurnsGrid.class.php:168
+#: lib/TurnsGrid.class.php:210 lib/TurnsGrid.class.php:241
+#: lib/TurnsGrid.class.php:246 lib/TurnsGrid.class.php:264
+msgid "Player"
+msgstr "Játékos"
+
+#: lib/TurnsGrid.class.php:171
+msgid "None"
+msgstr "Semmi"
+
+#: lib/TurnsGrid.class.php:211 lib/TurnsGrid.class.php:265
+msgid "Action"
+msgstr "Művelet"
+
+#: lib/TurnsGrid.class.php:212
+msgid "Hidden"
+msgstr "Rejtett"
+
+#: lib/TurnsGrid.class.php:266
+msgid "Civilization"
+msgstr "Civilizáció"
+
+#: lib/TurnsGrid.class.php:304 lib/TurnsGrid.class.php:361
+msgid "Start"
+msgstr "Indít"
+
+#: lib/TurnsGrid.class.php:326
+msgid "End"
+msgstr "Vége"
+
+#: lib/TurnsGrid.class.php:342
+msgid "Error updating the draft state."
+msgstr "Hiba az aktualizálásnál."
+
+#: lib/TurnsGrid.class.php:343
+msgid "Error sending ready."
+msgstr "Hiba készenlét küldésénél."
+
+#: lib/TurnsGrid.class.php:344
+msgid "Error starting draft."
+msgstr "Hiba a játék indításakor."
+
+#: lib/TurnsGrid.class.php:345
+msgid "Error picking/banning civ."
+msgstr "Hiba a civilizáció választásánál/tiltásánál."
+
+#: lib/TurnsGrid.class.php:346
+msgid "Error setting name."
+msgstr "Hiba a név beállításakor."
+
+#: lib/TurnsGrid.class.php:347
+msgid "<span class='green-glow'><b>Pick</b></span> a civilization!"
+msgstr "<span class='green-glow'><b>Válassz</b></span> egy civilizációt!"
+
+#: lib/TurnsGrid.class.php:348
+msgid "<span class='red-glow'><b>Ban</b></span> a civilization for the enemy!"
+msgstr "<span class='red-glow'><b>Tilts meg</b></span> egy civilizációt!"
+
+#: lib/TurnsGrid.class.php:349
+msgid "Too late. Random pick."
+msgstr "Túl késő. Véletlenszerű jelölés."
+
+#: lib/TurnsGrid.class.php:350
+msgid "Drafting ended."
+msgstr "Vége."
+
+#: lib/TurnsGrid.class.php:351
+msgid "Please paste this code into in-game chat: {0} for spectating later."
+msgstr ""
+"A következő kódot: {0} másold a játék chatjébe, hogy később visszanézhető "
+"legyen."
+
+#: lib/TurnsGrid.class.php:352
+msgid "Use this code: {0} to spectate later."
+msgstr "Későbbi visszanézéshez használd ezt a kódot: {0}."
+
+#: lib/TurnsGrid.class.php:353
+msgid "Click {0} to let the host start the draft."
+msgstr "Klikk {0}, hogy a másik kapitány elindíthassa a játekot."
+
+#: lib/TurnsGrid.class.php:354
+msgid "Ready"
+msgstr "Kész"
+
+#: lib/TurnsGrid.class.php:355
+msgid "get ready!"
+msgstr "készülj fel!"
+
+#: lib/TurnsGrid.class.php:356
+msgid "Waiting for the guest captain to get ready."
+msgstr "Várunk a vendég kapitányra, hogy felkészüljön."
+
+#: lib/TurnsGrid.class.php:357
+msgid "Waiting for the host captain to start the draft."
+msgstr "Varunk a kezdő kapitányra, hogy elindítsa a besorozást."
+
+#: lib/TurnsGrid.class.php:358
+msgid "Guest is ready."
+msgstr "Vendég készenlétben."
+
+#: lib/TurnsGrid.class.php:359
+msgid "Send this code to spectators: {0}. "
+msgstr "Küldd ezt a kódot a nézőknek {0}."
+
+#: lib/TurnsGrid.class.php:360
+msgid "Click {0} to begin."
+msgstr "Indításhoz clickelj ide: {0}."
+
+#: lib/TurnsGrid.class.php:362
+msgid "Starting draft in... {0}"
+msgstr "A besorozás {0} belül indul."
+
+#: lib/TurnsGrid.class.php:363
+msgid "Waiting for the other captain... {0}"
+msgstr "Várunk a másik kapitányra... {0}"
+
+#: lib/TurnsGrid.class.php:364
+msgid "Starting spectating in... {0}"
+msgstr "A visszanézés {0} belül indul."
+
+#: lib/TurnsGrid.class.php:380
+msgid "Data connection issues."
+msgstr "Adat-forgalom problémák."
+
+#: lib/TurnsGrid.class.php:421
+msgid "Captain"
+msgstr "Kapitány"
+
+#: lib/TurnsGrid.class.php:425
+msgid "Picks"
+msgstr "Jelöltek"
+
+#: lib/TurnsGrid.class.php:440
+msgid "Bans"
+msgstr "Tiltott"
+
+#: lib/TurnsGrid.class.php:467
+msgid "Host Captain"
+msgstr "Kezdő Kapitány"
+
+#: lib/TurnsGrid.class.php:468
+msgid "Guest Captain"
+msgstr "Vendég Kapitány"
+
+#: lib/TurnsGrid.class.php:485 views/admin_edit.php:82 views/admin_edit.php:90
+msgid "Click to edit..."
+msgstr "Klikkelj módosításhoz..."
+
+#: lib/TurnsGrid.class.php:486 views/admin_edit.php:83 views/admin_edit.php:92
+#: views/home.php:111
+msgid "OK"
+msgstr "OK"
+
+#: models/draft.class.php:100 views/home.php:246 views/home.php:362
+msgid "1 v 1"
+msgstr "1 v 1"
+
+#: models/draft.class.php:102 views/home.php:247 views/home.php:363
+msgid "2 v 2"
+msgstr "2 v 2"
+
+#: models/draft.class.php:104 views/home.php:248 views/home.php:364
+msgid "3 v 3"
+msgstr "3 v 3"
+
+#: models/draft.class.php:106 views/home.php:249 views/home.php:365
+msgid "4 v 4"
+msgstr "4 v 4"
+
+#: models/draft.class.php:114
+msgid "Conquerors"
+msgstr "Hódítók"
+
+#: models/draft.class.php:116
+msgid "Forgotten"
+msgstr "Elfedettek"
+
+#: models/draft.class.php:118
+msgid "Forgotten+African Kingdoms"
+msgstr "Elfeledettek+Afrikai Királyok"
+
+#: models/draft.class.php:120 views/home.php:159
+msgid "Age of Empires II"
+msgstr "Age of Empires II"
+
+#: models/draft.class.php:467
+msgid "Not started."
+msgstr "Nincs elstartolva."
+
+#: models/draft.class.php:473
+msgid "Wrong turn number."
+msgstr "Rossz forduló szám."
+
+#: models/draft.class.php:479
+msgid "Already past last turn."
+msgstr "Az utolsó kör után vagyunk."
+
+#: models/draft.class.php:487
+msgid "It's the opponent's turn."
+msgstr "Ez az ellenfél köre."
+
+#: models/draft.class.php:492
+msgid "No such civilization."
+msgstr "Nem létező civilizáció."
+
+#: models/draft.class.php:496
+msgid "It's not your turn."
+msgstr "Ez nem a te köröd."
+
+#: models/draft.class.php:508
+msgid "This pick/ban is not allowed."
+msgstr "A jelölés/tiltás nem engedélyezett."
+
+#: models/turn.class.php:239 models/turn.class.php:243
+#: models/turn.class.php:245 models/turn.class.php:255
+msgid "pick"
+msgstr "jelöl"
+
+#: models/turn.class.php:240 models/turn.class.php:244
+#: models/turn.class.php:246 models/turn.class.php:256
+msgid "ban"
+msgstr "tilt"
+
+#: models/turn.class.php:241 models/turn.class.php:257
+msgid "show picks"
+msgstr "feltár jelölt"
+
+#: models/turn.class.php:242 models/turn.class.php:258
+msgid "show bans"
+msgstr "feltár tiltott"
+
+#: models/turn.class.php:247
+msgid "show"
+msgstr "feltár"
+
+#: models/turn.class.php:248
+msgid "hide for pick"
+msgstr "rejtsd el választásnál"
+
+#: models/turn.class.php:249
+msgid "hide for ban"
+msgstr "rejtsd el tiltásnál"
+
+#: models/turn.class.php:250
+msgid "hide civ"
+msgstr "rejts el a civilizációt"
+
+#: models/turn.class.php:259
+msgid "global pick"
+msgstr "globális választás"
+
+#: models/turn.class.php:260
+msgid "global ban"
+msgstr "globális tiltás"
+
+#: models/turn.class.php:261
+msgid "exclusive pick"
+msgstr "Exkluzív választás"
+
+#: models/turn.class.php:262
+msgid "exclusive ban"
+msgstr "Exkluzív tiltás"
+
+#: models/turn.class.php:263
+msgid "reveal all"
+msgstr "mindet mutat"
+
+#: models/turn.class.php:264
+msgid "disable pick"
+msgstr "elérhetetlen választani"
+
+#: models/turn.class.php:265
+msgid "disable ban"
+msgstr "elérhetetlenné tesz tiltáshoz"
+
+#: models/turn.class.php:266
+msgid "disable completely"
+msgstr "teljesen elérhetetlen"
+
+#: views/admin_edit.php:28
+msgid "There was an error sending a choice to the server."
+msgstr "Hiba történt a választás küldésénél."
+
+#: views/admin_edit.php:53
+msgid "There was an error changing aoe version."
+msgstr "Hiba AoE verzió váltásnál."
+
+#: views/admin_edit.php:91
+msgid "Cancel"
+msgstr "Töröl"
+
+#: views/admin_edit.php:98
+msgid "Done"
+msgstr "Kész"
+
+#: views/admin_edit.php:116
+msgid "Admin turns"
+msgstr "Admin művelet"
+
+#: views/admin_edit.php:124
+msgid "User turns"
+msgstr "Felhasználó fordulók"
+
+#: views/admin_home.php:3
+msgid "Logout"
+msgstr "Kijelentkezés"
+
+#: views/admin_home.php:4
+msgid "Maintenance"
+msgstr "Karbantartás"
+
+#: views/admin_home.php:13
+msgid "New preset"
+msgstr "Új beállítás"
+
+#: views/admin_home.php:23 views/admin_home.php:64 views/admin_home.php:74
+msgid "Name"
+msgstr "Név"
+
+#: views/admin_home.php:24
+msgid "Enabled"
+msgstr "Engedélyezett"
+
+#: views/admin_home.php:25 views/admin_home.php:76
+msgid "Actions"
+msgstr "Műveletek"
+
+#: views/admin_home.php:36
+msgid "true"
+msgstr "igaz"
+
+#: views/admin_home.php:38
+msgid "false"
+msgstr "hamis"
+
+#: views/admin_home.php:43
+msgid "enable"
+msgstr "engedélyez"
+
+#: views/admin_home.php:45
+msgid "disable"
+msgstr "elérhetetlen"
+
+#: views/admin_home.php:63
+msgid "New tournament"
+msgstr "Új turné"
+
+#: views/admin_home.php:65
+msgid "Description"
+msgstr "Leírás"
+
+#: views/admin_home.php:75
+msgid "Query"
+msgstr "Query"
+
+#: views/admin_login.php:13 views/admin_login.php:17
+msgid "Login"
+msgstr "Bejelentkezés"
+
+#: views/admin_login.php:15
+msgid "Username"
+msgstr "Felhasználónév"
+
+#: views/admin_login.php:16
+msgid "Password"
+msgstr "Jelszó"
+
+#: views/demo.php:57 views/home.php:181 views/home.php:349
+msgid "Practice"
+msgstr "Gyakorlás"
+
+#: views/demo.php:60
+msgid "Make sure you read this!"
+msgstr "Mindenképpen olvasd ezt el!"
+
+#: views/demo.php:61
+msgid ""
+"In Practice mode You control both player's picks and bans.The page looks "
+"just as if you were the blue player. <b>BUT</b>, while the yellow player's "
+"choices are grayed out and there is no highlight, you can still pick and ban "
+"civs for him by clicking on the civ."
+msgstr ""
+"Gyakorló módban Te irányítod mindkét játékos választásaid és tiltásait. Az "
+"oldalt pont úgy néz ki, mintha a kék játékos volnál. <b>DE</b>, míg a sárga "
+"játékos választásai el vannak szürkítve, így is választhatsz és tilthatsz az "
+"ellenfél nevében, ha ráklikkelsz a civilizációra."
+
+#: views/footer.php:5
+#, php-format
+msgid "Created by %s."
+msgstr "Létrehozta %s."
+
+#: views/footer.php:5
+msgid "For more AoC content visit:"
+msgstr "További AoC tartalamért látogasd:"
+
+#: views/header.php:47
+msgid "back"
+msgstr "vissza"
+
+#: views/home.php:110
+msgid "Click to set name..."
+msgstr "Klikkelj névváltoztatáshoz..."
+
+#: views/home.php:132 views/home.php:166
+msgid "Welcome"
+msgstr "Üdvözöljük"
+
+#: views/home.php:133
+msgid ""
+"Looks like it's your first time here. First, set a captain name for yourself:"
+msgstr "Úgy néz ki először jársz itt. Először add be a nick nevedet:"
+
+#: views/home.php:135
+msgid "You can edit this anytime in the future by clicking your name."
+msgstr "A jövőben ezt bármikor megváltoztathatod, ha ráklikkelsz a nevedre."
+
+#: views/home.php:137
+msgid "Set name"
+msgstr "Név változtatás"
+
+#: views/home.php:138
+msgid "Make sure you read the rules!"
+msgstr "Mindenképpen olvasd el a szabályokat!"
+
+#: views/home.php:148
+msgid "switch theme"
+msgstr "válts témát"
+
+#: views/home.php:155
+msgid "admin"
+msgstr "admin"
+
+#: views/home.php:171
+msgid "Host or Join"
+msgstr "Besorozás"
+
+#: views/home.php:176 views/home.php:286
+msgid "Spectate"
+msgstr "Nézőtér"
+
+#: views/home.php:191
+msgid ""
+"Captains mode is a turn-based civilization picker. Each captain can <span "
+"class='green-glow'>pick</span> and <span class='red-glow'>ban</span> "
+"civilizations in a predefined order. Bans prevent the opponent's captain "
+"from picking the civilizations. "
+msgstr ""
+"Kapitány mód egy civilizáció választó rendszer. Mindkét kapitány <span "
+"class='green-glow'>kijelölhet</span> (a jelölt civilizációkat használja majd "
+"a játékban) és <span class='red-glow'>tilthat</span> civilizációkat megadott "
+"sorrendben. A tiltások megakadályozzák az ellenfél kapitányát, hogy az adott "
+"civilizációt válassza."
+
+#: views/home.php:192
+msgid ""
+"For each turn captains have <b>30 seconds</b>. In case of timeout a random "
+"civilization is picked for the captain or no civilization gets banned."
+msgstr ""
+"Mindkét kapitánynak <b>30 másodperc</b> áll rendelkezésére. Ennek leforgása "
+"után véletlenszerű választásra kerül sor vagy semmilyen civilizáció nem lesz "
+"blokkolva (tiltva)."
+
+#: views/home.php:193
+msgid ""
+"There are also extension available for tournaments. <b>Hidden</b> option "
+"(black corners) hides the civilization choices until they are explicitely "
+"showed (visible in the timeline at the top). <b>Global</b> pick or bans "
+"disables the civilization for later turns. For other specific settings, "
+"please refer to the preset descriptions."
+msgstr ""
+"Léteznek további bővítmények turnékhoz. <b>Rejtett</b> választáskor (fekete "
+"sarkak) a választott jelölés vagy tiltás rejtve marad, míg nincsenek "
+"feltárva (külön forduló az időrendben az oldal tetején). <b>Globális</b> "
+"jelölés vagy tiltás megakadályozza az adott civilizáció választását a "
+"következő fordulóknál. További beállításokhoz,  lásd a leírást a játékoknál."
+
+#: views/home.php:194
+msgid ""
+"<b>Practice</b> mode is for testing purposes, where both sides are "
+"controlled by a single player."
+msgstr ""
+"<b>Gyakorló</b> mód tesztelésre szolgál, amikor mindkét kapitányt egy "
+"játékos irányít."
+
+#: views/home.php:199
+msgid "Tournaments"
+msgstr "Turnék"
+
+#: views/home.php:218 views/home.php:334
+msgid "Use preset"
+msgstr "Használj beállítást"
+
+#: views/home.php:233
+msgid "Host draft"
+msgstr "Tovább"
+
+#: views/home.php:244 views/home.php:360
+msgid "Quick draft"
+msgstr "Gyors besorozás"
+
+#: views/home.php:255
+msgid "Join existing draft"
+msgstr "Csatlakozz létező besorozáshoz"
+
+#: views/home.php:257 views/home.php:278
+msgid "code:"
+msgstr "kód:"
+
+#: views/home.php:265
+msgid "Join"
+msgstr "Csatlakozz"
+
+#: views/home.php:276
+msgid "I have a code"
+msgstr "Van kódom"
+
+#: views/home.php:299
+msgid "Recent Drafts"
+msgstr "Nemrégi sorozások"
+
+#: views/home.php:307
+msgid " vs "
+msgstr "vs"
+
+#: views/home.php:311
+msgid "Watch"
+msgstr "Követ"
+
+#: views/home.php:313
+msgid "Watch Live"
+msgstr "Élőben követ"
+
+#: views/overlay.php:4
+msgid "Go to home page"
+msgstr "Vissza a nyitólapra"
+
+#: views/overlay.php:7
+msgid "Go back"
+msgstr "Vissza"
+
+#: views/overlay.php:13 views/overlay.php:24
+msgid "Please wait..."
+msgstr "Kérjük várj..."
+
+#: views/overlay.php:14
+msgid "Waiting for the other captain to join."
+msgstr "Várunk a másik kapitányra, hogy csatlakozzon."
+
+#: views/overlay.php:15
+msgid "Send <b>privately</b> this code:"
+msgstr "Küldd el <b>privát</b> üzenetként ezt a kódot:"
+
+#: views/overlay.php:17
+msgid "or url: "
+msgstr "vagy url:"
+
+#: views/overlay.php:25
+msgid "Waiting for captains to join. Send this code first to host then guest:"
+msgstr ""
+"Várunk a kapitányokra. Küldd ezt a kódot először a kezdő játékosnak, majd a "
+"vendégnek:"
+
+#: views/overlay.php:26
+msgid "Alternatively send this url to the host captian:"
+msgstr "Alternatívaként küldd ezt az url a kezdő játékosnak"
+
+#: views/overlay.php:28
+msgid "and this url to the guest captain:"
+msgstr "és ezt az url-t a vendég kapitánynak"
+
+#: views/overlay.php:34 views/overlay.php:39 views/overlay.php:44
+#: views/overlay.php:49
+msgid "Error"
+msgstr "Hiba"
+
+#: views/overlay.php:35
+msgid "A network error occured, please try a new game."
+msgstr "Hálózati hiba történt, próbáljon új játékot."
+
+#: views/overlay.php:40
+msgid ""
+"This game was not finished due to network error or one of the users "
+"disconnecting."
+msgstr "A játék nem lett befejezve hálózati hiba miatt."
+
+#: views/overlay.php:45
+msgid "The other user disconnected."
+msgstr "Az ellenfél hálózata szétkapcsolt."
+
+#: views/overlay.php:50
+msgid "No such game found."
+msgstr "Nem létező besorozás."
+
+#: views/spectate.php:77
+msgid "play"
+msgstr "játssz"
+
+#: views/spectate.php:78
+msgid "pause"
+msgstr "megszakít"
+
+#: views/spectate.php:81
+msgid "next"
+msgstr "következ²o"
+
+#: views/spectate.php:84
+msgid "fast-forward"
+msgstr "gyors-előre"
+
+#~ msgid "New draft"
+#~ msgstr "Új besorozás"
+
+#~ msgid "War Wagon, Turtle Ship"
+#~ msgstr "Hadiszekér, Teknőshajó"
+
+#~ msgid ""
+#~ "Royal Heirs (Shotel warrior created 2x faster), Torsion Engines (+0.45 "
+#~ "blast radius for siege workship units)"
+#~ msgstr ""
+#~ "Királyi Örökösök (Sotel harcos 2x gyorsabban készül), Torziós Gépek "
+#~ "(+0.45 robbanás rádiusz ostromműhelyi gépekgnek)"
+
+#~ msgid ""
+#~ "Royal Heirs (Shotel warrior created 2x faster), Torsion Engines (+45 "
+#~ "blast radius for siege workship units)"
+#~ msgstr ""
+#~ "Királyi Örökösök (Sotel harcos 2x gyorsabban készül), Torziós Gépek (+5"
+
+#~ msgid "Elephant Archer, Imperial Camel(Stable)"
+#~ msgstr "Elefántíjász"
+
+#~ msgid "Trebuchets are 30% more accurate"
+#~ msgstr "Trebuchetek 30%-al pontosabbak"
+
+#~ msgid "Start game with +50 wood and food."
+#~ msgstr "+50 Fával és Hússal kezdenek"
+
+#~ msgid ""
+#~ "Town Centers and Docks operate +10% faster in Feudal Age, <br />+15% in "
+#~ "Castle Age, +20% in Imperial Age"
+#~ msgstr ""
+#~ "Városközpont és Kikötő gyorsabban működik +10%-al Feudális Korban, <br /> "
+#~ "+15%-al Kastély és +20%-al Imperiális Korban"

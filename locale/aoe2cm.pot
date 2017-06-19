@@ -1,0 +1,1824 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-31 15:48+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: controllers/draft.class.php:157
+msgid "Practice Opponent"
+msgstr ""
+
+#: controllers/draft.class.php:225
+msgid "spectate"
+msgstr ""
+
+#: controllers/draft.class.php:248 lib/TurnsGrid.class.php:417
+msgid "Host"
+msgstr ""
+
+#: controllers/draft.class.php:248 lib/TurnsGrid.class.php:417
+msgid "Guest"
+msgstr ""
+
+#: controllers/home.class.php:12
+msgid "AoE2 Captains mode"
+msgstr ""
+
+#: controllers/home.class.php:27 views/home.php:159
+msgid "Captains mode"
+msgstr ""
+
+#: lib/civgrid.class.php:78 lib/civgrid.class.php:344
+msgid "Unknown"
+msgstr ""
+
+#: lib/civgrid.class.php:79 lib/civgrid.class.php:345
+msgid "Different meanings based on the situation."
+msgstr ""
+
+#: lib/civgrid.class.php:81 lib/civgrid.class.php:347
+msgid ""
+"Random civ - when you see this as badge, <br />it means one of the captains "
+"didn't pick in time and a random civilization was picked for him."
+msgstr ""
+
+#: lib/civgrid.class.php:82 lib/civgrid.class.php:348
+msgid ""
+"No ban - when you see this as banned, <br />it means no civilization got "
+"banned"
+msgstr ""
+
+#: lib/civgrid.class.php:87 lib/civgrid.class.php:353
+msgid "Aztecs"
+msgstr ""
+
+#: lib/civgrid.class.php:88 lib/civgrid.class.php:354
+msgid "Infantry and Monk civilization"
+msgstr ""
+
+#: lib/civgrid.class.php:90 lib/civgrid.class.php:356
+msgid "Villagers carry +5"
+msgstr ""
+
+#: lib/civgrid.class.php:91 lib/civgrid.class.php:357
+#, no-php-format
+msgid "Military units created 15% faster"
+msgstr ""
+
+#: lib/civgrid.class.php:92 lib/civgrid.class.php:358
+msgid "+5 Monk hit points for each Monastery technology"
+msgstr ""
+
+#: lib/civgrid.class.php:93
+msgid "Loom free"
+msgstr ""
+
+#: lib/civgrid.class.php:95 lib/civgrid.class.php:361
+msgid "Jaguar Warrior"
+msgstr ""
+
+#: lib/civgrid.class.php:96
+msgid "Garland Wars(+4 infantry attack)"
+msgstr ""
+
+#: lib/civgrid.class.php:98 lib/civgrid.class.php:364
+#, no-php-format
+msgid "Relics generate +33% gold"
+msgstr ""
+
+#: lib/civgrid.class.php:101 lib/civgrid.class.php:380
+msgid "Britons"
+msgstr ""
+
+#: lib/civgrid.class.php:102 lib/civgrid.class.php:381
+msgid "Foot archer civilization"
+msgstr ""
+
+#: lib/civgrid.class.php:104 lib/civgrid.class.php:383
+#, no-php-format
+msgid "Town Centers cost -50% wood upon reaching the Castle Age"
+msgstr ""
+
+#: lib/civgrid.class.php:105 lib/civgrid.class.php:384
+#, no-php-format
+msgid ""
+"Foot archers (excluding Skirmishers) have +1 range in Castle Age, <br /> +1 "
+"in Imperial Age (for +2 total)"
+msgstr ""
+
+#: lib/civgrid.class.php:106 lib/civgrid.class.php:385
+#, no-php-format
+msgid "Shepherds work 25% faster"
+msgstr ""
+
+#: lib/civgrid.class.php:108 lib/civgrid.class.php:387
+msgid "Longbowman"
+msgstr ""
+
+#: lib/civgrid.class.php:109
+msgid "Yeomen (+1 Foot archer range; +2 tower attack)"
+msgstr ""
+
+#: lib/civgrid.class.php:111 lib/civgrid.class.php:390
+#, no-php-format
+msgid "Archery Ranges work 20% faster"
+msgstr ""
+
+#: lib/civgrid.class.php:114 lib/civgrid.class.php:393
+msgid "Byzantines"
+msgstr ""
+
+#: lib/civgrid.class.php:115 lib/civgrid.class.php:394
+msgid "Defensive civilization"
+msgstr ""
+
+#: lib/civgrid.class.php:117 lib/civgrid.class.php:396
+#, no-php-format
+msgid ""
+"Buildings have +10% HP in Dark Age, +20% HP in Feudal Age,<br /> +30% in "
+"Castle Age, +40% in Imperial Age."
+msgstr ""
+
+#: lib/civgrid.class.php:118 lib/civgrid.class.php:397
+#, no-php-format
+msgid "Counter units cost 25% less"
+msgstr ""
+
+#: lib/civgrid.class.php:119 lib/civgrid.class.php:398
+#, no-php-format
+msgid "Fire Ships attack 20% faster"
+msgstr ""
+
+#: lib/civgrid.class.php:120 lib/civgrid.class.php:399
+#, no-php-format
+msgid "Imperial Age costs -33%"
+msgstr ""
+
+#: lib/civgrid.class.php:121 lib/civgrid.class.php:400
+msgid "Town Watch is free"
+msgstr ""
+
+#: lib/civgrid.class.php:123 lib/civgrid.class.php:402
+msgid "Cataphract"
+msgstr ""
+
+#: lib/civgrid.class.php:124
+msgid "Logistica (Cataphracts cause trample damage)"
+msgstr ""
+
+#: lib/civgrid.class.php:126 lib/civgrid.class.php:405
+#, no-php-format
+msgid "Monks +50% heal speed"
+msgstr ""
+
+#: lib/civgrid.class.php:129 lib/civgrid.class.php:408
+msgid "Celts"
+msgstr ""
+
+#: lib/civgrid.class.php:130 lib/civgrid.class.php:171
+#: lib/civgrid.class.php:199 lib/civgrid.class.php:295
+#: lib/civgrid.class.php:409 lib/civgrid.class.php:465
+#: lib/civgrid.class.php:493 lib/civgrid.class.php:534
+#: lib/civgrid.class.php:576 lib/civgrid.class.php:684
+msgid "Infantry civilization"
+msgstr ""
+
+#: lib/civgrid.class.php:132 lib/civgrid.class.php:411
+#, no-php-format
+msgid "Infantry move 15% faster"
+msgstr ""
+
+#: lib/civgrid.class.php:133 lib/civgrid.class.php:412
+#, no-php-format
+msgid "Lumberjacks work 15% faster"
+msgstr ""
+
+#: lib/civgrid.class.php:134 lib/civgrid.class.php:413
+#, no-php-format
+msgid "Siege weapons fire 20% faster"
+msgstr ""
+
+#: lib/civgrid.class.php:135 lib/civgrid.class.php:414
+msgid "Sheep cannot be stolen if within one Celt unit's line of sight"
+msgstr ""
+
+#: lib/civgrid.class.php:137 lib/civgrid.class.php:416
+msgid "Woad Raider"
+msgstr ""
+
+#: lib/civgrid.class.php:138
+#, no-php-format
+msgid "Furor Celtica (Siege Workshop Units +50% HP)"
+msgstr ""
+
+#: lib/civgrid.class.php:140 lib/civgrid.class.php:419
+#, no-php-format
+msgid "Siege Workshops work 20% faster"
+msgstr ""
+
+#: lib/civgrid.class.php:143 lib/civgrid.class.php:422
+msgid "Chinese"
+msgstr ""
+
+#: lib/civgrid.class.php:144 lib/civgrid.class.php:227
+#: lib/civgrid.class.php:423 lib/civgrid.class.php:438
+#: lib/civgrid.class.php:589
+msgid "Archer civilization"
+msgstr ""
+
+#: lib/civgrid.class.php:146 lib/civgrid.class.php:425
+msgid "Start game with 3 extra villagers but -50 Wood and -150 Food"
+msgstr ""
+
+#: lib/civgrid.class.php:147 lib/civgrid.class.php:426
+#, no-php-format
+msgid ""
+"Technologies cost -10% in Feudal Age, -15% in Castle Age,<br /> -20% in "
+"Imperial Age"
+msgstr ""
+
+#: lib/civgrid.class.php:148 lib/civgrid.class.php:427
+msgid "Town Centers support 10 population instead of 5"
+msgstr ""
+
+#: lib/civgrid.class.php:149 lib/civgrid.class.php:429
+#, no-php-format
+msgid "Demolition Ships have +50% HP"
+msgstr ""
+
+#: lib/civgrid.class.php:151 lib/civgrid.class.php:431
+msgid "Chu Ko Nu"
+msgstr ""
+
+#: lib/civgrid.class.php:152
+msgid "Rocketry (+2 Chu Ko Nu pierce attack, +4 scorpions)"
+msgstr ""
+
+#: lib/civgrid.class.php:154 lib/civgrid.class.php:434
+msgid "Farms provide +45 food"
+msgstr ""
+
+#: lib/civgrid.class.php:157 lib/civgrid.class.php:450
+msgid "Franks"
+msgstr ""
+
+#: lib/civgrid.class.php:158 lib/civgrid.class.php:186
+#: lib/civgrid.class.php:254 lib/civgrid.class.php:451
+#: lib/civgrid.class.php:480 lib/civgrid.class.php:563
+#: lib/civgrid.class.php:616
+msgid "Cavalry civilization"
+msgstr ""
+
+#: lib/civgrid.class.php:160 lib/civgrid.class.php:454
+#, no-php-format
+msgid "Castles are 25% cheaper"
+msgstr ""
+
+#: lib/civgrid.class.php:161 lib/civgrid.class.php:455
+#, no-php-format
+msgid "Knights have +20% HP"
+msgstr ""
+
+#: lib/civgrid.class.php:162 lib/civgrid.class.php:456
+msgid "Farm upgrades are free (Mill is required to receive bonus)"
+msgstr ""
+
+#: lib/civgrid.class.php:164 lib/civgrid.class.php:458
+msgid "Throwing Axeman"
+msgstr ""
+
+#: lib/civgrid.class.php:165
+msgid "Bearded Axe (+1 Throwing Axeman range)"
+msgstr ""
+
+#: lib/civgrid.class.php:167 lib/civgrid.class.php:461
+msgid "Knights have +2 line of sight"
+msgstr ""
+
+#: lib/civgrid.class.php:170 lib/civgrid.class.php:464
+msgid "Goths"
+msgstr ""
+
+#: lib/civgrid.class.php:173
+#, no-php-format
+msgid "Infantry cost 33% less (starting in Feudal Age)"
+msgstr ""
+
+#: lib/civgrid.class.php:174 lib/civgrid.class.php:468
+msgid "Infantry have +1 attack against buildings"
+msgstr ""
+
+#: lib/civgrid.class.php:175 lib/civgrid.class.php:469
+msgid "Villagers have +5 attack versus wild boar"
+msgstr ""
+
+#: lib/civgrid.class.php:176 lib/civgrid.class.php:470
+msgid "Hunters carry +15 meat"
+msgstr ""
+
+#: lib/civgrid.class.php:177 lib/civgrid.class.php:471
+msgid "+10 to population limit in Imperial Age"
+msgstr ""
+
+#: lib/civgrid.class.php:179 lib/civgrid.class.php:473
+msgid "Huskarl"
+msgstr ""
+
+#: lib/civgrid.class.php:180 lib/civgrid.class.php:474
+#, no-php-format
+msgid ""
+"Anarchy (Create Huskarls at Barracks),Perfusion (Barracks units created 50% "
+"faster)"
+msgstr ""
+
+#: lib/civgrid.class.php:182 lib/civgrid.class.php:476
+#, no-php-format
+msgid "Barracks operate 20% faster"
+msgstr ""
+
+#: lib/civgrid.class.php:185 lib/civgrid.class.php:479
+msgid "Huns"
+msgstr ""
+
+#: lib/civgrid.class.php:188 lib/civgrid.class.php:482
+msgid ""
+"Houses are not required to support population, start game with -100 Wood"
+msgstr ""
+
+#: lib/civgrid.class.php:189
+#, no-php-format
+msgid "Cavalry Archers cost -25% in Castle Age, -30% in Imperial Age"
+msgstr ""
+
+#: lib/civgrid.class.php:190 lib/civgrid.class.php:484
+#, no-php-format
+msgid "Trebuchets are 35% more accurate"
+msgstr ""
+
+#: lib/civgrid.class.php:192 lib/civgrid.class.php:486
+msgid "Tarkan"
+msgstr ""
+
+#: lib/civgrid.class.php:193
+#, no-php-format
+msgid "Atheism (+100 years Wonder/Relic victory time; -50% Spies/Treason cost)"
+msgstr ""
+
+#: lib/civgrid.class.php:195 lib/civgrid.class.php:489
+#, no-php-format
+msgid "Stables are 20% faster"
+msgstr ""
+
+#: lib/civgrid.class.php:198 lib/civgrid.class.php:533
+msgid "Japanese"
+msgstr ""
+
+#: lib/civgrid.class.php:201 lib/civgrid.class.php:536
+msgid "Fishing Ships have 2x HP and +2 armor"
+msgstr ""
+
+#: lib/civgrid.class.php:202 lib/civgrid.class.php:537
+#, no-php-format
+msgid ""
+"Fishing Ships work +5% faster in Dark Age, +10% in Feudal Age, <br />+15% in "
+"Castle Age, +20% in Imperial Age"
+msgstr ""
+
+#: lib/civgrid.class.php:203 lib/civgrid.class.php:538
+#, no-php-format
+msgid "Lumber Camps, Mining Camps, and Mills are 50% cheaper"
+msgstr ""
+
+#: lib/civgrid.class.php:204 lib/civgrid.class.php:539
+#, no-php-format
+msgid "Infantry attack 25% faster (starting in Feudal Age)"
+msgstr ""
+
+#: lib/civgrid.class.php:206 lib/civgrid.class.php:541
+msgid "Samurai"
+msgstr ""
+
+#: lib/civgrid.class.php:207
+msgid "Kataparuto (Trebuchets fire, pack/unpack faster)"
+msgstr ""
+
+#: lib/civgrid.class.php:209 lib/civgrid.class.php:544
+#, no-php-format
+msgid "Galleys have +50% line of sight"
+msgstr ""
+
+#: lib/civgrid.class.php:212 lib/civgrid.class.php:547
+msgid "Koreans"
+msgstr ""
+
+#: lib/civgrid.class.php:213 lib/civgrid.class.php:548
+msgid "Tower and naval civilization"
+msgstr ""
+
+#: lib/civgrid.class.php:215 lib/civgrid.class.php:550
+msgid "Villagers have +3 line of sight"
+msgstr ""
+
+#: lib/civgrid.class.php:216 lib/civgrid.class.php:551
+#, no-php-format
+msgid "Stone miners work 20% faster"
+msgstr ""
+
+#: lib/civgrid.class.php:217 lib/civgrid.class.php:552
+msgid "Guard Tower and Keep upgrades are free"
+msgstr ""
+
+#: lib/civgrid.class.php:218 lib/civgrid.class.php:553
+msgid ""
+"Towers (except bombard towers) have +1 range in Castle Age, +2 in Imperial "
+"Age"
+msgstr ""
+
+#: lib/civgrid.class.php:220 lib/civgrid.class.php:556
+msgid "War Wagon, Turtle Ship (Dock)"
+msgstr ""
+
+#: lib/civgrid.class.php:221
+msgid "Shinkichon (+1 range Mangonels, Onagers)"
+msgstr ""
+
+#: lib/civgrid.class.php:223
+msgid "Mangonel line has +1 range"
+msgstr ""
+
+#: lib/civgrid.class.php:226 lib/civgrid.class.php:588
+msgid "Mayans"
+msgstr ""
+
+#: lib/civgrid.class.php:229 lib/civgrid.class.php:591
+msgid "Start with Eagle Warrior"
+msgstr ""
+
+#: lib/civgrid.class.php:230 lib/civgrid.class.php:592
+msgid "Start game with 1 extra villager, -50 Food"
+msgstr ""
+
+#: lib/civgrid.class.php:231 lib/civgrid.class.php:593
+#, no-php-format
+msgid "Natural resources last 20% longer"
+msgstr ""
+
+#: lib/civgrid.class.php:232 lib/civgrid.class.php:594
+#, no-php-format
+msgid ""
+"Archers cost -10% in Feudal Age, -20% in Castle Age, -30% in Imperial Age"
+msgstr ""
+
+#: lib/civgrid.class.php:234 lib/civgrid.class.php:596
+msgid "Plumed Archer"
+msgstr ""
+
+#: lib/civgrid.class.php:235
+msgid "El Dorado (+40 Eagle Warrior HP)"
+msgstr ""
+
+#: lib/civgrid.class.php:237 lib/civgrid.class.php:599
+#, no-php-format
+msgid "Walls are 50% cheaper"
+msgstr ""
+
+#: lib/civgrid.class.php:240 lib/civgrid.class.php:602
+msgid "Mongols"
+msgstr ""
+
+#: lib/civgrid.class.php:241 lib/civgrid.class.php:603
+msgid "Cavalry Archer civilization"
+msgstr ""
+
+#: lib/civgrid.class.php:243 lib/civgrid.class.php:605
+#, no-php-format
+msgid "Cavalry Archers fire 20% faster"
+msgstr ""
+
+#: lib/civgrid.class.php:244 lib/civgrid.class.php:606
+#, no-php-format
+msgid "Light Cavalry and Hussars have +30% HP"
+msgstr ""
+
+#: lib/civgrid.class.php:245 lib/civgrid.class.php:607
+#, no-php-format
+msgid "Hunters work 50% faster"
+msgstr ""
+
+#: lib/civgrid.class.php:247 lib/civgrid.class.php:609
+msgid "Mangudai"
+msgstr ""
+
+#: lib/civgrid.class.php:248
+#, no-php-format
+msgid "Drill (Siege Workshop units move 50% faster)"
+msgstr ""
+
+#: lib/civgrid.class.php:250 lib/civgrid.class.php:612
+msgid "Scout line has +2 line of sight"
+msgstr ""
+
+#: lib/civgrid.class.php:253 lib/civgrid.class.php:615
+msgid "Persians"
+msgstr ""
+
+#: lib/civgrid.class.php:256 lib/civgrid.class.php:618
+msgid "Start game with +50 wood and food"
+msgstr ""
+
+#: lib/civgrid.class.php:257 lib/civgrid.class.php:619
+msgid "Town Center and Docks have 2x HP"
+msgstr ""
+
+#: lib/civgrid.class.php:258 lib/civgrid.class.php:620
+#, no-php-format
+msgid ""
+"Town Centers and Docks operate +10% faster in Feudal Age, <br /> +15% in "
+"Castle Age, +20% in Imperial Age"
+msgstr ""
+
+#: lib/civgrid.class.php:260 lib/civgrid.class.php:622
+msgid "War Elephant"
+msgstr ""
+
+#: lib/civgrid.class.php:261
+#, no-php-format
+msgid "Mahouts (+30% War Elephant speed)"
+msgstr ""
+
+#: lib/civgrid.class.php:263 lib/civgrid.class.php:625
+msgid "Knights have +2 attack versus Archers"
+msgstr ""
+
+#: lib/civgrid.class.php:266 lib/civgrid.class.php:641
+msgid "Saracens"
+msgstr ""
+
+#: lib/civgrid.class.php:267 lib/civgrid.class.php:642
+msgid "Camel and Naval civilization"
+msgstr ""
+
+#: lib/civgrid.class.php:269 lib/civgrid.class.php:645
+#, no-php-format
+msgid "Market trade cost is only 5%"
+msgstr ""
+
+#: lib/civgrid.class.php:270 lib/civgrid.class.php:646
+msgid "Transport Ships have 2x HP and carry capacity"
+msgstr ""
+
+#: lib/civgrid.class.php:271 lib/civgrid.class.php:647
+#, no-php-format
+msgid "Galleys attack 20% faster"
+msgstr ""
+
+#: lib/civgrid.class.php:272 lib/civgrid.class.php:648
+msgid "Cavalry Archers have +4 attack against buildings"
+msgstr ""
+
+#: lib/civgrid.class.php:274 lib/civgrid.class.php:650
+msgid "Mameluke"
+msgstr ""
+
+#: lib/civgrid.class.php:275
+msgid "Zealotry (+30 camel, Mameluke HP)"
+msgstr ""
+
+#: lib/civgrid.class.php:277 lib/civgrid.class.php:653
+msgid "Foot archers have +2 attack against buildings"
+msgstr ""
+
+#: lib/civgrid.class.php:280 lib/civgrid.class.php:669
+msgid "Spanish"
+msgstr ""
+
+#: lib/civgrid.class.php:281 lib/civgrid.class.php:670
+msgid "Gunpowder and Monk civilization"
+msgstr ""
+
+#: lib/civgrid.class.php:283 lib/civgrid.class.php:672
+#, no-php-format
+msgid "Villagers construct buildings 30% faster"
+msgstr ""
+
+#: lib/civgrid.class.php:284 lib/civgrid.class.php:673
+msgid "Blacksmith upgrades do not cost any gold"
+msgstr ""
+
+#: lib/civgrid.class.php:285 lib/civgrid.class.php:674
+msgid ""
+"Cannon Galleons benefit from Ballistics (improved fire rate and accuracy)"
+msgstr ""
+
+#: lib/civgrid.class.php:286 lib/civgrid.class.php:675
+#, no-php-format
+msgid "Hand Cannoneers and Bombard Cannons fire 15% faster"
+msgstr ""
+
+#: lib/civgrid.class.php:288 lib/civgrid.class.php:677
+msgid "Conquistador, Missionary"
+msgstr ""
+
+#: lib/civgrid.class.php:289
+msgid "Supremacy (Villager combat attributes increased)"
+msgstr ""
+
+#: lib/civgrid.class.php:291 lib/civgrid.class.php:680
+#, no-php-format
+msgid "Trade units generate +33%"
+msgstr ""
+
+#: lib/civgrid.class.php:294 lib/civgrid.class.php:683
+msgid "Teutons"
+msgstr ""
+
+#: lib/civgrid.class.php:297 lib/civgrid.class.php:686
+msgid "Monks have 2x healing range"
+msgstr ""
+
+#: lib/civgrid.class.php:298 lib/civgrid.class.php:687
+msgid "Towers can garrison 2x units"
+msgstr ""
+
+#: lib/civgrid.class.php:299 lib/civgrid.class.php:688
+msgid "Murder Holes is free"
+msgstr ""
+
+#: lib/civgrid.class.php:300 lib/civgrid.class.php:689
+#, no-php-format
+msgid "Farms cost 33% less"
+msgstr ""
+
+#: lib/civgrid.class.php:301
+msgid "Town Centers have +2 attack and +5 line of sight"
+msgstr ""
+
+#: lib/civgrid.class.php:303 lib/civgrid.class.php:692
+msgid "Teutonic Knight"
+msgstr ""
+
+#: lib/civgrid.class.php:304
+msgid "Crenellations (+3 Castle range; garrisoned infantry fire arrows)"
+msgstr ""
+
+#: lib/civgrid.class.php:306 lib/civgrid.class.php:695
+msgid "Units are more resistant to conversion"
+msgstr ""
+
+#: lib/civgrid.class.php:309 lib/civgrid.class.php:698
+msgid "Turks"
+msgstr ""
+
+#: lib/civgrid.class.php:310 lib/civgrid.class.php:699
+msgid "Gunpowder civilization"
+msgstr ""
+
+#: lib/civgrid.class.php:312 lib/civgrid.class.php:701
+#, no-php-format
+msgid "Gunpowder Units have +25% HP"
+msgstr ""
+
+#: lib/civgrid.class.php:313 lib/civgrid.class.php:702
+#, no-php-format
+msgid "Gunpowder technologies cost 50% less"
+msgstr ""
+
+#: lib/civgrid.class.php:314 lib/civgrid.class.php:703
+msgid "Chemistry is free"
+msgstr ""
+
+#: lib/civgrid.class.php:315 lib/civgrid.class.php:704
+#, no-php-format
+msgid "Gold miners work 15% faster"
+msgstr ""
+
+#: lib/civgrid.class.php:316 lib/civgrid.class.php:705
+msgid "Light Cavalry and Hussar upgrades are free"
+msgstr ""
+
+#: lib/civgrid.class.php:318 lib/civgrid.class.php:707
+msgid "Janissary"
+msgstr ""
+
+#: lib/civgrid.class.php:319
+msgid "Artillery (+2 range Bombard Towers, Bombard Cannons, Cannon Galleons)"
+msgstr ""
+
+#: lib/civgrid.class.php:321 lib/civgrid.class.php:710
+#, no-php-format
+msgid "Gunpowder units are created 20% faster"
+msgstr ""
+
+#: lib/civgrid.class.php:324 lib/civgrid.class.php:713
+msgid "Vikings"
+msgstr ""
+
+#: lib/civgrid.class.php:325 lib/civgrid.class.php:714
+msgid "Infantry and naval civilization"
+msgstr ""
+
+#: lib/civgrid.class.php:327
+#, no-php-format
+msgid "Warships cost 25% less"
+msgstr ""
+
+#: lib/civgrid.class.php:328 lib/civgrid.class.php:717
+#, no-php-format
+msgid ""
+"Infantry have +10% HP in Feudal Age, +15% in Castle Age, <br /> +20% in "
+"Imperial Age"
+msgstr ""
+
+#: lib/civgrid.class.php:329 lib/civgrid.class.php:718
+#, no-php-format
+msgid "Wheelbarrow and Hand Cart are free"
+msgstr ""
+
+#: lib/civgrid.class.php:331 lib/civgrid.class.php:720
+msgid "Berserker, Longboat (Dock)"
+msgstr ""
+
+#: lib/civgrid.class.php:332
+msgid "Berserkergang (Berserks regenerate faster)"
+msgstr ""
+
+#: lib/civgrid.class.php:334
+#, no-php-format
+msgid "Docks are 25% cheaper"
+msgstr ""
+
+#: lib/civgrid.class.php:359
+msgid "Start with +50 gold"
+msgstr ""
+
+#: lib/civgrid.class.php:362
+msgid ""
+"Atlatl(skirmishers +1 range, +1 pierce attack),Garland Wars(+4 infantry "
+"attack)"
+msgstr ""
+
+#: lib/civgrid.class.php:367
+msgid "Berbers"
+msgstr ""
+
+#: lib/civgrid.class.php:368
+msgid "Cavalry and Naval civilization"
+msgstr ""
+
+#: lib/civgrid.class.php:370
+#, no-php-format
+msgid "Villagers move 10% faster"
+msgstr ""
+
+#: lib/civgrid.class.php:371
+#, no-php-format
+msgid "Ships move 10% faster"
+msgstr ""
+
+#: lib/civgrid.class.php:372
+#, no-php-format
+msgid "Stable units cost -20%"
+msgstr ""
+
+#: lib/civgrid.class.php:374
+msgid "Camel Archers, Genitour"
+msgstr ""
+
+#: lib/civgrid.class.php:375
+#, no-php-format
+msgid ""
+"Kasbah(castles work 25% faster), Maghrabi Camel(camel troops regenerate)"
+msgstr ""
+
+#: lib/civgrid.class.php:377
+msgid "Genitour available in archery range"
+msgstr ""
+
+#: lib/civgrid.class.php:388
+#, no-php-format
+msgid ""
+"Yeomen (+1 Foot archer range; +2 tower attack), Warwolf(Trebuchets 100% "
+"accuracy +0.5 blast radius)"
+msgstr ""
+
+#: lib/civgrid.class.php:403
+msgid ""
+"Greek Fire (Fire ships +1 range),Logistica (Cataphracts cause trample damage)"
+msgstr ""
+
+#: lib/civgrid.class.php:417
+#, no-php-format
+msgid ""
+"Stronghold (Castles, towers -20% reload time), Furor Celtica (Siege Workshop "
+"Units +50% HP)"
+msgstr ""
+
+#: lib/civgrid.class.php:428
+msgid "Town Centers +5 LOS"
+msgstr ""
+
+#: lib/civgrid.class.php:432
+#, no-php-format
+msgid ""
+"Great Wall (Walls, gates, towers +30% HP), Rocketry (+2 Chu Ko Nu pierce "
+"attack, +4 scorpions)"
+msgstr ""
+
+#: lib/civgrid.class.php:437
+msgid "Ethiopians"
+msgstr ""
+
+#: lib/civgrid.class.php:440
+msgid "Receive 100F 100G upon advancing to next age"
+msgstr ""
+
+#: lib/civgrid.class.php:441
+msgid "Pikeman and Halberdier upgrades are free"
+msgstr ""
+
+#: lib/civgrid.class.php:442
+#, no-php-format
+msgid "Foot archers 15% faster reload"
+msgstr ""
+
+#: lib/civgrid.class.php:444
+msgid "Shotel Warrior"
+msgstr ""
+
+#: lib/civgrid.class.php:445
+msgid ""
+"Royal Heirs (Shotel warrior created 2x faster), Torsion Engines (+0.45 blast "
+"radius for siege workshop units)"
+msgstr ""
+
+#: lib/civgrid.class.php:447
+msgid "Towers, outposts +3 LOS"
+msgstr ""
+
+#: lib/civgrid.class.php:453
+#, no-php-format
+msgid "Foragers work 25% faster"
+msgstr ""
+
+#: lib/civgrid.class.php:459
+#, no-php-format
+msgid ""
+"Chivalry (stables work 40% faster), Bearded Axe (+1 Throwing Axeman range)"
+msgstr ""
+
+#: lib/civgrid.class.php:467
+#, no-php-format
+msgid "Infantry cost 35% less (starting in Feudal Age)"
+msgstr ""
+
+#: lib/civgrid.class.php:483
+#, no-php-format
+msgid "Cavalry Archers cost -10% in Castle Age, -20% in Imperial Age"
+msgstr ""
+
+#: lib/civgrid.class.php:487
+msgid ""
+"Marauders (Tarkans available in stables), Atheism (+100 years Wonder/Relic "
+"victory time; -50% Spies/Treason cost)"
+msgstr ""
+
+#: lib/civgrid.class.php:492
+msgid "Incas"
+msgstr ""
+
+#: lib/civgrid.class.php:495
+msgid "Start with free llama"
+msgstr ""
+
+#: lib/civgrid.class.php:496
+msgid "Villagers affected by blacksmith upgrades"
+msgstr ""
+
+#: lib/civgrid.class.php:497
+msgid "Houses support 10 population"
+msgstr ""
+
+#: lib/civgrid.class.php:498
+#, no-php-format
+msgid "Buildings cost -15% stone"
+msgstr ""
+
+#: lib/civgrid.class.php:500
+msgid "Kamayuk, Slinger (Archery Range)"
+msgstr ""
+
+#: lib/civgrid.class.php:501
+msgid ""
+"Andean Sling (skirmishers, slinger no minimum range), Couriers (eagles, "
+"kamayuks, slingers +1/+2 armor)"
+msgstr ""
+
+#: lib/civgrid.class.php:503
+#, no-php-format
+msgid "Farms built 50% faster"
+msgstr ""
+
+#: lib/civgrid.class.php:506
+msgid "Indians"
+msgstr ""
+
+#: lib/civgrid.class.php:507
+msgid "Camel and Gunpowder civilization"
+msgstr ""
+
+#: lib/civgrid.class.php:509
+#, no-php-format
+msgid ""
+"Villagers Cost -10% in Dark, -15% in Feudal, -20% in Castle, -25% in Imperial"
+msgstr ""
+
+#: lib/civgrid.class.php:510
+#, no-php-format
+msgid "Fishermen(villagers) work 15% faster and carry +15"
+msgstr ""
+
+#: lib/civgrid.class.php:511
+msgid "Camels +1/+1 armor"
+msgstr ""
+
+#: lib/civgrid.class.php:513
+msgid "Elephant Archer, Imperial Camel (Stable)"
+msgstr ""
+
+#: lib/civgrid.class.php:514
+#, no-php-format
+msgid ""
+"Sultans (gold miners +10% faster, trade units +10% gold, relics +5G/min), "
+"Shatagni (hand cannoneers +1 range)"
+msgstr ""
+
+#: lib/civgrid.class.php:516
+msgid "Camels +6 attack vs buildings"
+msgstr ""
+
+#: lib/civgrid.class.php:519
+msgid "Italians"
+msgstr ""
+
+#: lib/civgrid.class.php:520
+msgid "Archer and Naval civilization"
+msgstr ""
+
+#: lib/civgrid.class.php:522
+#, no-php-format
+msgid "Advancing to the next age costs -15%"
+msgstr ""
+
+#: lib/civgrid.class.php:523
+#, no-php-format
+msgid "Dock techs cost -50%"
+msgstr ""
+
+#: lib/civgrid.class.php:524
+msgid "Fishing ships +2 LOS"
+msgstr ""
+
+#: lib/civgrid.class.php:525
+#, no-php-format
+msgid "Gunpowder units cost -15%"
+msgstr ""
+
+#: lib/civgrid.class.php:527
+msgid "Genoese crossbowman, Condottiero(Barracks)"
+msgstr ""
+
+#: lib/civgrid.class.php:528
+#, no-php-format
+msgid "Pavise (foot archers +1/+1 armor), Silk road (trade units cost -50%)"
+msgstr ""
+
+#: lib/civgrid.class.php:530
+msgid "Condottiero available in imperial barracks"
+msgstr ""
+
+#: lib/civgrid.class.php:542
+msgid ""
+"Yasama (towers shoot +3 arrows), Kataparuto (Trebuchets fire, pack/unpack "
+"faster)"
+msgstr ""
+
+#: lib/civgrid.class.php:554
+#, no-php-format
+msgid ""
+"Fortifications (walls except gates, castles, towers) are built 25% faster"
+msgstr ""
+
+#: lib/civgrid.class.php:557
+#, no-php-format
+msgid ""
+"Panokseon (turtle ships move 15% faster), Shinkichon (+1 range Mangonels, "
+"Onagers)"
+msgstr ""
+
+#: lib/civgrid.class.php:559
+msgid "Mangonel minimum range 1 (instead of 3)"
+msgstr ""
+
+#: lib/civgrid.class.php:562
+msgid "Magyars"
+msgstr ""
+
+#: lib/civgrid.class.php:565
+msgid "Villagers kill wolves in 1 strike"
+msgstr ""
+
+#: lib/civgrid.class.php:566
+msgid ""
+"Melee upgrades (forging, iron casting, blast furnace) in blacksmith free "
+"(requires blacksmith)"
+msgstr ""
+
+#: lib/civgrid.class.php:567
+#, no-php-format
+msgid "Scout line costs -10%"
+msgstr ""
+
+#: lib/civgrid.class.php:569
+msgid "Magyar Huszar"
+msgstr ""
+
+#: lib/civgrid.class.php:570
+msgid ""
+"Mercenaries (Magyar Huszar costs no gold), Recurve bow (Cavalry archers +1 "
+"range)"
+msgstr ""
+
+#: lib/civgrid.class.php:572
+msgid "Foot archers (not skirmishers) +2 LOS"
+msgstr ""
+
+#: lib/civgrid.class.php:575
+msgid "Malians"
+msgstr ""
+
+#: lib/civgrid.class.php:578
+msgid "Barracks units get +1 pierce armor per age"
+msgstr ""
+
+#: lib/civgrid.class.php:579
+#, no-php-format
+msgid "Buildings, farms wood cost -15%"
+msgstr ""
+
+#: lib/civgrid.class.php:580
+msgid "Gold mining upgrades free"
+msgstr ""
+
+#: lib/civgrid.class.php:582
+msgid "Gbeto"
+msgstr ""
+
+#: lib/civgrid.class.php:583
+msgid ""
+"Tigui (TC fire arrows without garrisoned villagers), Farimba (Cavalry, "
+"camels +5 attack)"
+msgstr ""
+
+#: lib/civgrid.class.php:585
+#, no-php-format
+msgid "University operates 80% faster"
+msgstr ""
+
+#: lib/civgrid.class.php:597
+msgid ""
+"Obsidian Arrow (archer line +6 attack vs buildings), El Dorado (+40 Eagle "
+"Warrior HP)"
+msgstr ""
+
+#: lib/civgrid.class.php:610
+#, no-php-format
+msgid ""
+"Nomads (destroyed houses don't loose population room), Drill (Siege Workshop "
+"units move 50% faster)"
+msgstr ""
+
+#: lib/civgrid.class.php:623
+#, no-php-format
+msgid ""
+"Boiling Oil (Castles +9 attack vs rams), Mahouts (+30% War Elephant speed)"
+msgstr ""
+
+#: lib/civgrid.class.php:628
+msgid "Portuguese"
+msgstr ""
+
+#: lib/civgrid.class.php:629
+msgid "Naval and Gunpowder civilization"
+msgstr ""
+
+#: lib/civgrid.class.php:631
+#, no-php-format
+msgid "All units cost -15% gold"
+msgstr ""
+
+#: lib/civgrid.class.php:632
+#, no-php-format
+msgid "All ships +10% HP"
+msgstr ""
+
+#: lib/civgrid.class.php:633
+msgid "Get Feitoria"
+msgstr ""
+
+#: lib/civgrid.class.php:635
+msgid "Organ Gun, Caravel (dock)"
+msgstr ""
+
+#: lib/civgrid.class.php:636
+msgid ""
+"Carrack (ships +1/+1 armor), Arquebus (gunpowder units affected by "
+"ballistics)"
+msgstr ""
+
+#: lib/civgrid.class.php:638
+msgid "Free cartography from Dark Age"
+msgstr ""
+
+#: lib/civgrid.class.php:644
+msgid "Market costs -75 wood"
+msgstr ""
+
+#: lib/civgrid.class.php:651
+#, no-php-format
+msgid ""
+"Madrasah (monks return 33% of their cost), Zealotry (+30 camel, Mameluke HP)"
+msgstr ""
+
+#: lib/civgrid.class.php:656
+msgid "Slavs"
+msgstr ""
+
+#: lib/civgrid.class.php:657
+msgid "Infantry and siege civilization"
+msgstr ""
+
+#: lib/civgrid.class.php:659
+#, no-php-format
+msgid "Farmers work ~15% faster without upgrades"
+msgstr ""
+
+#: lib/civgrid.class.php:660
+msgid "Tracking free"
+msgstr ""
+
+#: lib/civgrid.class.php:661
+#, no-php-format
+msgid "Siege units from siege workshop 15% cheaper"
+msgstr ""
+
+#: lib/civgrid.class.php:663
+msgid "Boyar"
+msgstr ""
+
+#: lib/civgrid.class.php:664
+msgid ""
+"Orthodoxy (monks +3/+3 armor), Druzhina (infantry do 5 damage to adjecent "
+"enemy units)"
+msgstr ""
+
+#: lib/civgrid.class.php:666
+msgid "Military buildings provide +5 population"
+msgstr ""
+
+#: lib/civgrid.class.php:678
+msgid ""
+"Inquisition (monks convert faster), Supremacy (Villager combat attributes "
+"increased)"
+msgstr ""
+
+#: lib/civgrid.class.php:690
+msgid "Town Centers garrison +10 units, shoot +5 arrows"
+msgstr ""
+
+#: lib/civgrid.class.php:693
+msgid ""
+"Ironclad (siege weapons +4/+0 armor), Crenellations (+3 Castle range; "
+"garrisoned infantry fire arrows)"
+msgstr ""
+
+#: lib/civgrid.class.php:708
+msgid ""
+"Sipahi (Cavalry archers +20HP), Artillery (+2 range Bombard Towers, Bombard "
+"Cannons, Cannon Galleons)"
+msgstr ""
+
+#: lib/civgrid.class.php:716
+#, no-php-format
+msgid "Warships cost -10% in Feudal, -15% in Castle, -20% in Imperial Age"
+msgstr ""
+
+#: lib/civgrid.class.php:721
+msgid ""
+"Chieftains (Berserks +5 attack vs cavalry), Berserkergang (Berserks "
+"regenerate faster)"
+msgstr ""
+
+#: lib/civgrid.class.php:723
+#, no-php-format
+msgid "Docks cost -15%"
+msgstr ""
+
+#: lib/TurnsGrid.class.php:165 lib/TurnsGrid.class.php:168
+#: lib/TurnsGrid.class.php:210 lib/TurnsGrid.class.php:241
+#: lib/TurnsGrid.class.php:246 lib/TurnsGrid.class.php:264
+msgid "Player"
+msgstr ""
+
+#: lib/TurnsGrid.class.php:171
+msgid "None"
+msgstr ""
+
+#: lib/TurnsGrid.class.php:211 lib/TurnsGrid.class.php:265
+msgid "Action"
+msgstr ""
+
+#: lib/TurnsGrid.class.php:212
+msgid "Hidden"
+msgstr ""
+
+#: lib/TurnsGrid.class.php:266
+msgid "Civilization"
+msgstr ""
+
+#: lib/TurnsGrid.class.php:304 lib/TurnsGrid.class.php:361
+msgid "Start"
+msgstr ""
+
+#: lib/TurnsGrid.class.php:326
+msgid "End"
+msgstr ""
+
+#: lib/TurnsGrid.class.php:342
+msgid "Error updating the draft state."
+msgstr ""
+
+#: lib/TurnsGrid.class.php:343
+msgid "Error sending ready."
+msgstr ""
+
+#: lib/TurnsGrid.class.php:344
+msgid "Error starting draft."
+msgstr ""
+
+#: lib/TurnsGrid.class.php:345
+msgid "Error picking/banning civ."
+msgstr ""
+
+#: lib/TurnsGrid.class.php:346
+msgid "Error setting name."
+msgstr ""
+
+#: lib/TurnsGrid.class.php:347
+msgid "<span class='green-glow'><b>Pick</b></span> a civilization!"
+msgstr ""
+
+#: lib/TurnsGrid.class.php:348
+msgid "<span class='red-glow'><b>Ban</b></span> a civilization for the enemy!"
+msgstr ""
+
+#: lib/TurnsGrid.class.php:349
+msgid "Too late. Random pick."
+msgstr ""
+
+#: lib/TurnsGrid.class.php:350
+msgid "Drafting ended."
+msgstr ""
+
+#: lib/TurnsGrid.class.php:351
+msgid "Please paste this code into in-game chat: {0} for spectating later."
+msgstr ""
+
+#: lib/TurnsGrid.class.php:352
+msgid "Use this code: {0} to spectate later."
+msgstr ""
+
+#: lib/TurnsGrid.class.php:353
+msgid "Click {0} to let the host start the draft."
+msgstr ""
+
+#: lib/TurnsGrid.class.php:354
+msgid "Ready"
+msgstr ""
+
+#: lib/TurnsGrid.class.php:355
+msgid "get ready!"
+msgstr ""
+
+#: lib/TurnsGrid.class.php:356
+msgid "Waiting for the guest captain to get ready."
+msgstr ""
+
+#: lib/TurnsGrid.class.php:357
+msgid "Waiting for the host captain to start the draft."
+msgstr ""
+
+#: lib/TurnsGrid.class.php:358
+msgid "Guest is ready."
+msgstr ""
+
+#: lib/TurnsGrid.class.php:359
+msgid "Send this code to spectators: {0}. "
+msgstr ""
+
+#: lib/TurnsGrid.class.php:360
+msgid "Click {0} to begin."
+msgstr ""
+
+#: lib/TurnsGrid.class.php:362
+msgid "Starting draft in... {0}"
+msgstr ""
+
+#: lib/TurnsGrid.class.php:363
+msgid "Waiting for the other captain... {0}"
+msgstr ""
+
+#: lib/TurnsGrid.class.php:364
+msgid "Starting spectating in... {0}"
+msgstr ""
+
+#: lib/TurnsGrid.class.php:380
+msgid "Data connection issues."
+msgstr ""
+
+#: lib/TurnsGrid.class.php:421
+msgid "Captain"
+msgstr ""
+
+#: lib/TurnsGrid.class.php:425
+msgid "Picks"
+msgstr ""
+
+#: lib/TurnsGrid.class.php:440
+msgid "Bans"
+msgstr ""
+
+#: lib/TurnsGrid.class.php:467
+msgid "Host Captain"
+msgstr ""
+
+#: lib/TurnsGrid.class.php:468
+msgid "Guest Captain"
+msgstr ""
+
+#: lib/TurnsGrid.class.php:485 views/admin_edit.php:82 views/admin_edit.php:90
+msgid "Click to edit..."
+msgstr ""
+
+#: lib/TurnsGrid.class.php:486 views/admin_edit.php:83 views/admin_edit.php:92
+#: views/home.php:111
+msgid "OK"
+msgstr ""
+
+#: models/draft.class.php:100 views/home.php:246 views/home.php:362
+msgid "1 v 1"
+msgstr ""
+
+#: models/draft.class.php:102 views/home.php:247 views/home.php:363
+msgid "2 v 2"
+msgstr ""
+
+#: models/draft.class.php:104 views/home.php:248 views/home.php:364
+msgid "3 v 3"
+msgstr ""
+
+#: models/draft.class.php:106 views/home.php:249 views/home.php:365
+msgid "4 v 4"
+msgstr ""
+
+#: models/draft.class.php:114
+msgid "Conquerors"
+msgstr ""
+
+#: models/draft.class.php:116
+msgid "Forgotten"
+msgstr ""
+
+#: models/draft.class.php:118
+msgid "Forgotten+African Kingdoms"
+msgstr ""
+
+#: models/draft.class.php:120 views/home.php:159
+msgid "Age of Empires II"
+msgstr ""
+
+#: models/draft.class.php:467
+msgid "Not started."
+msgstr ""
+
+#: models/draft.class.php:473
+msgid "Wrong turn number."
+msgstr ""
+
+#: models/draft.class.php:479
+msgid "Already past last turn."
+msgstr ""
+
+#: models/draft.class.php:487
+msgid "It's the opponent's turn."
+msgstr ""
+
+#: models/draft.class.php:492
+msgid "No such civilization."
+msgstr ""
+
+#: models/draft.class.php:496
+msgid "It's not your turn."
+msgstr ""
+
+#: models/draft.class.php:508
+msgid "This pick/ban is not allowed."
+msgstr ""
+
+#: models/turn.class.php:239 models/turn.class.php:243
+#: models/turn.class.php:245 models/turn.class.php:255
+msgid "pick"
+msgstr ""
+
+#: models/turn.class.php:240 models/turn.class.php:244
+#: models/turn.class.php:246 models/turn.class.php:256
+msgid "ban"
+msgstr ""
+
+#: models/turn.class.php:241 models/turn.class.php:257
+msgid "show picks"
+msgstr ""
+
+#: models/turn.class.php:242 models/turn.class.php:258
+msgid "show bans"
+msgstr ""
+
+#: models/turn.class.php:247
+msgid "show"
+msgstr ""
+
+#: models/turn.class.php:248
+msgid "hide for pick"
+msgstr ""
+
+#: models/turn.class.php:249
+msgid "hide for ban"
+msgstr ""
+
+#: models/turn.class.php:250
+msgid "hide civ"
+msgstr ""
+
+#: models/turn.class.php:259
+msgid "global pick"
+msgstr ""
+
+#: models/turn.class.php:260
+msgid "global ban"
+msgstr ""
+
+#: models/turn.class.php:261
+msgid "exclusive pick"
+msgstr ""
+
+#: models/turn.class.php:262
+msgid "exclusive ban"
+msgstr ""
+
+#: models/turn.class.php:263
+msgid "reveal all"
+msgstr ""
+
+#: models/turn.class.php:264
+msgid "disable pick"
+msgstr ""
+
+#: models/turn.class.php:265
+msgid "disable ban"
+msgstr ""
+
+#: models/turn.class.php:266
+msgid "disable completely"
+msgstr ""
+
+#: views/admin_edit.php:28
+msgid "There was an error sending a choice to the server."
+msgstr ""
+
+#: views/admin_edit.php:53
+msgid "There was an error changing aoe version."
+msgstr ""
+
+#: views/admin_edit.php:91
+msgid "Cancel"
+msgstr ""
+
+#: views/admin_edit.php:98
+msgid "Done"
+msgstr ""
+
+#: views/admin_edit.php:116
+msgid "Admin turns"
+msgstr ""
+
+#: views/admin_edit.php:124
+msgid "User turns"
+msgstr ""
+
+#: views/admin_home.php:3
+msgid "Logout"
+msgstr ""
+
+#: views/admin_home.php:4
+msgid "Maintenance"
+msgstr ""
+
+#: views/admin_home.php:13
+msgid "New preset"
+msgstr ""
+
+#: views/admin_home.php:23 views/admin_home.php:64 views/admin_home.php:74
+msgid "Name"
+msgstr ""
+
+#: views/admin_home.php:24
+msgid "Enabled"
+msgstr ""
+
+#: views/admin_home.php:25 views/admin_home.php:76
+msgid "Actions"
+msgstr ""
+
+#: views/admin_home.php:36
+msgid "true"
+msgstr ""
+
+#: views/admin_home.php:38
+msgid "false"
+msgstr ""
+
+#: views/admin_home.php:43
+msgid "enable"
+msgstr ""
+
+#: views/admin_home.php:45
+msgid "disable"
+msgstr ""
+
+#: views/admin_home.php:63
+msgid "New tournament"
+msgstr ""
+
+#: views/admin_home.php:65
+msgid "Description"
+msgstr ""
+
+#: views/admin_home.php:75
+msgid "Query"
+msgstr ""
+
+#: views/admin_login.php:13 views/admin_login.php:17
+msgid "Login"
+msgstr ""
+
+#: views/admin_login.php:15
+msgid "Username"
+msgstr ""
+
+#: views/admin_login.php:16
+msgid "Password"
+msgstr ""
+
+#: views/demo.php:57 views/home.php:181 views/home.php:349
+msgid "Practice"
+msgstr ""
+
+#: views/demo.php:60
+msgid "Make sure you read this!"
+msgstr ""
+
+#: views/demo.php:61
+msgid ""
+"In Practice mode You control both player's picks and bans.The page looks "
+"just as if you were the blue player. <b>BUT</b>, while the yellow player's "
+"choices are grayed out and there is no highlight, you can still pick and ban "
+"civs for him by clicking on the civ."
+msgstr ""
+
+#: views/footer.php:5
+#, php-format
+msgid "Created by %s."
+msgstr ""
+
+#: views/footer.php:5
+msgid "For more AoC content visit:"
+msgstr ""
+
+#: views/header.php:47
+msgid "back"
+msgstr ""
+
+#: views/home.php:110
+msgid "Click to set name..."
+msgstr ""
+
+#: views/home.php:132 views/home.php:166
+msgid "Welcome"
+msgstr ""
+
+#: views/home.php:133
+msgid ""
+"Looks like it's your first time here. First, set a captain name for yourself:"
+msgstr ""
+
+#: views/home.php:135
+msgid "You can edit this anytime in the future by clicking your name."
+msgstr ""
+
+#: views/home.php:137
+msgid "Set name"
+msgstr ""
+
+#: views/home.php:138
+msgid "Make sure you read the rules!"
+msgstr ""
+
+#: views/home.php:148
+msgid "switch theme"
+msgstr ""
+
+#: views/home.php:155
+msgid "admin"
+msgstr ""
+
+#: views/home.php:171
+msgid "Host or Join"
+msgstr ""
+
+#: views/home.php:176 views/home.php:286
+msgid "Spectate"
+msgstr ""
+
+#: views/home.php:191
+msgid ""
+"Captains mode is a turn-based civilization picker. Each captain can <span "
+"class='green-glow'>pick</span> and <span class='red-glow'>ban</span> "
+"civilizations in a predefined order. Bans prevent the opponent's captain "
+"from picking the civilizations. "
+msgstr ""
+
+#: views/home.php:192
+msgid ""
+"For each turn captains have <b>30 seconds</b>. In case of timeout a random "
+"civilization is picked for the captain or no civilization gets banned."
+msgstr ""
+
+#: views/home.php:193
+msgid ""
+"There are also extension available for tournaments. <b>Hidden</b> option "
+"(black corners) hides the civilization choices until they are explicitely "
+"showed (visible in the timeline at the top). <b>Global</b> pick or bans "
+"disables the civilization for later turns. For other specific settings, "
+"please refer to the preset descriptions."
+msgstr ""
+
+#: views/home.php:194
+msgid ""
+"<b>Practice</b> mode is for testing purposes, where both sides are "
+"controlled by a single player."
+msgstr ""
+
+#: views/home.php:199
+msgid "Tournaments"
+msgstr ""
+
+#: views/home.php:218 views/home.php:334
+msgid "Use preset"
+msgstr ""
+
+#: views/home.php:233
+msgid "Host draft"
+msgstr ""
+
+#: views/home.php:244 views/home.php:360
+msgid "Quick draft"
+msgstr ""
+
+#: views/home.php:255
+msgid "Join existing draft"
+msgstr ""
+
+#: views/home.php:257 views/home.php:278
+msgid "code:"
+msgstr ""
+
+#: views/home.php:265
+msgid "Join"
+msgstr ""
+
+#: views/home.php:276
+msgid "I have a code"
+msgstr ""
+
+#: views/home.php:299
+msgid "Recent Drafts"
+msgstr ""
+
+#: views/home.php:307
+msgid " vs "
+msgstr ""
+
+#: views/home.php:311
+msgid "Watch"
+msgstr ""
+
+#: views/home.php:313
+msgid "Watch Live"
+msgstr ""
+
+#: views/overlay.php:4
+msgid "Go to home page"
+msgstr ""
+
+#: views/overlay.php:7
+msgid "Go back"
+msgstr ""
+
+#: views/overlay.php:13 views/overlay.php:24
+msgid "Please wait..."
+msgstr ""
+
+#: views/overlay.php:14
+msgid "Waiting for the other captain to join."
+msgstr ""
+
+#: views/overlay.php:15
+msgid "Send <b>privately</b> this code:"
+msgstr ""
+
+#: views/overlay.php:17
+msgid "or url: "
+msgstr ""
+
+#: views/overlay.php:25
+msgid "Waiting for captains to join. Send this code first to host then guest:"
+msgstr ""
+
+#: views/overlay.php:26
+msgid "Alternatively send this url to the host captian:"
+msgstr ""
+
+#: views/overlay.php:28
+msgid "and this url to the guest captain:"
+msgstr ""
+
+#: views/overlay.php:34 views/overlay.php:39 views/overlay.php:44
+#: views/overlay.php:49
+msgid "Error"
+msgstr ""
+
+#: views/overlay.php:35
+msgid "A network error occured, please try a new game."
+msgstr ""
+
+#: views/overlay.php:40
+msgid ""
+"This game was not finished due to network error or one of the users "
+"disconnecting."
+msgstr ""
+
+#: views/overlay.php:45
+msgid "The other user disconnected."
+msgstr ""
+
+#: views/overlay.php:50
+msgid "No such game found."
+msgstr ""
+
+#: views/spectate.php:77
+msgid "play"
+msgstr ""
+
+#: views/spectate.php:78
+msgid "pause"
+msgstr ""
+
+#: views/spectate.php:81
+msgid "next"
+msgstr ""
+
+#: views/spectate.php:84
+msgid "fast-forward"
+msgstr ""

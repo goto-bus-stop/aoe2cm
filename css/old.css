@@ -1,0 +1,88 @@
+/*************************************************************************/
+/** timelaps stuff **/
+
+.turn-text {
+	text-align: left;
+	margin: 0px 4px;
+	color: #776631;
+	font-size: 9px;
+	vertical-align: bottom;
+	text-transform: uppercase;
+}
+
+.turn-row {
+	margin: 16px auto;
+	clear: both;
+	display: block;
+	text-align: center;
+}
+
+.turn-row > div{
+	display: inline-block;
+}
+
+.turn {
+	vertical-align: middle;
+	min-width: 36px;
+}
+
+.turns-group-2,.turns-group-1, .turns-group-4{
+	display: inline-block;
+}
+
+.turns-group-1 {
+	min-width: 36px;
+}
+.turns-group-2 {
+	min-width: 72px;
+}
+
+.turns-group-4 {
+	min-width: 144px;
+}
+
+.turns-group-6 {
+	min-width: 216px;
+}
+
+.turn-0, .turn-1 {
+	margin: 0px 2px;
+	width: 32px;
+	height: 8px;
+	display: inline-block;
+}
+
+.turn-0 {
+	background-color: #0000D9;
+}
+
+.turn-1 { 
+	background-color: #B30000;
+}
+
+.turn-do-0 {
+	height: 8px;
+}
+
+.turn-do-1, .turn-do-2 {
+	height: 4px;
+	margin-bottom: 4px;
+}
+.arrow-start {
+	background: url('../images/arrow_start.svg');
+	height: 14px;
+	width: 45px;
+	vertical-align: bottom;
+	opacity: 0.2;
+}
+.arrow-end {
+	background: url('../images/arrow.svg');
+	height: 14px;
+	width: 45px;
+	vertical-align: bottom;
+	opacity: 0.2;
+}
+
+
+/** timelaps stuff end **/
+/*************************************************************************/
