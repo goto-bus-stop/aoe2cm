@@ -1,13 +1,13 @@
 version: '2'
-services: 
-    nginx: 
+services:
+    nginx:
         build: ./nginx
-        ports: 
+        ports:
             - "3083:80"
         volumes:
-            - ./:/src  
+            - ./:/src
         environment:
-            - VIRTUAL_HOST=aoe2cm.app
+            - VIRTUAL_HOST=aoe2cm.local
         #    - VIRTUAL_PORT=3083
         links:
             - fpm
@@ -21,14 +21,15 @@ services:
         links:
             - db
     db:
-        image: mysql
-        environment: 
-            - MYSQL_ROOT_PASSWORD=adminpass
-            - MYSQL_DATABASE=aoecm
-            - MYSQL_USER=aoecm
-            - MYSQL_PASSWORD=pass4aoe
+        image: mysql:5.7
         volumes:
             - dbdata:/var/lib/mysql
+            - ./db:/docker-entrypoint-initdb.d
+        environment:
+            MYSQL_ROOT_PASSWORD: adminpass
+            MYSQL_DATABASE: aoecm
+            MYSQL_USER: aoecm
+            MYSQL_PASSWORD: pass4aoe
 
 volumes:
   # for persistance of database data
@@ -39,6 +40,3 @@ networks:
   aoe2-tier:
     external:
         name: aoe2-proxy
-
-        
-        
