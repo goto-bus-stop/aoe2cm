@@ -271,12 +271,12 @@ const DEFAULT_TURNS_4V4 = array(
             'type' => self::DRAFT_TYPE_PRESETS[$this->type],
         ]);
         if(empty($preset_turns_db)) {
-            service()->insert('preset_item', [
+            service()->db->insert('preset_item', [
                 'type' => self::DRAFT_TYPE_PRESETS[$this->type],
                 'datas [JSON]' => $this->get_preset_turns(),
             ], ['id' => $this->id]);
         } else {
-            service()->update('preset_item', [
+            service()->db->update('preset_item', [
                 'type' => self::DRAFT_TYPE_PRESETS[$this->type],
                 'datas [JSON]' => $this->get_preset_turns(),
             ], ['id' => $this->id]);

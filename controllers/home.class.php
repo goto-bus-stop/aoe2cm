@@ -1,11 +1,13 @@
 <?php
 
+use Klein\{Request, Response, ServiceProvider};
+
 require_once 'models/preset.class.php';
 require_once 'models/draft.class.php';
 
 class HomeController
 {
-    public static function display($request, $response, $service)
+    public static function display(Request $request, Response $response, ServiceProvider $service)
     {
         // disable caching due to unique code generation
         $response->noCache();
@@ -18,7 +20,7 @@ class HomeController
         ]);
     }
 
-    public static function moara2($request, $response, $service)
+    public static function moara2(Request $request, Response $response, ServiceProvider $service)
     {
         $response->noCache();
 
@@ -31,7 +33,7 @@ class HomeController
         ]);
     }
 
-    public static function cmmonthly($request, $response, $service)
+    public static function cmmonthly(Request $request, Response $response, ServiceProvider $service)
     {
         $response->noCache();
 
@@ -49,7 +51,7 @@ class HomeController
         ]);
     }
 
-    public static function aoak_showcase($request, $response, $service)
+    public static function aoak_showcase(Request $request, Response $response, ServiceProvider $service)
     {
         $response->noCache();
 
@@ -67,7 +69,7 @@ class HomeController
         ]);
     }
 
-    public static function casuals_to_war($request, $response, $service)
+    public static function casuals_to_war(Request $request, Response $response, ServiceProvider $service)
     {
         $response->noCache();
 
@@ -80,7 +82,7 @@ class HomeController
         ]);
     }
 
-    public static function into_the_darkness($request, $response, $service)
+    public static function into_the_darkness(Request $request, Response $response, ServiceProvider $service)
     {
         $response->noCache();
 
@@ -99,7 +101,7 @@ class HomeController
         ]);
     }
 
-    public static function the_legacy_cup($request, $response, $service)
+    public static function the_legacy_cup(Request $request, Response $response, ServiceProvider $service)
     {
         $service->render(__DIR__.'/../views/tournaments/the_legacy_cup.php', [
             'title' => 'The Legacy Cup',
@@ -108,7 +110,7 @@ class HomeController
         ]);
     }
 
-    public static function escape_masters($request, $response, $service)
+    public static function escape_masters(Request $request, Response $response, ServiceProvider $service)
     {
         $preset = Preset::find_with_name("Escape Gaming Masters");
         $service->render(__DIR__.'/../views/tournaments/escape_masters.php', [
@@ -119,7 +121,7 @@ class HomeController
         ]);
     }
 
-    public static function escape_masters2($request, $response, $service)
+    public static function escape_masters2(Request $request, Response $response, ServiceProvider $service)
     {
         $service->render(__DIR__.'/../views/tournaments/escape_masters2.php', [
             'title' => 'Escape Gaming Masters 2',
@@ -128,7 +130,7 @@ class HomeController
         ]);
     }
 
-    public static function return_of_the_kings($request, $response, $service)
+    public static function return_of_the_kings(Request $request, Response $response, ServiceProvider $service)
     {
         $service->render(__DIR__.'/../views/tournaments/returnofthekings.php', [
             'title' => 'Return of the Kings',
@@ -139,7 +141,7 @@ class HomeController
         ]);
     }
 
-    public static function allstars($request, $response, $service)
+    public static function allstars(Request $request, Response $response, ServiceProvider $service)
     {
         $service->render(__DIR__.'/../views/tournaments/allstars.php', [
             'title' => 'All-Stars',

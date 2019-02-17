@@ -1,5 +1,6 @@
 <?php
 
+use Klein\{Request, Response, ServiceProvider};
 use Medoo\Medoo;
 
 require_once 'lib/constants.class.php';

@@ -4,6 +4,8 @@ require_once 'lib/civgrid.class.php';
 require_once 'lib/constants.class.php';
 require_once 'lib/TurnsGrid.class.php';
 
+$preset = $this->preset;
+
 ?>
 
 <script>

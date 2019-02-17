@@ -1,12 +1,14 @@
 <?php
 
+use Klein\{Request, Response, ServiceProvider};
+
 require_once __DIR__.'/../models/draft.class.php';
 require_once __DIR__.'/../models/player.class.php';
 require_once __DIR__.'/../lib/name_generator.php';
 
 class DraftController
 {
-  public static function test()
+  public static function test(Request $request, Response $response, ServiceProvider $service)
   {
         $draft = Draft::find_with_code('jXP');
 
@@ -17,7 +19,7 @@ class DraftController
         var_dump($draft->get_disabled_picks());
     }
 
-    public static function display($request, $response, $service)
+    public static function display(Request $request, Response $response, ServiceProvider $service)
     {
         if (!ctype_alnum($request->param('code'))) {
             $response->code(404);
@@ -41,7 +43,7 @@ class DraftController
         ]);
     }
 
-    public static function player_get_stored_name($request) {
+    public static function player_get_stored_name(Request $request) {
         $cookies = $request->cookies();
         if($cookies->exists('username')) {
             return generate_random_name();
@@ -50,7 +52,7 @@ class DraftController
         }
     }
 
-    public static function join($request, $response, $service) {
+    public static function join(Request $request, Response $response, ServiceProvider $service) {
         if(!ctype_alnum($request->param('code'))) {
             $response->code(404);
             return;
@@ -92,7 +94,7 @@ class DraftController
         ]);
     }
 
-    public static function _join($request, $response, $service) {
+    public static function _join(Request $request, Response $response, ServiceProvider $service) {
         if(!$request->param('code') || !ctype_alnum($request->param('code'))) {
             return $response->code(404);
         }
@@ -140,7 +142,7 @@ class DraftController
         $response->redirect(ROOTDIR.'/draft?code='.$draft->code);
     }
 
-    public static function create($request, $response, $service) {
+    public static function create(Request $request, Response $response, ServiceProvider $service) {
         $practice = 0;
         $type = Draft::TYPE_1V1;
         $admin_host = false;
@@ -219,7 +221,7 @@ class DraftController
         }
     }
 
-    public static function demo($request, $response, $service)
+    public static function demo(Request $request, Response $response, ServiceProvider $service)
     {
         if (!$request->param('code') || !ctype_alnum($request->param('code'))) {
             $response->code(404);
@@ -242,7 +244,7 @@ class DraftController
         ]);
     }
 
-    public static function spectate($request, $response, $service)
+    public static function spectate(Request $request, Response $response, ServiceProvider $service)
     {
         if (!$request->param('code') || !ctype_alnum($request->param('code'))) {
             $response->code(404);
@@ -269,7 +271,7 @@ class DraftController
     }
 
 
-    public static function get_player_info($draft)
+    public static function get_player_info(Draft $draft)
     {
         $players = $draft->get_players();
 
@@ -454,7 +456,7 @@ class DraftController
         return $draft_info;
     }
 
-    public static function check_disconnect_error($draft, $data) {
+    public static function check_disconnect_error(Draft $draft, array $data) {
         $error = false;
         if( $draft->is_started() ) {
 
@@ -469,7 +471,7 @@ class DraftController
         }
     }
 
-    public static function get_state($request, $response, $service)
+    public static function get_state(Request $request, Response $response, ServiceProvider $service)
     {
         if (!is_numeric($request->param('id'))) {
             return $response->code(404)->json(null);
@@ -502,58 +504,50 @@ class DraftController
         $response->json($return_turns);
     }
 
-    public static function draft_start($request, $response, $service)
+    public static function draft_start(Request $request, Response $response, ServiceProvider $service)
     {
         if (!is_numeric($request->param('id'))) {
-            $response->code(404);
-
-            return;
+            return $response->code(400);
         }
 
         $draft = new Draft(intval($request->param('id')));
         if (!$draft->exists()) {
-            $response->code(404);
+            return $response->code(400);
         }
 
         //if we are not in ready state, we can't start
         if (!$draft->is_ready()) {
-            self::return_state($draft, $response);
-            return;
+            return self::return_state($draft, $response);
         }
 
         //check if the player is the host
         if ( $draft->get_player_role() != Player::PLAYER_1) {
-            $response->code(404);
-            return;
+            return $response->code(403);
         }
 
         $draft->start();
         self::return_state($draft, $response);
     }
 
-    public static function draft_ready($request, $response, $service)
+    public static function draft_ready(Request $request, Response $response, ServiceProvider $service)
     {
         if (!is_numeric($request->param('id'))) {
-            $response->code(404);
-
-            return;
+            return $response->code(400);
         }
 
         $draft = new Draft(intval($request->param('id')));
         if (!$draft->exists()) {
-            $response->code(404);
+            return $response->code(404);
         }
 
         if (!$draft->is_starting()) {
-            self::return_state($draft, $response);
-            return;
+            return self::return_state($draft, $response);
         }
 
 
         //check if user is allowed to do this
         if ($draft->get_player_role() != Player::PLAYER_2) {
-            $response->code(404);
-            return;
+            return $response->code(403);
         }
 
         $draft->ready();
@@ -561,24 +555,21 @@ class DraftController
         self::return_state($draft, $response);
     }
 
-    public static function set_name($request, $response, $service)
+    public static function set_name(Request $request, Response $response, ServiceProvider $service)
     {
         if (!is_numeric($request->param('draft_id'))) {
-            $response->code(404);
-            return;
+            return $response->code(400);
         }
 
         $draft = new Draft(intval($request->param('draft_id')));
         if (!$draft->exists()) {
-            $response->code(404);
-            return;
+            return $response->code(404);
         }
 
 
         $player_role = $draft->get_player_role();
         if ($player_role != Player::PLAYER_1 && $player_role != Player::PLAYER_2) {
-            $response->code(404);
-            return;
+            return $response->code(403);
         }
 
         $player = $draft->get_current_player();
@@ -590,7 +581,7 @@ class DraftController
         self::return_state($draft, $response);
     }
 
-    public static function post_choice($request, $response, $service)
+    public static function post_choice(Request $request, Response $response, ServiceProvider $service)
     {
         if (!is_numeric($request->param('draft_id')) ||
             !is_numeric($request->param('turn_no')) ||

@@ -1,3 +1,7 @@
+<?php
+$presets = $this->presets;
+$tournaments = $this->tournaments;
+?>
 
 <div class="header">
 	<a href="<?php echo ROOTDIR; ?>/logout" class="text-primary shadowbutton"><?php echo _("Logout"); ?></a>

@@ -1,17 +1,19 @@
 <?php
 
+use Klein\{Request, Response, ServiceProvider};
+
 require_once 'models/tournament.class.php';
 require_once 'models/preset.class.php';
 
+$ADMINS = [
+    'user' => md5('passwordhash'),
+];
+
 class AdminController
 {
-    const ADMINS = [
-        'user' => 'passwordhash',
-    ];
-
-    public static function display($request, $response, $service)
+    public static function display(Request $request, Response $response, ServiceProvider $service)
     {
-        if (!$service->session(Constants::LOGGED_IN)) {
+        if (!($service->session)(Constants::LOGGED_IN)) {
             return $response->redirect(ROOTDIR.'/login');
         }
 
@@ -22,9 +24,9 @@ class AdminController
         ]);
     }
 
-    public static function newPreset($request, $response, $service)
+    public static function newPreset(Request $request, Response $response, ServiceProvider $service)
     {
-        if (!$service->session(Constants::LOGGED_IN)) {
+        if (!($service->session)(Constants::LOGGED_IN)) {
             $response->redirect(ROOTDIR.'/login');
             return;
         }
@@ -41,9 +43,9 @@ class AdminController
         $response->redirect(ROOTDIR.'/preset-edit?p='.$preset->id);
     }
 
-    public static function editPreset($request, $response, $service)
+    public static function editPreset(Request $request, Response $response, ServiceProvider $service)
     {
-        if (!$service->session(Constants::LOGGED_IN)) {
+        if (!($service->session)(Constants::LOGGED_IN)) {
             $response->redirect(ROOTDIR.'/login');
             return;
         }
@@ -65,9 +67,9 @@ class AdminController
         ]);
     }
 
-    public static function presetHistory($request, $response, $service)
+    public static function presetHistory(Request $request, Response $response, ServiceProvider $service)
     {
-        if (!$service->session(Constants::LOGGED_IN)) {
+        if (!($service->session)(Constants::LOGGED_IN)) {
             return $response->redirect(ROOTDIR.'/login');
         }
 
@@ -89,9 +91,9 @@ class AdminController
         ]);
     }
 
-    public static function enablePreset($request, $response, $service)
+    public static function enablePreset(Request $request, Response $response, ServiceProvider $service)
     {
-        if (!$service->session(Constants::LOGGED_IN)) {
+        if (!($service->session)(Constants::LOGGED_IN)) {
             return $response->redirect(ROOTDIR.'/login');
         }
 
@@ -113,9 +115,9 @@ class AdminController
         $response->redirect(ROOTDIR.'/admin', null, false, true);
     }
 
-    public static function deletePreset($request, $response, $service)
+    public static function deletePreset(Request $request, Response $response, ServiceProvider $service)
     {
-        if (!$service->session(Constants::LOGGED_IN)) {
+        if (!($service->session)(Constants::LOGGED_IN)) {
             $response->redirect(ROOTDIR.'/login');
             return;
         }
@@ -133,9 +135,9 @@ class AdminController
         $response->redirect(ROOTDIR.'/admin', null, false, true);
     }
 
-    public static function newTournament($request, $response, $service)
+    public static function newTournament(Request $request, Response $response, ServiceProvider $service)
     {
-        if (!$service->session(Constants::LOGGED_IN)) {
+        if (!($service->session)(Constants::LOGGED_IN)) {
             return $response->redirect(ROOTDIR.'/login');
         }
 
@@ -151,9 +153,9 @@ class AdminController
         $response->redirect(ROOTDIR.'/admin', null, false, true);
     }
 
-    public static function deleteTournament($request, $response, $service)
+    public static function deleteTournament(Request $request, Response $response, ServiceProvider $service)
     {
-        if (!$service->session(Constants::LOGGED_IN)) {
+        if (!($service->session)(Constants::LOGGED_IN)) {
             return $response->redirect(ROOTDIR.'/login');
         }
 
@@ -171,7 +173,7 @@ class AdminController
     }
 
 
-    public static function login($request, $response, $service)
+    public static function login(Request $request, Response $response, ServiceProvider $service)
     {
         $service->render(__DIR__.'/../views/admin_login.php', [
             'title' => 'Admin login',
@@ -179,26 +181,27 @@ class AdminController
         ]);
     }
 
-    public static function processLogin($request, $response, $service)
+    public static function processLogin(Request $request, Response $response, ServiceProvider $service)
     {
+        global $ADMINS;
         // Confirm the password is correct
         $user = $request->param('user');
         $password = $request->param('pass');
 
-        if (!array_key_exists($user, self::ADMINS) || strcmp(md5($password), self::ADMINS[$user]) != 0) {
+        if (!array_key_exists($user, $ADMINS) || strcmp(md5($password), $ADMINS[$user]) != 0) {
             return $response->redirect(ROOTDIR.'/login?msg='.urlencode('User or password is incorrect'));
         }
 
         // * Assume it's all good for the time being * //
         // Redirect to the logged in home page
-        $service->session(Constants::LOGGED_IN, true);
+        ($service->session)(Constants::LOGGED_IN, true);
         $response->redirect(ROOTDIR.'/admin');
     }
 
-    public static function processLogout($request, $response, $service)
+    public static function processLogout(Request $request, Response $response, ServiceProvider $service)
     {
         // Redirect to the logged in home page
-        $service->session(Constants::LOGGED_IN, false);
+        ($service->session)(Constants::LOGGED_IN, false);
         $response->redirect(ROOTDIR.'/');
     }
 }

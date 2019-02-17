@@ -1,18 +1,20 @@
 <?php
 
+use Klein\{Request, Response, ServiceProvider};
+
 require_once __DIR__.'/../lib/TurnsGrid.class.php';
 
 class AdminAjaxController
 {
-    static public function check_login($request, $response, $service) {
-        if(!$service->session(Constants::LOGGED_IN)) {
+    static public function check_login(Request $request, Response $response, ServiceProvider $service) {
+        if(!($service->session)(Constants::LOGGED_IN)) {
             $response->code(403);
             return false;
         }
         return true;
     }
 
-    static public function preset_set_type($request, $response, $service) {
+    static public function preset_set_type(Request $request, Response $response, ServiceProvider $service) {
         if (!self::check_login($request, $response, $service)) return;
 
         $preset = new Preset($request->param('preset_id'));
@@ -23,7 +25,7 @@ class AdminAjaxController
         return $turns_grid->editableTimeline($turns);
     }
 
-    static public function preset_set_aoe_version($request, $response, $service) {
+    static public function preset_set_aoe_version(Request $request, Response $response, ServiceProvider $service) {
         if (!self::check_login($request, $response, $service)) return;
 
         $preset = new Preset($request->param('request_id'));
@@ -33,7 +35,7 @@ class AdminAjaxController
         return $turns_grid->editablePreTurns($preset->get_preset_pre_turns());
     }
 
-    static public function add_turn($request, $response, $service) {
+    static public function add_turn(Request $request, Response $response, ServiceProvider $service) {
         if (!self::check_login($request, $response, $service)) return;
 
         $index = $request->param('index');
@@ -51,7 +53,7 @@ class AdminAjaxController
         return $turns_grid->editableTimeline($turns);
     }
 
-    static public function del_turn($request, $response, $service) {
+    static public function del_turn(Request $request, Response $response, ServiceProvider $service) {
         if (!self::check_login($request, $response, $service)) return;
 
         $index = $request->param('index');
@@ -66,20 +68,20 @@ class AdminAjaxController
         return $turns_grid->editableTimeline($turns);
     }
 
-    static public function change_turn($request, $response, $service) {
+    static public function change_turn(Request $request, Response $response, ServiceProvider $service) {
         if (!self::check_login($request, $response, $service)) return;
 
         $index = $request->param('index');
         $preset_id = $request->param('preset_id');
 
         $preset = new Preset($preset_id);
-        if($request->params()->exists('hidden')) {
+        if($request->paramsPost()->exists('hidden')) {
             $preset->set_turn_hidden($index, intval($request->param('hidden')));
         }
-        if($request->params()->exists('role')) {
+        if($request->paramsPost()->exists('role')) {
             $preset->set_turn_player($index, intval($request->param('role')));
         }
-        if($request->params()->exists('action')) {
+        if($request->paramsPost()->exists('action')) {
             $preset->set_turn_action($index, intval($request->param('action')));
         }
 
@@ -89,7 +91,7 @@ class AdminAjaxController
         return $turns_grid->editableTimeline($turns);
     }
 
-    static public function add_pre_turn($request, $response, $service) {
+    static public function add_pre_turn(Request $request, Response $response, ServiceProvider $service) {
         if (!self::check_login($request, $response, $service)) return;
 
         $index = $request->param('index');
@@ -107,7 +109,7 @@ class AdminAjaxController
         return $turns_grid->editablePreTurns($turns);
     }
 
-    static public function del_pre_turn($request, $response, $service) {
+    static public function del_pre_turn(Request $request, Response $response, ServiceProvider $service) {
         if (!self::check_login($request, $response, $service)) return;
 
         $index = $request->param('index');
@@ -122,20 +124,20 @@ class AdminAjaxController
         return $turns_grid->editablePreTurns($turns);
     }
 
-    static public function change_pre_turn($request, $response, $service) {
+    static public function change_pre_turn(Request $request, Response $response, ServiceProvider $service) {
         if (!self::check_login($request, $response, $service)) return;
 
         $index = $request->param('index');
         $preset_id = $request->param('preset_id');
 
         $preset = new Preset($preset_id);
-        if($request->params()->exists('civ')) {
+        if($request->paramsPost()->exists('civ')) {
             $preset->set_pre_turn_civ($index, intval($request->param('civ')));
         }
-        if($request->params()->exists('role')) {
+        if($request->paramsPost()->exists('role')) {
             $preset->set_pre_turn_player($index, intval($request->param('role')));
         }
-        if($request->params()->exists('action')) {
+        if($request->paramsPost()->exists('action')) {
             $preset->set_pre_turn_action($index, intval($request->param('action')));
         }
 
@@ -145,7 +147,7 @@ class AdminAjaxController
         return $turns_grid->editablePreTurns($turns);
     }
 
-    static public function set_preset_name($request, $response, $service) {
+    static public function set_preset_name(Request $request, Response $response, ServiceProvider $service) {
         if (!self::check_login($request, $response, $service)) return;
 
         $preset = new Preset($request->param('preset_id'));
@@ -154,7 +156,7 @@ class AdminAjaxController
         echo $preset->name;
     }
 
-    static public function set_preset_description($request, $response, $service) {
+    static public function set_preset_description(Request $request, Response $response, ServiceProvider $service) {
         if (!self::check_login($request, $response, $service)) return;
 
         $preset = new Preset($request->param('preset_id'));
