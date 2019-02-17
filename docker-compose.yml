@@ -20,6 +20,11 @@ services:
             - ./:/src
         links:
             - db
+        environment:
+            MYSQL_HOST: db
+            MYSQL_DATABASE: aoecm
+            MYSQL_USER: aoecm
+            MYSQL_PASSWORD: pass4aoe
     db:
         image: mysql:5.7
         volumes:

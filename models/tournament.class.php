@@ -1,7 +1,7 @@
 <?php
 
-class Tournament {
-
+class Tournament
+{
     const STATE_DISABLED = 0;
     const STATE_ENABLED = 1;
     const STATE_ARCHIVED = 2;
@@ -16,9 +16,8 @@ class Tournament {
     public function __construct($db_info = null) {
         if(is_array($db_info)) {
             $this->load_from_info($db_info);
-        } elseif(is_numeric($db_info)) {
-            $info = getDatabase()->one('SELECT * FROM tournament WHERE id=:Id',
-                array(':Id' => $db_info));
+        } else if(is_numeric($db_info)) {
+            $info = service()->db->get('tournament', '*', ['id' => $db_info]);
             if(!empty($info)) {
                 $this->load_from_info($info);
             }
@@ -34,18 +33,17 @@ class Tournament {
 
     public function load_data() {
         if(!$this->exists()) {
-            return ;
+            return;
         }
 
-        $data = getDatabase()->one('SELECT * FROM tournament_data WHERE tournament_id=:Id',
-            array(':Id' => $this->id));
+        $data = service()->db->get('tournament_data', '*', ['tournament_id' => $this->id]);
         if(!empty($data)) {
             $this->html = $data['html'];
         }
     }
 
     public static function find_all() {
-        $tourney_db = getDatabase()->all('SELECT * FROM tournament');
+        $tourney_db = service()->db->select('tournament', '*');
         $ret_array = array();
         if(!empty($tourney_db)) {
             foreach($tourney_db as $tourney_info) {
@@ -58,28 +56,31 @@ class Tournament {
 
     public function save() {
         if(!$this->exists()) {
-            $tournament_id = getDatabase()->execute('INSERT INTO tournament (name, state,description,code) VALUES (:Name,:State,:Description,:Code)',
-                array(':Name' => $this->name, ':State' => $this->state,
-                    ':Description' => $this->description, ':Code' => $this->code));
-            $this->id = $tournament_id;
+            service()->db->insert('tournament', [
+                'name' => $this->name,
+                'state' => $this->state,
+                'description' => $this->description,
+                'code' => $this->code,
+            ]);
+            $this->id = service()->db->id();
 
             if($this->exists()) {
-                getDatabase()->execute('INSERT INTO tournament_data (tournement_id,html) VALUES (:Id, :Html)',
-                    array(':Id' => $this->id, ':Html' => $this->html));
+                service()->db->insert('tournament_data', [
+                    'tournement_id' => $this->id,
+                    'html' => $this->html,
+                ]);
             }
 
         } else {
-
-            getDatabase()->execute('UPDATE tournament SET name=:Name, state=:State,code=:Code,description=:Description WHERE id=:Id',
-                array(':Id' => $this->id,
-                        ':State' => $this->state,
-                        ':Name' => $this->name,
-                        ':Code' => $this->code,
-                        ':Description' => $this->description));
-
-             getDatabase()->execute('UPDATE tournament_data SET name=:Name, state=:State,code=:Code,description=:Description WHERE tournament_id=:Id',
-                array(':Id' => $this->id,
-                        ':Html' => $this->html));
+            service()->db->update('tournament', [
+                'name' => $this->name,
+                'state' => $this->state,
+                'code' => $this->code,
+                'description' => $this->description,
+            ], ['id' => $this->id]);
+            service()->db->update('tournament_data', [
+                'html' => $this->html,
+            ], ['tournament_id' => $this->id]);
         }
     }
 
@@ -88,8 +89,7 @@ class Tournament {
             return;
         }
 
-        getDatabase()->execute('DELETE FROM tournament WHERE id=:Id',
-            array(':Id' => $this->id));
+        service()->db->delete('tournament', ['id' => $this->id]);
     }
 
     public function exists() {

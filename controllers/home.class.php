@@ -1,159 +1,151 @@
 <?php
 
-include_once 'models/preset.class.php';
-include_once 'models/draft.class.php';
+require_once 'models/preset.class.php';
+require_once 'models/draft.class.php';
 
 class HomeController
 {
-    public static function display()
+    public static function display($request, $response, $service)
     {
-        $params = array();
-        $params['body'] = 'home.php';
-        $params['title'] = _('AoE2 Captains mode');
-        $params['home'] = 'home';
-        $params['presets'] = Preset::find_all_enabled();
-        $params['last_drafts'] = Draft::get_last(10);
+        // disable caching due to unique code generation
+        $response->noCache();
 
-        //disable caching due to unique code generation
-        header('Cache-Control: no-cache, must-revalidate'); // HTTP/1.1
-        header('Expires: Sat, 26 Jul 1997 05:00:00 GMT'); // Date in the past
-
-        getTemplate()->display('baseplate.php', $params);
+        $service->render(__DIR__.'/../views/home.php', [
+            'title' => _('AoE2 Captains mode'),
+            'home' => 'home',
+            'presets' => Preset::find_all_enabled(),
+            'last_drafts' => Draft::get_last(10),
+        ]);
     }
 
-    public static function moara2() {
-        $params = array();
-        $params['body'] = 'tournaments/moara2.php';
-        $params['title'] = 'Masters of Arabia 2 '+_('Captains mode');
-        $params['goUp'] = true;
-        $params['preset'] = Preset::find_with_name("Masters of Arabia2");
-        $params['last_drafts'] = Draft::get_last_with_preset($params['preset'], 10);
+    public static function moara2($request, $response, $service)
+    {
+        $response->noCache();
 
-        //disable caching due to unique code generation
-        header('Cache-Control: no-cache, must-revalidate'); // HTTP/1.1
-        header('Expires: Sat, 26 Jul 1997 05:00:00 GMT'); // Date in the past
-
-        getTemplate()->display('baseplate.php', $params);
+        $preset = Preset::find_with_name("Masters of Arabia2");
+        $service->render(__DIR__.'/../views/tournaments/moara2.php', [
+            'title' => 'Masters of Arabia 2 '._('Captains mode'),
+            'goUp' => true,
+            'preset' => $preset,
+            'last_drafts' => Draft::get_last_with_preset($preset, 10),
+        ]);
     }
 
-    public static function cmmonthly() {
-        $params = array();
-        $params['body'] = 'tournaments/cmmonthly.php';
-        $params['title'] = 'CM Monthly DM edition';
-        $params['goUp'] = true;
-        $params['preset_hidden'] = Preset::find_with_name("CM Monthly DM Hidden");
-        $params['preset'] = Preset::find_with_name("CM Monthly DM");
-        $params['last_drafts'] = array_merge(Draft::get_last_with_preset($params['preset'], 5), Draft::get_last_with_preset($params['preset_hidden'], 5)) ;
+    public static function cmmonthly($request, $response, $service)
+    {
+        $response->noCache();
 
-
-        //disable caching due to unique code generation
-        header('Cache-Control: no-cache, must-revalidate'); // HTTP/1.1
-        header('Expires: Sat, 26 Jul 1997 05:00:00 GMT'); // Date in the past
-
-        getTemplate()->display('baseplate.php', $params);
+        $preset = Preset::find_with_name("CM Monthly DM");
+        $preset_hidden = Preset::find_with_name("CM Monthly DM Hidden");
+        $service->render(__DIR__.'/../views/tournaments/cmmonthly.php', [
+            'title' => 'CM Monthly DM edition',
+            'goUp' => true,
+            'preset_hidden' => $preset_hidden,
+            'preset' => $preset,
+            'last_drafts' => array_merge(
+                Draft::get_last_with_preset($preset, 5),
+                Draft::get_last_with_preset($preset_hidden, 5)
+            ),
+        ]);
     }
 
-    public static function aoak_showcase() {
-        $params = array();
-        $params['body'] = 'tournaments/aoak_showcase.php';
-        $params['title'] = 'AoAK 3v3 showcase';
-        $params['goUp'] = true;
-        $params['preset_g1'] = Preset::find_with_name("AoAK Showcase G1-2 (Hidden)");
-        $params['preset_g3'] = Preset::find_with_name("AoAK Showcase G3-5 (Hidden)");
-        $params['last_drafts'] = array_merge(Draft::get_last_with_preset($params['preset_g1'], 5), Draft::get_last_with_preset($params['preset_g3'], 5)) ;
+    public static function aoak_showcase($request, $response, $service)
+    {
+        $response->noCache();
 
-        //disable caching due to unique code generation
-        header('Cache-Control: no-cache, must-revalidate'); // HTTP/1.1
-        header('Expires: Sat, 26 Jul 1997 05:00:00 GMT'); // Date in the past
-
-        getTemplate()->display('baseplate.php', $params);
+        $preset_g1 = Preset::find_with_name("AoAK Showcase G1-2 (Hidden)");
+        $preset_g3 = Preset::find_with_name("AoAK Showcase G3-5 (Hidden)");
+        $service->render(__DIR__.'/../views/tournaments/aoak_showcase.php', [
+            'title' => 'AoAK 3v3 showcase',
+            'goUp' => true,
+            'preset_g1' => $preset_g1,
+            'preset_g3' => $preset_g3,
+            'last_drafts' => array_merge(
+                Draft::get_last_with_preset($preset_g1, 5),
+                Draft::get_last_with_preset($preset_g3, 5)
+            ),
+        ]);
     }
 
-    public static function casuals_to_war() {
-        $params = array();
-        $params['body'] = 'tournaments/casuals.php';
-        $params['title'] = 'Casual to War';
-        $params['goUp'] = true;
-        $params['preset'] = Preset::find_with_name("Casuals to War");
-        $params['last_drafts'] = Draft::get_last_with_preset($params['preset'], 10);
+    public static function casuals_to_war($request, $response, $service)
+    {
+        $response->noCache();
 
-        //disable caching due to unique code generation
-        header('Cache-Control: no-cache, must-revalidate'); // HTTP/1.1
-        header('Expires: Sat, 26 Jul 1997 05:00:00 GMT'); // Date in the past
-
-        getTemplate()->display('baseplate.php', $params);
+        $preset = Preset::find_with_name("Casuals to War");
+        $service->render(__DIR__.'/../views/tournaments/casuals.php', [
+            'title' => 'Casual to War',
+            'goUp' => true,
+            'preset' => $preset,
+            'last_drafts' => Draft::get_last_with_preset($preset, 10),
+        ]);
     }
 
-    public static function into_the_darkness() {
-        $params = array();
-        $params['body'] = 'tournaments/itd.php';
-        $params['title'] = 'Into the Darkness';
-        $params['goUp'] = true;
-        $params['preset_g1'] = Preset::find_with_name("Into the Darkness 3v3 G1");
-        $params['preset_g2'] = Preset::find_with_name("Into the Darkness 3v3 G2-5");
-        $params['last_drafts'] = array_merge(Draft::get_last_with_preset($params['preset_g1'], 5), Draft::get_last_with_preset($params['preset_g2'], 5)) ;
-        $params['theme'] = 'material-dark';
+    public static function into_the_darkness($request, $response, $service)
+    {
+        $response->noCache();
 
-        //disable caching due to unique code generation
-        header('Cache-Control: no-cache, must-revalidate'); // HTTP/1.1
-        header('Expires: Sat, 26 Jul 1997 05:00:00 GMT'); // Date in the past
-
-        getTemplate()->display('baseplate.php', $params);
+        $preset_g1 = Preset::find_with_name("Into the Darkness 3v3 G1");
+        $preset_g2 = Preset::find_with_name("Into the Darkness 3v3 G2-5");
+        $service->render(__DIR__.'/../views/tournaments/itd.php', [
+            'title' => 'Into the Darkness',
+            'goUp' => true,
+            'preset_g1' => $preset_g1,
+            'preset_g2' => $preset_g2,
+            'last_drafts' => array_merge(
+                Draft::get_last_with_preset($preset_g1, 5),
+                Draft::get_last_with_preset($preset_g2, 5)
+            ),
+            'theme' => 'material-dark',
+        ]);
     }
 
-    public static function the_legacy_cup() {
-        $params = array();
-        $params['body'] = 'tournaments/the_legacy_cup.php';
-        $params['title'] = 'The Legacy Cup';
-        $params['goUp'] = true;
-        $params['preset'] = Preset::find_with_name("Hidden 2v2");
-        //$params['last_drafts'] = Draft::get_last_with_preset($params['preset'], 10);
-
-        getTemplate()->display('baseplate.php', $params);
+    public static function the_legacy_cup($request, $response, $service)
+    {
+        $service->render(__DIR__.'/../views/tournaments/the_legacy_cup.php', [
+            'title' => 'The Legacy Cup',
+            'goUp' => true,
+            'preset' => Preset::find_with_name("Hidden 2v2"),
+        ]);
     }
 
-    public static function escape_masters() {
-        $params = array();
-        $params['body'] = 'tournaments/escape_masters.php';
-        $params['title'] = 'Escape Gaming Masters';
-        $params['goUp'] = true;
-        $params['preset'] = Preset::find_with_name("Escape Gaming Masters");
-        $params['last_drafts'] = Draft::get_last_with_preset($params['preset'], 10);
-
-        getTemplate()->display('baseplate.php', $params);
+    public static function escape_masters($request, $response, $service)
+    {
+        $preset = Preset::find_with_name("Escape Gaming Masters");
+        $service->render(__DIR__.'/../views/tournaments/escape_masters.php', [
+            'title' => 'Escape Gaming Masters',
+            'goUp' => true,
+            'preset' => $preset,
+            'last_drafts' => Draft::get_last_with_preset($preset, 10),
+        ]);
     }
 
-    public static function escape_masters2() {
-        $params = array();
-        $params['body'] = 'tournaments/escape_masters2.php';
-        $params['title'] = 'Escape Gaming Masters 2';
-        $params['goUp'] = true;
-        $params['preset'] = Preset::find_with_name("Escape Gaming Masters 2");
-        //$params['last_drafts'] = Draft::get_last_with_preset($params['preset'], 10);
-
-        getTemplate()->display('baseplate.php', $params);
+    public static function escape_masters2($request, $response, $service)
+    {
+        $service->render(__DIR__.'/../views/tournaments/escape_masters2.php', [
+            'title' => 'Escape Gaming Masters 2',
+            'goUp' => true,
+            'preset' => Preset::find_with_name("Escape Gaming Masters 2"),
+        ]);
     }
 
-    public static function return_of_the_kings() {
-        $params = array();
-        $params['body'] = 'tournaments/returnofthekings.php';
-        $params['title'] = 'Return of the Kings';
-        $params['goUp'] = true;
-        $params['preset'] = Preset::find_with_name("Return of the Kings G1-2");
-        $params['preset2'] = Preset::find_with_name("Return of the Kings G3");
-        $params['theme'] = 'material-dark';
-
-        getTemplate()->display('baseplate.php', $params);
+    public static function return_of_the_kings($request, $response, $service)
+    {
+        $service->render(__DIR__.'/../views/tournaments/returnofthekings.php', [
+            'title' => 'Return of the Kings',
+            'goUp' => true,
+            'preset' => Preset::find_with_name("Return of the Kings G1-2"),
+            'preset2' => Preset::find_with_name("Return of the Kings G3"),
+            'theme' => 'material-dark',
+        ]);
     }
-    
-    public static function allstars() {
-        $params = array();
-        $params['body'] = 'tournaments/allstars.php';
-        $params['title'] = 'All-Stars';
-        $params['goUp'] = true;
-        $params['preset'] = Preset::find_with_name("AoE All-Stars g2-3");
-        $params['theme'] = 'material-dark';
 
-        getTemplate()->display('baseplate.php', $params);
+    public static function allstars($request, $response, $service)
+    {
+        $service->render(__DIR__.'/../views/tournaments/allstars.php', [
+            'title' => 'All-Stars',
+            'goUp' => true,
+            'preset' => Preset::find_with_name("AoE All-Stars g2-3"),
+            'theme' => 'material-dark',
+        ]);
     }
 }

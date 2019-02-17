@@ -1,8 +1,8 @@
 <?php
-include_once 'lib/uniqid.php';
-include_once 'lib/civgrid.class.php';
-include_once 'lib/constants.class.php';
-include_once 'lib/TurnsGrid.class.php';
+require_once 'lib/uniqid.php';
+require_once 'lib/civgrid.class.php';
+require_once 'lib/constants.class.php';
+require_once 'lib/TurnsGrid.class.php';
 
 ?>
 

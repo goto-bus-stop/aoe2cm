@@ -1,13 +1,10 @@
 <?php
-define("ROOTDIR", "");
+require_once 'vendor/autoload.php';
 
-include_once './epiphany/Epi.php';
+define("ROOTDIR", __DIR__);
+use Symfony\Component\Dotenv\Dotenv;
 
-Epi::setSetting('exceptions', true);
-Epi::setPath('base', './epiphany');
-Epi::setPath('view', './views');
-Epi::init('route','template','session', 'database');
-EpiDatabase::employ('mysql','aoecm','localhost','aoecm','pass4aoe'); // type = mysql, database = mysql, host = localhost, user = root, password = [empty]
-EpiSession::employ(EpiSession::PHP);
+$dotenv = new Dotenv();
+$dotenv->load(__DIR__.'/local.env');
 
-include_once 'index-common.php';
+require_once 'index-common.php';

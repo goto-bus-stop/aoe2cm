@@ -1,4 +1,4 @@
-<?php getSession(); 
+<?php
 define("CM_VERSION", "1.3.2");
 ?>
 <html>

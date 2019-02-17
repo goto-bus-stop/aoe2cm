@@ -1,5 +1,5 @@
 <?php
-include_once 'models/player.class.php';
+require_once 'models/player.class.php';
 
 class Turn
 {

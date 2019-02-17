@@ -1,91 +1,117 @@
 <?php
+require_once 'vendor/autoload.php';
 
-include_once 'controllers/home.class.php';
-include_once 'controllers/draft.class.php';
-include_once 'controllers/admin.class.php';
-include_once 'controllers/admin-ajax.class.php';
-include_once 'lib/constants.class.php';
-include_once 'controllers/maintenance.php';
+use Klein\Klein;
+use Medoo\Medoo;
 
-//autostart session
-getSession();
+require_once 'controllers/home.class.php';
+require_once 'controllers/draft.class.php';
+require_once 'controllers/admin.class.php';
+require_once 'controllers/admin-ajax.class.php';
+require_once 'lib/constants.class.php';
+require_once 'controllers/maintenance.php';
 
-// get language preference
-if (isset($_GET["lang"])) {
-    $language = $_GET["lang"];
-}
-else if (isset($_SESSION["lang"])) {
-    $language  = $_SESSION["lang"];
-}
-else {
-    $language = "en_US";
+$app = new Klein();
+function service() {
+    global $app;
+    return $app->service();
 }
 
-// save language preference for future page requests
-$_SESSION["lang"]  = $language;
+$app->respond(function ($request, $response, $service) {
+    $service->startSession();
+    $service->session = function ($key, $value = null) {
+        if (func_num_args() === 2) {
+            if ($value !== null) {
+                $_SESSION[$key] = $value;
+            } else {
+                unset($_SESSION[$key]);
+            }
+            return;
+        }
+        return $_SESSION[$key] ?? null;
+    };
 
-$folder = "locale";
-$domain = "aoe2cm";
-$encoding = "UTF-8";
+    // Configure language preference
+    if ($request->query('lang')) {
+        $service->language = $request->query('lang');
+        // save language preference for future page requests
+        $response->cookie('lang', $language);
+    } else if (!empty($request->cookie('lang'))) {
+        $service->language = $request->cookie('lang');
+    } else {
+        $service->language = "en_US";
+    }
 
-setlocale(LC_ALL, $language);
+    $folder = "locale";
+    $domain = "aoe2cm";
+    $encoding = "UTF-8";
+    setlocale(LC_ALL, $language);
+    bindtextdomain($domain, $folder);
+    bind_textdomain_codeset($domain, $encoding);
+    textdomain($domain);
 
-bindtextdomain($domain, $folder); 
-bind_textdomain_codeset($domain, $encoding);
+    $service->db = new Medoo([
+        'database_type' => 'mysql',
+        'database_name' => getenv('MYSQL_DATABASE'),
+        'server' => getenv('MYSQL_HOST') ?: 'localhost',
+        'username' => getenv('MYSQL_USER'),
+        'password' => getenv('MYSQL_PASSWORD'),
+    ]);
 
-textdomain($domain);
+    $service->layout(__DIR__.'/views/baseplate.php');
+});
 
-getRoute()->get('/', ['HomeController', 'display']);
-getRoute()->get('/draft', ['DraftController', 'display']);
-getRoute()->get('/draft-state', ['DraftController', 'get_state']);
-getRoute()->post('/draft-ready', ['DraftController', 'draft_ready']);
-getRoute()->post('/draft-start', ['DraftController', 'draft_start']);
-getRoute()->post('/draft-choose', ['DraftController', 'post_choice']);
-getRoute()->post('/set-name', ['DraftController', 'set_name']);
-getRoute()->get('/demo', ['DraftController', 'demo']);
-getRoute()->get('/spectate', ['DraftController', 'spectate']);
-getRoute()->get('/create', ['DraftController', 'create']);
-getRoute()->get('/join', ['DraftController', 'join']);
-getRoute()->get('/_join', ['DraftController', '_join']);
-getRoute()->get('/test', ['DraftController', 'test']);
+$app->respond('GET', '/', ['HomeController', 'display']);
+$app->respond('GET', '/draft', ['DraftController', 'display']);
+$app->respond('GET', '/draft-state', ['DraftController', 'get_state']);
+$app->respond('POST', '/draft-ready', ['DraftController', 'draft_ready']);
+$app->respond('POST', '/draft-start', ['DraftController', 'draft_start']);
+$app->respond('POST', '/draft-choose', ['DraftController', 'post_choice']);
+$app->respond('POST', '/set-name', ['DraftController', 'set_name']);
+$app->respond('GET', '/demo', ['DraftController', 'demo']);
+$app->respond('GET', '/spectate', ['DraftController', 'spectate']);
+$app->respond('GET', '/create', ['DraftController', 'create']);
+$app->respond('GET', '/join', ['DraftController', 'join']);
+$app->respond('GET', '/_join', ['DraftController', '_join']);
+$app->respond('GET', '/test', ['DraftController', 'test']);
 
 //admin part
-getRoute()->get('/login', ['AdminController', 'login']);
-getRoute()->post('/login', ['AdminController', 'processLogin']);
-getRoute()->get('/logout', ['AdminController', 'processLogout']);
-getRoute()->get('/admin', ['AdminController', 'display']);
-getRoute()->get('/maintenance', 'maintenance');
-getRoute()->get('/preset-new', ['AdminController', 'newPreset']);
-getRoute()->get('/preset-enable', ['AdminController', 'enablePreset']);
-getRoute()->get('/preset-delete', ['AdminController', 'deletePreset']);
-getRoute()->get('/preset-edit', ['AdminController', 'editPreset']);
-getRoute()->get('/preset-history', ['AdminController', 'presetHistory']);
-getRoute()->post('/tournament-new', ['AdminController', 'newTournament']);
-getRoute()->get('/tournament-delete', ['AdminController', 'deleteTournament']);
-getRoute()->get('/export-finished', 'export_finished');
+$app->respond('GET', '/login', ['AdminController', 'login']);
+$app->respond('POST', '/login', ['AdminController', 'processLogin']);
+$app->respond('GET', '/logout', ['AdminController', 'processLogout']);
+$app->respond('GET', '/admin', ['AdminController', 'display']);
+$app->respond('GET', '/maintenance', 'maintenance');
+$app->respond('GET', '/preset-new', ['AdminController', 'newPreset']);
+$app->respond('GET', '/preset-enable', ['AdminController', 'enablePreset']);
+$app->respond('GET', '/preset-delete', ['AdminController', 'deletePreset']);
+$app->respond('GET', '/preset-edit', ['AdminController', 'editPreset']);
+$app->respond('GET', '/preset-history', ['AdminController', 'presetHistory']);
+$app->respond('POST', '/tournament-new', ['AdminController', 'newTournament']);
+$app->respond('GET', '/tournament-delete', ['AdminController', 'deleteTournament']);
+$app->respond('GET', '/export-finished', 'export_finished');
 
 //admin ajax part
-getRoute()->post('/admin-ajax/set-preset-type', ['AdminAjaxController', 'preset_set_type']);
-getRoute()->post('/admin-ajax/add-turn', ['AdminAjaxController', 'add_turn']);
-getRoute()->post('/admin-ajax/delete-turn', ['AdminAjaxController', 'del_turn']);
-getRoute()->post('/admin-ajax/change-turn', ['AdminAjaxController', 'change_turn']);
-getRoute()->post('/admin-ajax/add-pre-turn', ['AdminAjaxController', 'add_pre_turn']);
-getRoute()->post('/admin-ajax/delete-pre-turn', ['AdminAjaxController', 'del_pre_turn']);
-getRoute()->post('/admin-ajax/change-pre-turn', ['AdminAjaxController', 'change_pre_turn']);
-getRoute()->post('/admin-ajax/set-preset-name', ['AdminAjaxController', 'set_preset_name']);
-getRoute()->post('/admin-ajax/set-preset-aoe-version', ['AdminAjaxController', 'preset_set_aoe_version']);
-getRoute()->post('/admin-ajax/set-preset-description', ['AdminAjaxController', 'set_preset_description']);
+$app->respond('POST', '/admin-ajax/set-preset-type', ['AdminAjaxController', 'preset_set_type']);
+$app->respond('POST', '/admin-ajax/add-turn', ['AdminAjaxController', 'add_turn']);
+$app->respond('POST', '/admin-ajax/delete-turn', ['AdminAjaxController', 'del_turn']);
+$app->respond('POST', '/admin-ajax/change-turn', ['AdminAjaxController', 'change_turn']);
+$app->respond('POST', '/admin-ajax/add-pre-turn', ['AdminAjaxController', 'add_pre_turn']);
+$app->respond('POST', '/admin-ajax/delete-pre-turn', ['AdminAjaxController', 'del_pre_turn']);
+$app->respond('POST', '/admin-ajax/change-pre-turn', ['AdminAjaxController', 'change_pre_turn']);
+$app->respond('POST', '/admin-ajax/set-preset-name', ['AdminAjaxController', 'set_preset_name']);
+$app->respond('POST', '/admin-ajax/set-preset-aoe-version', ['AdminAjaxController', 'preset_set_aoe_version']);
+$app->respond('POST', '/admin-ajax/set-preset-description', ['AdminAjaxController', 'set_preset_description']);
 
 //custom stuff
-getRoute()->get('/mastersofarabia2', ['HomeController', 'moara2']);
-getRoute()->get('/cmmonthly', ['HomeController', 'cmmonthly']);
-getRoute()->get('/aoak-showcase', ['HomeController', 'aoak_showcase']);
-getRoute()->get('/casuals-to-war', ['HomeController', 'casuals_to_war']);
-getRoute()->get('/into-the-darkness', ['HomeController', 'into_the_darkness']);
-getRoute()->get('/thelegacycup', ['HomeController', 'the_legacy_cup']);
-getRoute()->get('/escapemasters', ['HomeController', 'escape_masters']);
-getRoute()->get('/escapemasters2', ['HomeController', 'escape_masters2']);
-getRoute()->get('/returnofthekings', ['HomeController', 'return_of_the_kings']);
-getRoute()->get('/allstars', ['HomeController', 'allstars']);
+$app->respond('GET', '/mastersofarabia2', ['HomeController', 'moara2']);
+$app->respond('GET', '/cmmonthly', ['HomeController', 'cmmonthly']);
+$app->respond('GET', '/aoak-showcase', ['HomeController', 'aoak_showcase']);
+$app->respond('GET', '/casuals-to-war', ['HomeController', 'casuals_to_war']);
+$app->respond('GET', '/into-the-darkness', ['HomeController', 'into_the_darkness']);
+$app->respond('GET', '/thelegacycup', ['HomeController', 'the_legacy_cup']);
+$app->respond('GET', '/escapemasters', ['HomeController', 'escape_masters']);
+$app->respond('GET', '/escapemasters2', ['HomeController', 'escape_masters2']);
+$app->respond('GET', '/returnofthekings', ['HomeController', 'return_of_the_kings']);
+$app->respond('GET', '/allstars', ['HomeController', 'allstars']);
 
-getRoute()->run();
+$app->dispatch();

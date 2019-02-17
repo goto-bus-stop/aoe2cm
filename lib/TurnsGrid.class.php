@@ -1,10 +1,9 @@
 <?php
-include_once 'lib/constants.class.php';
-include_once 'models/draft.class.php';
+require_once 'lib/constants.class.php';
+require_once 'models/draft.class.php';
 
 class TurnsGrid
 {
-
     private $aoe_version;
 
     public function __construct($aoe_version = Draft::AOE_VERSION_AOC) {
@@ -13,8 +12,8 @@ class TurnsGrid
 
     private function countActions($preset_turns)
     {
-        $picks = array(Player::PLAYER_1 => 0, Player::PLAYER_2 => 0);
-        $bans = array(Player::PLAYER_1 => 0, Player::PLAYER_2 => 0);
+        $picks = [Player::PLAYER_1 => 0, Player::PLAYER_2 => 0];
+        $bans = [Player::PLAYER_1 => 0, Player::PLAYER_2 => 0];
 		if(is_array($preset_turns)) {
 			foreach ($preset_turns as $turn) {
 				if (Turn::action_is_pick($turn['action'])) {

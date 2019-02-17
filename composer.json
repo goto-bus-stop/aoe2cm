@@ -1,0 +1,15 @@
+{
+    "name": "siegeengineers/aoe2cm",
+    "description": "Captains Mode for Age of Empires 2",
+    "type": "project",
+    "license": "UNLICENSED",
+    "minimum-stability": "stable",
+    "require": {
+        "klein/klein": "^2.1",
+        "catfan/medoo": "^1.6",
+        "hashids/hashids": "^3.0"
+    },
+    "require-dev": {
+        "symfony/dotenv": "^4.2"
+    }
+}

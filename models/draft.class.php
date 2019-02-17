@@ -1,11 +1,10 @@
 <?php
 
-include_once 'lib/HashGenerator.php';
-include_once 'lib/Hashids.php';
+use Hashids\Hashids;
 
 class Draft
 {
-	const STATE_ERROR = '-2';
+    const STATE_ERROR = '-2';
     const STATE_WAITING = '-1';
     const STATE_STARTED = '0';
     const STATE_DONE = '1';
@@ -28,22 +27,24 @@ class Draft
     const TYPE_4V4 = 0x03;
     const PRACTICE = 0x04;
 
-    const TYPES = array(
+    const TYPES = [
         self::TYPE_1V1,
         self::TYPE_2V2,
         self::TYPE_3V3,
-        self::TYPE_4V4);
+        self::TYPE_4V4,
+    ];
 
     const AOE_VERSION_AOC = 1;
     const AOE_VERSION_AOF = 2;
     const AOE_VERSION_AOAK = 3;
     const AOE_VERSION_AOR = 4;
 
-    const AOC_VERSIONS = array(
+    const AOC_VERSIONS = [
         self::AOE_VERSION_AOC,
         self::AOE_VERSION_AOF,
         self::AOE_VERSION_AOAK,
-        self::AOE_VERSION_AOR);
+        self::AOE_VERSION_AOR,
+    ];
 
     const TYPE_MASK = 0x03;
     const PRACTICE_MASK = 0x04;
@@ -51,7 +52,7 @@ class Draft
     public $id = -1;
     public $code = '';
     public $title = '';
-    public $players = array();
+    public $players = [];
     public $player_role = -1;
     public $type = self::TYPE_1V1;
     public $aoe_version = self::AOE_VERSION_AOC;
@@ -60,32 +61,31 @@ class Draft
     public $date_started_str = null;
     public $current_turn = -1;
     public $state = self::STATE_ERROR;
-    private $turns = array();
+    private $turns = [];
 
     public function __construct($db_info = null) {
-    	if(is_array($db_info)) {
-    		$this->load_from_info($db_info);
-    	} else if(is_numeric($db_info))  {
-    		$draft_info = getDatabase()->one('SELECT * FROM game WHERE id=:Id',
-                array(':Id' => $db_info));
+        if(is_array($db_info)) {
+            $this->load_from_info($db_info);
+        } else if(is_numeric($db_info))  {
+            $draft_info = service()->db->get('game', '*', ['id' => $db_info]);
             if(!is_null($draft_info)) {
                 $this->load_from_info($draft_info);
             }
-    	} else {
-    		//leave everything to default
-    	}
+        } else {
+            // leave everything to default
+        }
     }
 
     public function get_civ_count() {
         switch($this->aoe_version) {
-            case self::AOE_VERSION_AOF:
-                return Constants::AOF_CIV_COUNT;
-            case self::AOE_VERSION_AOAK:
-                return Constants::AOAK_CIV_COUNT;
-            case self::AOE_VERSION_AOR:
-                return Constants::AOR_CIV_COUNT;
-            default:
-                return Constants::AOC_CIV_COUNT;
+        case self::AOE_VERSION_AOF:
+            return Constants::AOF_CIV_COUNT;
+        case self::AOE_VERSION_AOAK:
+            return Constants::AOAK_CIV_COUNT;
+        case self::AOE_VERSION_AOR:
+            return Constants::AOR_CIV_COUNT;
+        default:
+            return Constants::AOC_CIV_COUNT;
         }
     }
 
@@ -94,35 +94,34 @@ class Draft
     }
 
     public static function find_with_code($code) {
-        $draft_info = getDatabase()->one('SELECT * FROM game WHERE BINARY code=:Code',
-            array(':Code' => $code));
+        $draft_info = service()->db->get('game', '*', ['code' => $code]);
         return new Draft($draft_info);
     }
 
     public static function type_get_str($type) {
         switch($type & self::TYPE_MASK) {
-            case self::TYPE_1V1:
-                return _("1 v 1");
-            case self::TYPE_2V2:
-                return _("2 v 2");
-            case self::TYPE_3V3:
-                return _("3 v 3");
-            case self::TYPE_4V4:
-                return _("4 v 4");
+        case self::TYPE_1V1:
+            return _("1 v 1");
+        case self::TYPE_2V2:
+            return _("2 v 2");
+        case self::TYPE_3V3:
+            return _("3 v 3");
+        case self::TYPE_4V4:
+            return _("4 v 4");
         }
         return "";
     }
 
     public static function aoe_version_get_str($version) {
         switch($version) {
-            case self::AOE_VERSION_AOC:
-                return _("Conquerors");
-            case self::AOE_VERSION_AOF:
-                return _("Forgotten");
-            case self::AOE_VERSION_AOAK:
-                return _("Forgotten+African Kingdoms");
-            case self::AOE_VERSION_AOR:
-                return _("Forgotten+African Kingdoms+Rise of Rajas");
+        case self::AOE_VERSION_AOC:
+            return _("Conquerors");
+        case self::AOE_VERSION_AOF:
+            return _("Forgotten");
+        case self::AOE_VERSION_AOAK:
+            return _("Forgotten+African Kingdoms");
+        case self::AOE_VERSION_AOR:
+            return _("Forgotten+African Kingdoms+Rise of Rajas");
         }
         return _("Age of Empires II");
     }
@@ -134,16 +133,18 @@ class Draft
     public static function create($new_type, $new_preset) {
         $draft_state = self::STATE_WAITING;
 
-        $draft_id = getDatabase()->execute('INSERT INTO game (type, state, preset_id, aoe_version) VALUES (:Type,:State,:Preset,:Version);',
-            array(':Type' => $new_type,
-                ':State' => $draft_state,
-                ':Preset' => ($new_preset->exists()) ? $new_preset->id : null,
-                ':Version' => $new_preset->get_aoe_version()));
+        service()->db->insert('game', [
+            'type' => $new_type,
+            'state' => $draft_state,
+            'preset_id' => ($new_preset->exists()) ? $new_preset->id : null,
+            'aoe_version' => $new_preset->get_aoe_version()
+        ]);
+        $draft_id = service()->db->id();
 
         if($draft_id){
-            $hashids = new Hashids\Hashids(Constants::UNIQ_SALT);
+            $hashids = new Hashids(Constants::UNIQ_SALT);
             $generated_code = ''.$hashids->encode($draft_id);
-            getDatabase()->execute('UPDATE game SET code=:Code WHERE id=:Id', array(':Code' => $generated_code, ':Id' => $draft_id));
+            service()->db->update('game', ['code' => $generated_code], ['id' => $draft_id]);
         }
 
         $draft = new Draft($draft_id);
@@ -159,7 +160,7 @@ class Draft
 
         $preset_actions = $this->preset->get_preset_pre_turns();
 
-        $disabled_civs = array();
+        $disabled_civs = [];
 
         if(!empty($preset_actions)) {
             $next_turn = -count($preset_actions);
@@ -184,23 +185,22 @@ class Draft
     }
 
     private function load_from_info($db_info){
-    	$this->id = intval($db_info['id']);
-    	$this->code = $db_info['code'];
-    	$this->state = intval($db_info['state']);
+        $this->id = intval($db_info['id']);
+        $this->code = $db_info['code'];
+        $this->state = intval($db_info['state']);
         $this->type = intval($db_info['type']);
         $this->aoe_version = intval($db_info['aoe_version']);
         $this->date_started_str = $db_info['date_started'];
         $this->date_started = Turn::get_time_in_seconds($this->date_started_str);
-    	$this->load_players();
-    	$this->load_preset($db_info['preset_id']);
-    	$this->update_title();
+        $this->load_players();
+        $this->load_preset($db_info['preset_id']);
+        $this->update_title();
         $this->load_current_turn();
     }
 
 
     private function reload() {
-        $draft_info = getDatabase()->one('SELECT * FROM game WHERE id=:Id',
-                array(':Id' => $this->id));
+        $draft_info = service()->db->get('game', '*', ['id' => $this->id]);
         if(!is_null($draft_info)) {
             $this->load_from_info($draft_info);
         }
@@ -209,10 +209,10 @@ class Draft
 
 
     private function load_players() {
-    	if($this->id < 0) {
-    		return;
-    	}
-    	$this->players = Player::find_draft($this);
+        if($this->id < 0) {
+            return;
+        }
+        $this->players = Player::find_draft($this);
 
         $m_session_id = session_id();
         foreach($this->players as $player) {
@@ -234,10 +234,10 @@ class Draft
 
     private function load_preset($preset_id) {
 
-    	if(empty($preset_id)) {
-    		$this->preset = new Preset();
-    	}
-    	$this->preset = Preset::find($preset_id);
+        if(empty($preset_id)) {
+            $this->preset = new Preset();
+        }
+        $this->preset = Preset::find($preset_id);
     }
 
     private function update_title() {
@@ -252,7 +252,7 @@ class Draft
 
     private function load_current_turn()
     {
-        $current_turn_db = getDatabase()->one('SELECT * FROM current_turn WHERE game_id=:Id', array(':Id' => $this->id));
+        $current_turn_db = service()->db->get('current_turn', '*', ['game_id' => $this->id]);
         if (empty($current_turn_db)) {
             $this->current_turn = -1;
         } else {
@@ -261,10 +261,15 @@ class Draft
     }
 
     private function load_turns() {
-        $db_turns = getDatabase()->all('SELECT * FROM turn WHERE game_id=:Id ORDER BY turn_no ASC, action ASC',
-            array(':Id' => $this->id));
+        $db_turns = service()->db->select('turn', '*', [
+            'game_id' => $this->id,
+            'ORDER' => [
+                'turn_no' => 'ASC',
+                'action' => 'ASC',
+            ],
+        ]);
 
-        $this->turns = array();
+        $this->turns = [];
 
         foreach($db_turns as $db_turn) {
             $turn_no = intval($db_turn['turn_no']);
@@ -382,7 +387,7 @@ class Draft
         $next_turn = $this->get_next_turn();
         if ($this->is_started() &&
             $next_turn < count($preset_turns)) {
-            
+
             $active_player = Player::get_effective_player($preset_turns[$next_turn]['player'], $this->get_player_role());
         }
         return $active_player;
@@ -390,7 +395,7 @@ class Draft
 
     public function set_state($state) {
         //update game state
-        getDatabase()->execute('UPDATE game SET state=:State WHERE id=:Id', array(':Id' => $this->id, ':State' => $state));
+        service()->db->update('game', ['state' => $state], ['id' => $this->id]);
         $this->state = $state;
     }
 
@@ -399,7 +404,10 @@ class Draft
             return;
         }
 
-        getDatabase()->execute('UPDATE game SET date_started=CURRENT_TIMESTAMP(3), state=:State WHERE id=:Draft', array(':Draft' => $this->id, ':State' => self::STATE_STARTING));
+        service()->db->update('game', [
+            '#date_started' => 'CURRENT_TIMESTAMP(3)',
+            'state' => self::STATE_STARTING,
+        ], ['id' => $this->id]);
 
         $this->state = self::STATE_STARTING;
     }
@@ -409,9 +417,11 @@ class Draft
             return;
         }
 
-        getDatabase()->execute('UPDATE game SET date_started=CURRENT_TIMESTAMP(3), state=:State WHERE id=:Id', array(':Id' => $this->id, ':State' => self::STATE_READY));
-        $draft_info = getDatabase()->one('SELECT * FROM game WHERE id=:Id', array(':Id' => $this->id));
-
+        service()->db->update('game', [
+            '#date_started' => 'CURRENT_TIMESTAMP(3)',
+            'state' => self::STATE_READY,
+        ], ['id' => $this->id]);
+        $draft_info = service()->db->get('game', '*', ['id' => $this->id]);
 
         $this->state = self::STATE_READY;
         $this->date_started = Turn::get_time_in_seconds($draft_info['date_started']);
@@ -422,9 +432,11 @@ class Draft
             return;
         }
 
-        getDatabase()->execute('UPDATE game SET date_started=CURRENT_TIMESTAMP(3), state=:State WHERE id=:Id',
-            array(':Id' => $this->id, ':State' => self::STATE_STARTED));
-        $draft_info = getDatabase()->one('SELECT * FROM game WHERE id=:Id', array(':Id' => $this->id));
+        service()->db->update('game', [
+            '#date_started' => 'CURRENT_TIMESTAMP(3)',
+            'state' => self::STATE_STARTED,
+        ], ['id' => $this->id]);
+        $draft_info = service()->db->get('game', '*', ['id' => $this->id]);
 
         $this->state = self::STATE_STARTED;
         $this->date_started = Turn::get_time_in_seconds($draft_info['date_started']);
@@ -435,14 +447,14 @@ class Draft
             return;
         }
 
-        getDatabase()->execute('UPDATE game SET state=:State WHERE id=:Id', array(':Id' => $this->id, ':State' => self::STATE_DONE));
+        service()->db->update('game', ['state' => self::STATE_DONE], ['id' => $this->id]);
 
         $this->state = self::STATE_DONE;
     }
 
     public function get_disabled_picks() {
         if($this->player_role == Player::PLAYER_NONE) {
-            return array();
+            return [];
         }
         $turn_keys = array_keys($this->get_turns());
         rsort($turn_keys, SORT_NUMERIC);
@@ -481,9 +493,9 @@ class Draft
         return $disabled_picks;
     }
 
-     public function get_disabled_bans() {
+    public function get_disabled_bans() {
         if($this->player_role == Player::PLAYER_NONE) {
-            return array();
+            return [];
         }
         $turn_keys = array_keys($this->get_turns());
         rsort($turn_keys, SORT_NUMERIC);
@@ -525,17 +537,19 @@ class Draft
     }
 
     private function _add_turn($turn_no, $civ, $role, $action, $hidden) {
-        $turn_id = getDatabase()->execute('INSERT INTO turn (game_id, turn_no, civ, player, action, hidden, time_created) VALUES (:Draft, :No, :Civ, :Player, :Action, :Hidden, CURRENT_TIMESTAMP(3));',
-            array(':Draft' => $this->id,
-                ':No' => $turn_no,
-                ':Civ' => $civ,
-                ':Player' => $role,
-                ':Action' => $action,
-                ':Hidden' => $hidden));
+        $turn_id = service()->db->insert('turn', [
+            'game_id' => $this->id,
+            'turn_no' => $turn_no,
+            'civ' => $civ,
+            'player' => $role,
+            'action' => $action,
+            'hidden' => $hidden,
+            '#time_created' => 'CURRENT_TIMESTAMP(3)',
+        ]);
     }
 
     private function _get_random_civ($disabled_civs) {
-        $enabled_civs = array();
+        $enabled_civs = [];
         for($i = 1; $i <= $this->get_civ_count(); $i++) {
             if(in_array($i, $disabled_civs)) {
                 continue;
@@ -598,7 +612,7 @@ class Draft
 
         $preset_effective_player = Player::get_effective_player($preset_turn['player']);
 
-        $disabled_civs = array();
+        $disabled_civs = [];
         if(Turn::action_is_pick($preset_turn['action'])) {
             $disabled_civs = $this->get_disabled_picks()[$preset_effective_player];
         } else if(Turn::action_is_ban($preset_turn['action'])) {
@@ -667,22 +681,37 @@ class Draft
         $queryString = 'SELECT g.id, g.type, g.preset_id, g.aoe_version, g.state, g.code, g.date_started FROM game AS g';
         if ($activePreset)
         {
-            $queryString .= ' JOIN preset ON preset.id = g.preset_id AND preset.state = '.Preset::PRESET_ENABLED.' ';
+            $queryString .= sprintf(' JOIN preset ON preset.id = g.preset_id AND preset.state = %d', Preset::PRESET_ENABLED);
         }
-        $queryString .= 'WHERE ((g.state='.self::STATE_STARTED.') || (g.state='.self::STATE_DONE.')) && (g.type & '.self::PRACTICE_MASK.')!='.self::PRACTICE.' ORDER BY g.date_started DESC';
-        $draft_infos = getDatabase()->all($queryString, array(), $count);
-        $last_drafts = array();
+        $queryString .= '
+            WHERE (
+                (g.state='.self::STATE_STARTED.') ||
+                (g.state='.self::STATE_DONE.')
+            ) && (g.type & '.self::PRACTICE_MASK.') != '.self::PRACTICE.'
+            ORDER BY g.date_started DESC
+            LIMIT :count
+        ';
+        $draft_infos = service()->db->query($queryString, ['count' => $count])->fetchAll();
+        $last_drafts = [];
         foreach($draft_infos as $draft_info) {
-        	$current_draft = new Draft($draft_info);
+            $current_draft = new Draft($draft_info);
             $last_drafts[] = $current_draft;
         }
         return $last_drafts;
     }
 
-     public static function get_last_with_preset(Preset $preset, $count = 6) {
-        $draft_infos = getDatabase()->all('SELECT * FROM game WHERE preset_id=:Preset AND ((state='.self::STATE_STARTED.') || (state='.self::STATE_DONE.')) && (type & '.self::PRACTICE_MASK.')!='.self::PRACTICE.' ORDER BY date_started DESC',
-            array(':Preset' => $preset->id), $count);
-        $last_drafts = array();
+    public static function get_last_with_preset(Preset $preset, $count = 6) {
+        $draft_infos = service()->db->query('
+            SELECT *
+            FROM game
+            WHERE preset_id=:preset AND ((state='.self::STATE_STARTED.') || (state='.self::STATE_DONE.')) && (type & '.self::PRACTICE_MASK.')!='.self::PRACTICE.'
+            ORDER BY date_started DESC
+            LIMIT :count
+        ', [
+            'preset' => $preset->id,
+            'count' => $count,
+        ])->fetchAll();
+        $last_drafts = [];
         foreach($draft_infos as $draft_info) {
             $current_draft = new Draft($draft_info);
             $last_drafts[] = $current_draft;

@@ -1,7 +1,7 @@
 <?php
 
 //adjectives"
-const RANDOM_ADJECTIVES = array(
+const RANDOM_ADJECTIVES = [
 	"adorable",
 	"adventurous",
 	"aggressive",
@@ -396,10 +396,11 @@ const RANDOM_ADJECTIVES = array(
 	"light",
 	"many",
 	"numerous",
-	"substantial");
+   "substantial",
+];
 
 //nouns
-const RANDOM_NOUNS = array(
+const RANDOM_NOUNS = [
 	"Darfin",
 	"Bialaer",
 	"Larongar",
@@ -1012,9 +1013,11 @@ const RANDOM_NOUNS = array(
 	"situation",
 	"extent",
 	"community",
-	"fishing");
+   "fishing"
+];
 
 function generate_random_name() {
-	return ucfirst(RANDOM_ADJECTIVES[rand(0, count(RANDOM_ADJECTIVES)-1)])." ".ucfirst(RANDOM_NOUNS[rand(0, count(RANDOM_NOUNS))]);
+    $adj = ucfirst(RANDOM_ADJECTIVES[array_rand(RANDOM_ADJECTIVES)]);
+    $noun = ucfirst(RANDOM_NOUNS[array_rand(RANDOM_NOUNS)]);
+    return "$adj $noun";
 }
-?>

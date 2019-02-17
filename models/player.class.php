@@ -1,6 +1,6 @@
 <?php
 
-include_once 'models/draft.class.php';
+require_once 'models/draft.class.php';
 
 class Player
 {
@@ -18,13 +18,11 @@ class Player
     public $role = self::PLAYER_NONE;
     public $name = "";
 
-
     public function __construct($db_info = null) {
     	if(is_array($db_info)) {
     		$this->load_from_info($db_info);
     	} else if (is_numeric($db_info)) {
-    		$players_db = getDatabase()->one('SELECT * FROM user WHERE id=:Id',
-        	array(':Id' => $db_info));
+          $players_db = service()->db->get('user', '*', ['id' => $db_info]);
         	if($player_db) {
         		$this->load_from_info($player_db);
         	}
@@ -41,19 +39,20 @@ class Player
 
     public function save() {
         if($this->id < 0) {
-            $player_id = getDatabase()->execute('INSERT INTO user (game_id, session_id, role, name) VALUES (:Draft, :Session, :Role, :Name);',
-                    array(':Draft' => $this->draft_id,
-                        ':Session' => $this->session_id,
-                        ':Role' => $this->role,
-                        ':Name' => $this->name));
+            $player_id = service()->db->insert('user', [
+                'game_id' => $this->draft_id,
+                'session_id' => $this->session_id,
+                'role' => $this->role,
+                'name' => $this->name,
+            ]);
             $this->id = $player_id;
         } else {
-            getDatabase()->execute('UPDATE user SET game_id=:Draft, session_id=:Session, role=:Role, name=:Name WHERE id=:Id',
-                array(':Draft' => $this->draft_id,
-                        ':Session' => $this->session_id,
-                        ':Role' => $this->role,
-                        ':Name' => $this->name,
-                        ':Id' => $this->id));
+            service()->db->update('user', [
+                'game_id' => $this->draft_id,
+                'session_id' => $this->session_id,
+                'role' => $this->role,
+                'name' => $this->name,
+            ], ['id' => $this->id]);
         }
     }
 
@@ -62,15 +61,16 @@ class Player
             return;
         }
 
-        getDatabase()->execute('UPDATE user SET name=:Name WHERE id=:Id',
-            array(':Name' => $name, ':Id' => $this->id));
+        service()->db->update('user', ['name' => $name], ['id' => $this->id]);
         $this->name = $name;
     }
 
     public static function find_draft(Draft $draft)
     {
-        $players_db = getDatabase()->all('SELECT * FROM user WHERE game_id=:Id ORDER BY role ASC',
-        	array(':Id' => $draft->id));
+        $players_db = service()->db->select('user', '*', [
+            'game_id' => $draft->id,
+            'ORDER' => ['role' => 'ASC'],
+        ]);
 
         $players = array();
         foreach($players_db as $player_info){

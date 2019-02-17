@@ -1,9 +1,12 @@
 <?php
-$query = "code=".$draft->code;
-if(isset($role))
-{
-    $query .= "&role=".$role;
-}
+$draft = $this->draft;
+$join = $this->join;
+$role = $this->role;
+
+$query = http_build_query([
+    'code' => $draft->code,
+    'role' => $role,
+]);
 ?>
 <div class="content">
 
@@ -73,7 +76,4 @@ $(document).ready(function(){
         </div>
     </div>
 </div>
-
-
-
 </div>

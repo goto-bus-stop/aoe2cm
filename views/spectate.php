@@ -1,8 +1,12 @@
 <?php 
-include_once 'lib/civgrid.class.php';
-include_once 'lib/constants.class.php';
-include_once 'lib/TurnsGrid.class.php';
-include_once 'views/overlay.php';
+require_once 'lib/civgrid.class.php';
+require_once 'lib/constants.class.php';
+require_once 'lib/TurnsGrid.class.php';
+require_once 'views/overlay.php';
+
+$draft = $this->draft;
+$preset_turns = $this->preset_turns;
+$preset_pre_turns = $this->preset_pre_turns;
 
 $show_overlay = FALSE;
 $non_existent = FALSE;

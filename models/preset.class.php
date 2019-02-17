@@ -1,9 +1,9 @@
 <?php
 
 
-include_once 'models/player.class.php';
-include_once 'models/turn.class.php';
-include_once 'models/draft.class.php';
+require_once 'models/player.class.php';
+require_once 'models/turn.class.php';
+require_once 'models/draft.class.php';
 
 class Preset
 {
@@ -121,8 +121,7 @@ const DEFAULT_TURNS_4V4 = array(
          }
          else if (is_numeric($db_info))
          {
-             $preset_info = getDatabase()->one('SELECT * FROM preset WHERE id=:Id',
-               array(':Id' => $db_info));
+             $preset_info = service()->db->get('preset', '*', ['id' => $db_info]);
              if(!empty($preset_info)) {
                 $this->load_from_info($preset_info);
             }
@@ -130,13 +129,17 @@ const DEFAULT_TURNS_4V4 = array(
     }
 
     public static function find_with_name($name) {
-        $preset_db = getDatabase()->one('SELECT * FROM preset WHERE name LIKE :Name',
-            array(':Name' => $name));
+        $preset_db = service()->db->get('preset', '*', ['name[~]' => $name]);
         return new Preset($preset_db);
     }
 
     public static function find_all() {
-        $presets_db = getDatabase()->all('SELECT * FROM preset ORDER BY state DESC,name ASC');
+        $presets_db = service()->db->select('preset', '*', [
+            'ORDER' => [
+                'state' => 'DESC',
+                'name' => 'ASC',
+            ],
+        ]);
         $ret_array = array();
         if(!empty($presets_db)) {
             foreach($presets_db as $preset_info) {
@@ -148,33 +151,41 @@ const DEFAULT_TURNS_4V4 = array(
 
      public function save() {
         if(!$this->exists()) {
-            $preset_id = getDatabase()->execute('INSERT INTO preset (name, state) VALUES (:Name,:State);',
-                array(':Name' => $this->name, ':State' => self::PRESET_DISABLED));
-            $this->id = $preset_id;
-
-        } 
+            service()->db->insert('preset', [
+                'name' => $this->name,
+                'state' => self::PRESET_DISABLED,
+            ]);
+            $this->id = service()->db->id();
+        }
         
-        getDatabase()->execute('DELETE FROM preset_item WHERE preset_id=:Id',
-            array(':Id' => $this->id));
+        service()->db->delete('preset_item', ['preset_id' => $this->id]);
+        service()->db->update('preset', [
+            'name' => $this->name,
+            'state' => $this->state,
+        ], ['id' => $this->id]);
 
-        getDatabase()->execute('UPDATE preset SET name=:Name, state=:State WHERE id=:Id',
-            array(':Id' => $this->id,
-                    ':State' => $this->state,
-                    ':Name' => $this->name));
-
-        getDatabase()->execute('INSERT INTO preset_item (type, preset_id, datas) VALUES (:Desctype, :Id, :Description),(:Turnstype, :Id, :Turns),(:PTurnstype, :Id, :PTurns)',
-            array(':Id' => $this->id,
-                ':Desctype' => self::PRESET_ITEM_TYPE_DESCRIPTION,
-                ':Description' => $this->description,
-                ':Turnstype' => self::DRAFT_TYPE_PRESETS[$this->type],
-                ':Turns' => json_encode($this->turns[$this->type]),
-                ':PTurnstype' => self::PRESET_ITEM_TYPE_PRE_ACTION,
-                ':PTurns' => json_encode($this->pre_actions)));
-
-        getDatabase()->execute('INSERT INTO preset_item (type, preset_id, datai) VALUES (:VersionType, :Id, :Version)',
-            array(':Id' => $this->id,
-                ':VersionType' => self::PRESET_ITEM_TYPE_AOE_VERSION,
-                ':Version' => $this->aoe_version));
+        service()->db->insert('preset_item', [
+            [
+                'preset_id' => $this->id,
+                'type' => self::PRESET_ITEM_TYPE_DESCRIPTION,
+                'datas' => $this->description,
+            ],
+            [
+                'preset_id' => $this->id,
+                'type' => self::DRAFT_TYPE_PRESETS[$this->type],
+                'datas [JSON]' => $this->turns[$this->type],
+            ],
+            [
+                'preset_id' => $this->id,
+                'type' => self::PRESET_ITEM_TYPE_PRE_ACTION,
+                'datas [JSON]' => $this->pre_actions,
+            ],
+            [
+                'preset_id' => $this->id,
+                'type' => self::PRESET_ITEM_TYPE_AOE_VERSION,
+                'datai' => $this->aoe_version,
+            ],
+        ]);
     }
 
     public function delete() {
@@ -182,8 +193,7 @@ const DEFAULT_TURNS_4V4 = array(
             return;
         }
 
-         getDatabase()->execute('DELETE FROM preset WHERE id=:Id',
-                array(':Id' => $this->id));
+        service()->db->delete('preset', ['id' => $this->id]);
     }
 
     public function set_state($state) {
@@ -191,9 +201,7 @@ const DEFAULT_TURNS_4V4 = array(
             return;
         }
         $this->state = $state;
-        getDatabase()->execute('UPDATE preset SET state=:State WHERE id=:Id',
-            array(':Id' => $this->id,
-                    ':State' => $state));
+        service()->db->update('preset', ['state' => $state], ['id' => $this->id]);
     }
 
     public function set_type($new_type) {
@@ -202,12 +210,15 @@ const DEFAULT_TURNS_4V4 = array(
         }
 
         if($new_type != $this->type && $new_type < count($this->turns)) {
-            getDatabase()->execute('DELETE FROM preset_item WHERE preset_id=:Id AND type=:Type',
-                array(':Id' => $this->id, ':Type' => self::DRAFT_TYPE_PRESETS[$this->type]));
-            getDatabase()->execute('INSERT INTO preset_item (type, preset_id, datas) VALUES (:TType, :Id, :Turns)',
-                array(':Id' => $this->id, ':TType' => self::DRAFT_TYPE_PRESETS[$new_type],
-                    ':Turns' => json_encode($this->turns[$new_type])));
-
+            service()->db->delete('preset_item', [
+                'preset_id' => $this->id,
+                'type' => self::DRAFT_TYPE_PRESETS[$this->type],
+            ]);
+            service()->db->insert('preset_item', [
+                'preset_id' => $this->id,
+                'type' => self::DRAFT_TYPE_PRESETS[$new_type],
+                'datas [JSON]' => $this->turns[$new_type],
+            ]);
             $this->type = $new_type;
         }
     }
@@ -217,8 +228,7 @@ const DEFAULT_TURNS_4V4 = array(
             return;
         }
 
-        getDatabase()->execute('UPDATE preset SET name=:Name WHERE id=:Id',
-            array(':Id' => $this->id, ':Name' => $name));
+        service()->db->update('preset', ['name' => $name], ['id' => $this->id]);
         $this->name = $name;
     }
 
@@ -227,9 +237,12 @@ const DEFAULT_TURNS_4V4 = array(
             return;
         }
 
-         getDatabase()->execute('UPDATE preset_item SET datas=:Description WHERE preset_id=:Id AND type=:Type',
-            array(':Id' => $this->id, ':Type'=> self::PRESET_ITEM_TYPE_DESCRIPTION,
-                ':Description' => $description));
+        service()->db->update('preset_item', [
+            'datas' => $description,
+        ], [
+            'preset_id' => $this->id,
+            'type' => self::PRESET_ITEM_TYPE_DESCRIPTION,
+        ]);
         $this->description = $description;
     }
 
@@ -238,9 +251,12 @@ const DEFAULT_TURNS_4V4 = array(
             return;
         }
 
-         getDatabase()->execute('UPDATE preset_item SET datai=:Version WHERE preset_id=:Id AND type=:Type',
-            array(':Id' => $this->id, ':Type'=> self::PRESET_ITEM_TYPE_AOE_VERSION,
-                ':Version' => $version));
+        service()->db->update('preset_item', [
+            'datai' => $version,
+        ], [
+            'preset_id' => $this->id,
+            'type' => self::PRESET_ITEM_TYPE_AOE_VERSION,
+        ]);
         $this->aoe_version = $version;
     }
 
@@ -250,19 +266,21 @@ const DEFAULT_TURNS_4V4 = array(
         }
 
         //check if there is such turn
-        $preset_turns_db = getDatabase()->one('SELECT id FROM preset_item WHERE preset_id=:Id AND type=:Type',
-             array(':Id' => $this->id, ':Type'=> self::DRAFT_TYPE_PRESETS[$this->type]));
+        $preset_turns_db = service()->db->get('preset_item', [
+            'preset_id' => $this->id,
+            'type' => self::DRAFT_TYPE_PRESETS[$this->type],
+        ]);
         if(empty($preset_turns_db)) {
-            getDatabase()->execute('INSERT INTO preset_item (type, preset_id, datas) VALUES (:TType, :Id, :Turns)',
-                    array(':Id' => $this->id, ':TType' => self::DRAFT_TYPE_PRESETS[$this->type],
-                        ':Turns' => json_encode($this->get_preset_turns())));
+            service()->insert('preset_item', [
+                'type' => self::DRAFT_TYPE_PRESETS[$this->type],
+                'datas [JSON]' => $this->get_preset_turns(),
+            ], ['id' => $this->id]);
         } else {
-             getDatabase()->execute('UPDATE preset_item SET datas=:Turns WHERE preset_id=:Id AND type=:Type',
-                array(':Id' => $this->id, ':Type'=> self::DRAFT_TYPE_PRESETS[$this->type],
-                    ':Turns' => json_encode($this->get_preset_turns())));
+            service()->update('preset_item', [
+                'type' => self::DRAFT_TYPE_PRESETS[$this->type],
+                'datas [JSON]' => $this->get_preset_turns(),
+            ], ['id' => $this->id]);
         }
-
-
     }
 
      private function save_pre_turns() {
@@ -271,16 +289,20 @@ const DEFAULT_TURNS_4V4 = array(
         }
 
         //check if there is such turn
-        $preset_turns_db = getDatabase()->one('SELECT id FROM preset_item WHERE preset_id=:Id AND type=:Type',
-             array(':Id' => $this->id, ':Type'=> self::PRESET_ITEM_TYPE_PRE_ACTION));
+        $preset_turns_db = service()->get('preset_item', 'id', [
+            'preset_id' => $this->id,
+            'type' => self::PRESET_ITEM_TYPE_PRE_ACTION,
+        ]);
         if(empty($preset_turns_db)) {
-             getDatabase()->execute('INSERT INTO preset_item (type, preset_id, datas) VALUES (:TType, :Id, :Turns)',
-                    array(':Id' => $this->id, ':TType' => self::PRESET_ITEM_TYPE_PRE_ACTION,
-                        ':Turns' => json_encode($this->pre_actions)));
+            service()->db->insert('preset_item', [
+                'type' => self::PRESET_ITEM_TYPE_PRE_ACTION,
+                'datas [JSON]' => $this->pre_actions,
+            ]);
         } else {
-            getDatabase()->execute('UPDATE preset_item SET datas=:Turns WHERE preset_id=:Id AND type=:Type',
-                array(':Id' => $this->id, ':Type'=> self::PRESET_ITEM_TYPE_PRE_ACTION,
-                    ':Turns' => json_encode($this->pre_actions)));
+            service()->db->update('preset_item', [
+                'type' => self::PRESET_ITEM_TYPE_PRE_ACTION,
+                'datas [JSON]' => $this->pre_actions,
+            ], ['preset_id' => $this->id]);
         }
     }
 
@@ -297,7 +319,11 @@ const DEFAULT_TURNS_4V4 = array(
         }
 
 
-        $new_turn = array('player' => $turn->player_role, 'action' => $turn->action, 'hidden' => $turn->hidden);
+        $new_turn = [
+            'player' => $turn->player_role,
+            'action' => $turn->action,
+            'hidden' => $turn->hidden,
+        ];
         array_splice($preset_turns, $turn->turn_no, 0, array($new_turn));
         $this->turns[$this->type] = $preset_turns;
         $this->save_turns();
@@ -445,8 +471,7 @@ const DEFAULT_TURNS_4V4 = array(
         if (empty($this->id)) {
            return;
         }
-        $db_items = getDatabase()->all('SELECT * FROM preset_item WHERE preset_id=:Id',
-            array(':Id' => $this->id));
+        $db_items = service()->db->select('preset_item', '*', ['preset_id' => $this->id]);
 
         foreach ($db_items as $item) {
 
@@ -517,8 +542,7 @@ const DEFAULT_TURNS_4V4 = array(
     }
 
     public static function find_all_enabled() {
-        $db_presets = getDatabase()->all('SELECT * FROM preset WHERE state=:State',
-            array(':State' => self::PRESET_ENABLED));
+        $db_presets = service()->db->select('preset', ['state' => self::PRESET_ENABLED]);
         $presets = array();
         if(!empty($db_presets)) {
             foreach($db_presets as $preset_info) {

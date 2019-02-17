@@ -1,170 +1,165 @@
 <?php
 
-include_once 'lib/TurnsGrid.class.php';
+require_once __DIR__.'/../lib/TurnsGrid.class.php';
 
 class AdminAjaxController
 {
-	static public function check_login() {
-		if(!getSession()->get(Constants::LOGGED_IN)) {
-			header("HTTP/1.0 404 Not Found");
-			die();
-			return;
-		}
-	}
-	
-	static public function preset_set_type() {
-		self::check_login();
+    static public function check_login($request, $response, $service) {
+        if(!$service->session(Constants::LOGGED_IN)) {
+            $response->code(403);
+            return false;
+        }
+        return true;
+    }
 
-		$preset = new Preset($_REQUEST['preset_id']);
-		$preset->set_type($_REQUEST['type']);
-		$turns = $preset->get_preset_turns();
-		
-		$turns_grid = new TurnsGrid($preset->get_aoe_version());
-		return $turns_grid->editableTimeline($turns);
-	}
+    static public function preset_set_type($request, $response, $service) {
+        if (!self::check_login($request, $response, $service)) return;
 
-	static public function preset_set_aoe_version() {
-		self::check_login();
+        $preset = new Preset($request->param('preset_id'));
+        $preset->set_type($request->param('type'));
+        $turns = $preset->get_preset_turns();
 
-		$preset = new Preset($_POST['preset_id']);
-		$preset->set_aoe_version($_POST['version']);
-		
-		$turns_grid = new TurnsGrid($preset->get_aoe_version());
-		return $turns_grid->editablePreTurns($preset->get_preset_pre_turns());
-	}
-	
-	static public function add_turn() {
-		self::check_login();
-		
-		$index = $_REQUEST['index'];
-		$preset_id = $_REQUEST['preset_id'];
+        $turns_grid = new TurnsGrid($preset->get_aoe_version());
+        return $turns_grid->editableTimeline($turns);
+    }
 
-		$preset = new Preset($preset_id);
+    static public function preset_set_aoe_version($request, $response, $service) {
+        if (!self::check_login($request, $response, $service)) return;
 
-		$new_turn = new Turn();
-		$new_turn->turn_no = intval($index);
-		$preset->add_turn($new_turn);
+        $preset = new Preset($request->param('request_id'));
+        $preset->set_aoe_version($request->param('version'));
 
-		$turns = $preset->get_preset_turns();
-		
-		$turns_grid = new TurnsGrid($preset->get_aoe_version());
-		return $turns_grid->editableTimeline($turns);
-	}
-	
-	static public function del_turn() {
-		self::check_login();
-		
-		$index = $_REQUEST['index'];
-		$preset_id = $_REQUEST['preset_id'];
+        $turns_grid = new TurnsGrid($preset->get_aoe_version());
+        return $turns_grid->editablePreTurns($preset->get_preset_pre_turns());
+    }
 
-		$preset = new Preset($preset_id);
-		$preset->del_turn(intval($index));
+    static public function add_turn($request, $response, $service) {
+        if (!self::check_login($request, $response, $service)) return;
 
-		$turns = $preset->get_preset_turns();
-		
-		$turns_grid = new TurnsGrid($preset->get_aoe_version());
-		return $turns_grid->editableTimeline($turns);
-		
-	}
-	
-	static public function change_turn() {
-		self::check_login();
-		
-		$index = intval($_REQUEST['index']);
-		$preset_id = $_REQUEST['preset_id'];
+        $index = $request->param('index');
+        $preset_id = $request->param('preset_id');
 
-		$preset = new Preset($preset_id);
-		if(isset($_REQUEST['hidden'])) {
-			$preset->set_turn_hidden($index, intval($_REQUEST['hidden']));
-		}
-		if(isset($_REQUEST['role'])) {
-			$preset->set_turn_player($index, intval($_REQUEST['role']));
-		}
-		if(isset($_REQUEST['action'])) {
-			$preset->set_turn_action($index, intval($_REQUEST['action']));
-		}
-		
-		$turns = $preset->get_preset_turns();
+        $preset = new Preset($preset_id);
 
-		$turns_grid = new TurnsGrid($preset->get_aoe_version());
-		return $turns_grid->editableTimeline($turns);
-	}
-	
-	
-	static public function add_pre_turn() {
-		self::check_login();
-		
-		$index = $_REQUEST['index'];
-		$preset_id = $_REQUEST['preset_id'];
+        $new_turn = new Turn();
+        $new_turn->turn_no = intval($index);
+        $preset->add_turn($new_turn);
 
-		$preset = new Preset($preset_id);
+        $turns = $preset->get_preset_turns();
 
-		$new_turn = new Turn();
-		$new_turn->turn_no = intval($index);
-		$preset->add_pre_turn($new_turn);
+        $turns_grid = new TurnsGrid($preset->get_aoe_version());
+        return $turns_grid->editableTimeline($turns);
+    }
 
-		$turns = $preset->get_preset_pre_turns();
-		
-		$turns_grid = new TurnsGrid($preset->get_aoe_version());
-		return $turns_grid->editablePreTurns($turns);
-	}
-	
-	static public function del_pre_turn() {
-		self::check_login();
-		
-		$index = $_REQUEST['index'];
-		$preset_id = $_REQUEST['preset_id'];
+    static public function del_turn($request, $response, $service) {
+        if (!self::check_login($request, $response, $service)) return;
 
-		$preset = new Preset($preset_id);
-		$preset->del_pre_turn(intval($index));
+        $index = $request->param('index');
+        $preset_id = $request->param('preset_id');
 
-		$turns = $preset->get_preset_pre_turns();
-		
-		$turns_grid = new TurnsGrid($preset->get_aoe_version());
-		return $turns_grid->editablePreTurns($turns);
-		
-	}
-	
-	static public function change_pre_turn() {
-		self::check_login();
-		
-		$index = intval($_REQUEST['index']);
-		$preset_id = $_REQUEST['preset_id'];
+        $preset = new Preset($preset_id);
+        $preset->del_turn(intval($index));
 
-		$preset = new Preset($preset_id);
-		if(isset($_REQUEST['civ'])) {
-			$preset->set_pre_turn_civ($index, intval($_REQUEST['civ']));
-		}
-		if(isset($_REQUEST['role'])) {
-			$preset->set_pre_turn_player($index, intval($_REQUEST['role']));
-		}
-		if(isset($_REQUEST['action'])) {
-			$preset->set_pre_turn_action($index, intval($_REQUEST['action']));
-		}
-		
-		$turns = $preset->get_preset_pre_turns();
-		
-		$turns_grid = new TurnsGrid($preset->get_aoe_version());
-		return $turns_grid->editablePreTurns($turns);
-	}
-	
-	
-	static public function set_preset_name() {
-		self::check_login();
+        $turns = $preset->get_preset_turns();
 
-		$preset = new Preset($_REQUEST['preset_id']);
-		$preset->set_name(trim($_REQUEST['name']));
-		
-		echo $preset->name;
-	}
+        $turns_grid = new TurnsGrid($preset->get_aoe_version());
+        return $turns_grid->editableTimeline($turns);
+    }
 
-	static public function set_preset_description() {
-		self::check_login();
-		
-		$preset = new Preset($_REQUEST['preset_id']);
-		$preset->set_description(trim($_REQUEST['description']));
-		
-		echo $preset->description;
-	}
+    static public function change_turn($request, $response, $service) {
+        if (!self::check_login($request, $response, $service)) return;
+
+        $index = $request->param('index');
+        $preset_id = $request->param('preset_id');
+
+        $preset = new Preset($preset_id);
+        if($request->params()->exists('hidden')) {
+            $preset->set_turn_hidden($index, intval($request->param('hidden')));
+        }
+        if($request->params()->exists('role')) {
+            $preset->set_turn_player($index, intval($request->param('role')));
+        }
+        if($request->params()->exists('action')) {
+            $preset->set_turn_action($index, intval($request->param('action')));
+        }
+
+        $turns = $preset->get_preset_turns();
+
+        $turns_grid = new TurnsGrid($preset->get_aoe_version());
+        return $turns_grid->editableTimeline($turns);
+    }
+
+    static public function add_pre_turn($request, $response, $service) {
+        if (!self::check_login($request, $response, $service)) return;
+
+        $index = $request->param('index');
+        $preset_id = $request->param('preset_id');
+
+        $preset = new Preset($preset_id);
+
+        $new_turn = new Turn();
+        $new_turn->turn_no = intval($index);
+        $preset->add_pre_turn($new_turn);
+
+        $turns = $preset->get_preset_pre_turns();
+
+        $turns_grid = new TurnsGrid($preset->get_aoe_version());
+        return $turns_grid->editablePreTurns($turns);
+    }
+
+    static public function del_pre_turn($request, $response, $service) {
+        if (!self::check_login($request, $response, $service)) return;
+
+        $index = $request->param('index');
+        $preset_id = $request->param('preset_id');
+
+        $preset = new Preset($preset_id);
+        $preset->del_pre_turn(intval($index));
+
+        $turns = $preset->get_preset_pre_turns();
+
+        $turns_grid = new TurnsGrid($preset->get_aoe_version());
+        return $turns_grid->editablePreTurns($turns);
+    }
+
+    static public function change_pre_turn($request, $response, $service) {
+        if (!self::check_login($request, $response, $service)) return;
+
+        $index = $request->param('index');
+        $preset_id = $request->param('preset_id');
+
+        $preset = new Preset($preset_id);
+        if($request->params()->exists('civ')) {
+            $preset->set_pre_turn_civ($index, intval($request->param('civ')));
+        }
+        if($request->params()->exists('role')) {
+            $preset->set_pre_turn_player($index, intval($request->param('role')));
+        }
+        if($request->params()->exists('action')) {
+            $preset->set_pre_turn_action($index, intval($request->param('action')));
+        }
+
+        $turns = $preset->get_preset_pre_turns();
+
+        $turns_grid = new TurnsGrid($preset->get_aoe_version());
+        return $turns_grid->editablePreTurns($turns);
+    }
+
+    static public function set_preset_name($request, $response, $service) {
+        if (!self::check_login($request, $response, $service)) return;
+
+        $preset = new Preset($request->param('preset_id'));
+        $preset->set_name(trim($request->param('name')));
+
+        echo $preset->name;
+    }
+
+    static public function set_preset_description($request, $response, $service) {
+        if (!self::check_login($request, $response, $service)) return;
+
+        $preset = new Preset($request->param('preset_id'));
+        $preset->set_description(trim($request->param('description')));
+
+        echo $preset->description;
+    }
 }
-?>

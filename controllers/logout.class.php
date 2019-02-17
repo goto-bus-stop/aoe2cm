@@ -1,12 +1,11 @@
 <?php
 class LogoutController
 {
-  static public function processLogout()
-  {
-    // Redirect to the logged in home page
-    getSession()->set(Constants::LOGGED_IN, false);
+    static public function processLogout($request, $response, $service)
+    {
+        // Redirect to the logged in home page
+        $service->session(Constants::LOGGED_IN, false);
 
-    getRoute()->redirect(ROOTDIR);
-  }
+        $response->redirect(ROOTDIR);
+    }
 }
-?>

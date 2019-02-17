@@ -1,8 +1,8 @@
 <?php
 
-include_once 'models/draft.class.php';
-include_once 'models/player.class.php';
-include_once 'models/turn.class.php';
+require_once 'models/draft.class.php';
+require_once 'models/player.class.php';
+require_once 'models/turn.class.php';
 
 class Constants
 {

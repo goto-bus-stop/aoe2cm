@@ -1,8 +1,7 @@
 <?php
-include_once 'lib/constants.class.php';
-include_once 'controllers/draft.class.php';
-include_once 'lib/name_generator.php';
-
+require_once __DIR__.'/../lib/constants.class.php';
+require_once __DIR__.'/../controllers/draft.class.php';
+require_once __DIR__.'/../lib/name_generator.php';
 ?>
 
 <script>
@@ -205,7 +204,7 @@ if (empty($_COOKIE['username'])){
 					<div class="styled-select">
 						<select id="preset-chooser" class="text-primary">
 							<?php
-								foreach($presets as $preset) {
+								foreach($this->presets as $preset) {
 									echo "<option value=\"{$preset->id}\">{$preset->get_title()}</option>";
 								}
 							?>
@@ -278,7 +277,7 @@ if (empty($_COOKIE['username'])){
 			</form>
 		</div>
 		<?php
-		if(count($last_drafts) > 0) {
+		if(count($this->last_drafts) > 0) {
 		?>
 
 		<div id="recent_drafts" class="home_card box">
@@ -286,7 +285,7 @@ if (empty($_COOKIE['username'])){
 			<table class="pure-table pure-table-horizontal recent-drafts">
 				<tbody>
 					<?php
-					foreach($last_drafts as $draft) {
+					foreach($this->last_drafts as $draft) {
 					?>
 					<tr>
 						<td class='recent-title'><?php echo $draft->title; ?></td>
@@ -321,7 +320,7 @@ if (empty($_COOKIE['username'])){
 					<div class="styled-select">
 						<select id="preset-chooser-practice" class="text-primary">
 							<?php
-								foreach($presets as $preset) {
+								foreach($this->presets as $preset) {
 									echo "<option value=\"{$preset->id}\">{$preset->get_title()}</option>";
 								}
 							?>
