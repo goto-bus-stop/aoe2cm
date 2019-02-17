@@ -7,7 +7,6 @@ function overlay_view($code)
         $previous = $_SERVER['HTTP_REFERER'];
         $go_back = _("Go back");
     }
-
     ?>
 <div id="overlay" class="text-primary">
      <div id="waiting-message">
@@ -66,5 +65,5 @@ function overlay_view($code)
         <span><a href='<?php echo $previous; ?>'><span class='back-icon'><?php echo $go_back; ?></span></a></span>
      </div>
 </div>
-
-<?php } ?>
+    <?php
+}

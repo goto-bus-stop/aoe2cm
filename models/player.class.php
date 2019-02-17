@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace Aoe2CM;
 
 class Player
@@ -30,7 +30,7 @@ class Player
         }
     }
 
-    private function loadFromInfo($db_info)
+    private function loadFromInfo($db_info): void
     {
         $this->id = intval($db_info['id']);
         $this->draft_id = intval($db_info['game_id']);
@@ -39,7 +39,7 @@ class Player
         $this->name = $db_info['name'];
     }
 
-    public function save()
+    public function save(): void
     {
         if ($this->id < 0) {
             $player_id = service()->db->insert('user', [
@@ -59,7 +59,7 @@ class Player
         }
     }
 
-    public function setName($name)
+    public function setName($name): void
     {
         if ($this->id < 0) {
             return;
@@ -69,7 +69,7 @@ class Player
         $this->name = $name;
     }
 
-    public static function findDraft(Draft $draft)
+    public static function findDraft(Draft $draft): array
     {
         $players_db = service()->db->select('user', '*', [
             'game_id' => $draft->id,
@@ -85,7 +85,7 @@ class Player
         return $players;
     }
 
-    public static function opponent($role)
+    public static function opponent($role): int
     {
         switch ($role) {
             case self::PLAYER_2:
@@ -97,7 +97,7 @@ class Player
         }
     }
 
-    public static function isParallel($role)
+    public static function isParallel($role): bool
     {
         switch ($role) {
             case self::PLAYER_BOTH_1:
@@ -108,7 +108,7 @@ class Player
         }
     }
 
-    public static function getEffectivePlayer($role)
+    public static function getEffectivePlayer($role): int
     {
         switch ($role) {
             case self::PLAYER_BOTH_1:

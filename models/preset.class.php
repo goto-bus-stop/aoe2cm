@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace Aoe2CM;
 
 class Preset
@@ -124,13 +124,13 @@ class Preset
         }
     }
 
-    public static function findWithName($name)
+    public static function findWithName($name): Preset
     {
         $preset_db = service()->db->get('preset', '*', ['name[~]' => $name]);
         return new Preset($preset_db);
     }
 
-    public static function findAll()
+    public static function findAll(): array
     {
         $presets_db = service()->db->select('preset', '*', [
             'ORDER' => [
@@ -147,7 +147,7 @@ class Preset
         return $ret_array;
     }
 
-    public function save()
+    public function save(): void
     {
         if (!$this->exists()) {
             service()->db->insert('preset', [
@@ -156,7 +156,7 @@ class Preset
             ]);
             $this->id = service()->db->id();
         }
-        
+
         service()->db->delete('preset_item', ['preset_id' => $this->id]);
         service()->db->update('preset', [
            'name' => $this->name,
@@ -187,7 +187,7 @@ class Preset
         ]);
     }
 
-    public function delete()
+    public function delete(): void
     {
         if (!$this->exists()) {
             return;
@@ -196,7 +196,7 @@ class Preset
         service()->db->delete('preset', ['id' => $this->id]);
     }
 
-    public function setState($state)
+    public function setState($state): void
     {
         if (!$this->exists()) {
             return;
@@ -205,7 +205,7 @@ class Preset
         service()->db->update('preset', ['state' => $state], ['id' => $this->id]);
     }
 
-    public function setType($new_type)
+    public function setType($new_type): void
     {
         if (!$this->exists()) {
             return;
@@ -225,7 +225,7 @@ class Preset
         }
     }
 
-    public function setName($name)
+    public function setName($name): void
     {
         if (!$this->exists() || empty($name)) {
             return;
@@ -235,7 +235,7 @@ class Preset
         $this->name = $name;
     }
 
-    public function setDescription($description)
+    public function setDescription($description): void
     {
         if (!$this->exists()) {
             return;
@@ -250,7 +250,7 @@ class Preset
         $this->description = $description;
     }
 
-    public function setAoeVersion($version)
+    public function setAoeVersion($version): void
     {
         if (!$this->exists()) {
             return;
@@ -265,7 +265,7 @@ class Preset
         $this->aoe_version = $version;
     }
 
-    private function saveTurns()
+    private function saveTurns(): void
     {
         if (!$this->exists()) {
             return;
@@ -289,7 +289,7 @@ class Preset
         }
     }
 
-    private function savePreTurns()
+    private function savePreTurns(): void
     {
         if (!$this->exists()) {
             return;
@@ -313,9 +313,8 @@ class Preset
         }
     }
 
-    public function addTurn(Turn $turn)
+    public function addTurn(Turn $turn): void
     {
-
         if (!$this->exists()) {
             return;
         }
@@ -337,12 +336,12 @@ class Preset
         $this->saveTurns();
     }
 
-    public function setTurnPlayer($index, $player_role)
+    public function setTurnPlayer(int $index, int $player_role): void
     {
         if (!$this->exists()) {
             return;
         }
-        $preset_turns =$this->getPresetTurns();
+        $preset_turns = $this->getPresetTurns();
 
         if ($index >= count($preset_turns) || $index < 0) {
             return;
@@ -353,7 +352,7 @@ class Preset
         $this->saveTurns();
     }
 
-    public function setTurnAction($index, $action)
+    public function setTurnAction($index, $action): void
     {
         if (!$this->exists()) {
             return;
@@ -369,7 +368,7 @@ class Preset
         $this->saveTurns();
     }
 
-    public function setTurnHidden($index, $hidden)
+    public function setTurnHidden($index, $hidden): void
     {
         if (!$this->exists()) {
             return;
@@ -385,7 +384,7 @@ class Preset
         $this->saveTurns();
     }
 
-    public function deleteTurn($index)
+    public function deleteTurn($index): void
     {
         if (!$this->exists()) {
             return;
@@ -397,9 +396,8 @@ class Preset
         $this->saveTurns();
     }
 
-    public function addPreTurn(Turn $turn)
+    public function addPreTurn(Turn $turn): void
     {
-
         if (!$this->exists()) {
             return;
         }
@@ -416,7 +414,7 @@ class Preset
         $this->savePreTurns();
     }
 
-    public function setPreTurnPlayer($index, $player_role)
+    public function setPreTurnPlayer($index, $player_role): void
     {
         if (!$this->exists()) {
             return;
@@ -432,7 +430,7 @@ class Preset
         $this->savePreTurns();
     }
 
-    public function setPreTurnAction($index, $action)
+    public function setPreTurnAction($index, $action): void
     {
         if (!$this->exists()) {
             return;
@@ -448,7 +446,7 @@ class Preset
         $this->savePreTurns();
     }
 
-    public function setPreTurnCiv($index, $civ)
+    public function setPreTurnCiv($index, $civ): void
     {
         if (!$this->exists()) {
             return;
@@ -464,7 +462,7 @@ class Preset
         $this->savePreTurns();
     }
 
-    public function delPreTurn($index)
+    public function delPreTurn($index): void
     {
         if (!$this->exists()) {
             return;
@@ -476,7 +474,7 @@ class Preset
         $this->savePreTurns();
     }
 
-    private function loadFromInfo($info)
+    private function loadFromInfo($info): void
     {
         $this->id = intval($info['id']);
         $this->name = $info['name'];
@@ -485,7 +483,7 @@ class Preset
         $this->loadItems();
     }
 
-    private function loadItems()
+    private function loadItems(): void
     {
         if (empty($this->id)) {
             return;
@@ -516,7 +514,7 @@ class Preset
         }
     }
 
-    public function getTitle()
+    public function getTitle(): string
     {
         if (empty($this->name)) {
             return Draft::typeGetStr($this->type);
@@ -525,37 +523,37 @@ class Preset
         }
     }
 
-    public function getTurns($type)
+    public function getTurns($type): array
     {
         return $this->turns[$type];
     }
 
-    public function getPresetTurns()
+    public function getPresetTurns(): array
     {
         return $this->turns[$this->type];
     }
 
-    public function getPresetPreTurns()
+    public function getPresetPreTurns(): array
     {
         return $this->pre_actions;
     }
 
-    public function getAoeVersion()
+    public function getAoeVersion(): int
     {
         return $this->aoe_version;
     }
 
-    public function exists()
+    public function exists(): bool
     {
         return $this->id > 0;
     }
 
-    public static function find($id)
+    public static function find($id): Preset
     {
         return new Preset($id);
     }
 
-    public static function findAllEnabled()
+    public static function findAllEnabled(): array
     {
         $db_presets = service()->db->select('preset', ['state' => self::PRESET_ENABLED]);
         $presets = [];

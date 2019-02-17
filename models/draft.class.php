@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace Aoe2CM;
 
 use Medoo\Medoo;
@@ -79,7 +80,7 @@ class Draft
         }
     }
 
-    public function getCivCount()
+    public function getCivCount(): int
     {
         switch ($this->aoe_version) {
             case self::AOE_VERSION_AOF:
@@ -93,18 +94,18 @@ class Draft
         }
     }
 
-    public function getAoeVersion()
+    public function getAoeVersion(): int
     {
         return $this->aoe_version;
     }
 
-    public static function findWithCode($code)
+    public static function findWithCode(string $code): Draft
     {
         $draft_info = service()->db->get('game', '*', ['code' => $code]);
         return new Draft($draft_info);
     }
 
-    public static function typeGetStr($type)
+    public static function typeGetStr(int $type): string
     {
         switch ($type & self::TYPE_MASK) {
             case self::TYPE_1V1:
@@ -119,7 +120,7 @@ class Draft
         return "";
     }
 
-    public static function aoeVersionGetStr($version)
+    public static function aoeVersionGetStr(int $version): string
     {
         switch ($version) {
             case self::AOE_VERSION_AOC:
@@ -139,7 +140,7 @@ class Draft
         return self::typeGetStr($this->type);
     }
 
-    public static function create($new_type, $new_preset)
+    public static function create(int $new_type, Preset $new_preset): Draft
     {
         $draft_state = self::STATE_WAITING;
 
@@ -163,7 +164,7 @@ class Draft
         return $draft;
     }
 
-    private function addPreTurns()
+    private function addPreTurns(): void
     {
         if (!$this->exists()) {
             return;
@@ -200,7 +201,7 @@ class Draft
         }
     }
 
-    private function loadFromInfo($db_info)
+    private function loadFromInfo($db_info): void
     {
         $this->id = intval($db_info['id']);
         $this->code = $db_info['code'];
@@ -215,8 +216,7 @@ class Draft
         $this->loadCurrentTurn();
     }
 
-
-    private function reload()
+    private function reload(): void
     {
         $draft_info = service()->db->get('game', '*', ['id' => $this->id]);
         if (!is_null($draft_info)) {
@@ -225,8 +225,7 @@ class Draft
         $this->loadTurns();
     }
 
-
-    private function loadPlayers()
+    private function loadPlayers(): void
     {
         if ($this->id < 0) {
             return;
@@ -241,7 +240,7 @@ class Draft
         }
     }
 
-    public function getCurrentPlayer()
+    public function getCurrentPlayer(): Player
     {
         $m_session_id = session_id();
         foreach ($this->players as $player) {
@@ -252,7 +251,7 @@ class Draft
         return null;
     }
 
-    private function loadPreset($preset_id)
+    private function loadPreset($preset_id): void
     {
 
         if (empty($preset_id)) {
@@ -261,7 +260,7 @@ class Draft
         $this->preset = Preset::find($preset_id);
     }
 
-    private function updateTitle()
+    private function updateTitle(): void
     {
         $this->title = "";
 
@@ -272,7 +271,7 @@ class Draft
         }
     }
 
-    private function loadCurrentTurn()
+    private function loadCurrentTurn(): void
     {
         $current_turn_db = service()->db->get('current_turn', '*', ['game_id' => $this->id]);
         if (empty($current_turn_db)) {
@@ -282,7 +281,7 @@ class Draft
         }
     }
 
-    private function loadTurns()
+    private function loadTurns(): void
     {
         $db_turns = service()->db->select('turn', '*', [
             'game_id' => $this->id,
@@ -301,47 +300,47 @@ class Draft
         }
     }
 
-    public function exists()
+    public function exists(): bool
     {
         return $this->id >= 0;
     }
 
-    public function isPractice()
+    public function isPractice(): bool
     {
         return ($this->type & self::PRACTICE_MASK) == self::PRACTICE;
     }
 
-    public function isWaiting()
+    public function isWaiting(): bool
     {
         return $this->state == self::STATE_WAITING;
     }
 
-    public function isDone()
+    public function isDone(): bool
     {
         return $this->state == self::STATE_DONE;
     }
 
-    public function isStarting()
+    public function isStarting(): bool
     {
         return $this->state == self::STATE_STARTING;
     }
 
-    public function isStarted()
+    public function isStarted(): bool
     {
         return $this->state == self::STATE_STARTED;
     }
 
-    public function isReady()
+    public function isReady(): bool
     {
         return $this->state = self::STATE_READY;
     }
 
-    public function getPlayers()
+    public function getPlayers(): array
     {
         return $this->players;
     }
 
-    public function getTurns()
+    public function getTurns(): array
     {
         if ($this->turns == null) {
             $this->loadTurns();
@@ -350,7 +349,7 @@ class Draft
         return $this->turns;
     }
 
-    public function getNextTurn()
+    public function getNextTurn(): int
     {
         $preset_turns = $this->getPresetTurns();
         if ($this->waitingForParallelPick() &&
@@ -364,18 +363,18 @@ class Draft
         }
     }
 
-    public function getPresetTurns()
+    public function getPresetTurns(): array
     {
         return $this->preset->getTurns($this->type & self::TYPE_MASK);
     }
 
-    public function getPresetPreTurns()
+    public function getPresetPreTurns(): array
     {
         return $this->preset->getPresetPreTurns();
     }
 
 
-    public function getLastTurn()
+    public function getLastTurn(): Turn
     {
         if (isset($this->getTurns()[$this->current_turn])) {
             return $this->turns[$this->current_turn];
@@ -384,7 +383,7 @@ class Draft
         }
     }
 
-    public function getPreviousToLastTurn()
+    public function getPreviousToLastTurn(): Turn
     {
         $previous_to_last_index = $this->current_turn - 1;
         $last_turn = $this->getLastTurn();
@@ -422,7 +421,7 @@ class Draft
         return false;
     }
 
-    public function areParallelTurnsNext()
+    public function areParallelTurnsNext(): bool
     {
         $preset_turns = $this->getPresetTurns();
         if (!isset($preset_turns[$this->current_turn + 1]) || !isset($preset_turns[$this->current_turn + 2])) {
@@ -435,12 +434,12 @@ class Draft
             $preset_turns[$next_2]['player'] == Player::PLAYER_BOTH_2;
     }
 
-    public function getPlayerRole()
+    public function getPlayerRole(): int
     {
         return $this->player_role;
     }
 
-    public function getActivePlayer()
+    public function getActivePlayer(): int
     {
         $active_player = -1;
         $preset_turns = $this->getPresetTurns();
@@ -452,14 +451,14 @@ class Draft
         return $active_player;
     }
 
-    public function setState($state)
+    public function setState($state): void
     {
         //update game state
         service()->db->update('game', ['state' => $state], ['id' => $this->id]);
         $this->state = $state;
     }
 
-    public function starting()
+    public function starting(): void
     {
         if ($this->state != self::STATE_WAITING) {
             return;
@@ -473,7 +472,7 @@ class Draft
         $this->state = self::STATE_STARTING;
     }
 
-    public function ready()
+    public function ready(): void
     {
         if ($this->state != self::STATE_STARTING) {
             return;
@@ -489,7 +488,7 @@ class Draft
         $this->date_started = Turn::getTimeInSeconds($draft_info['date_started']);
     }
 
-    public function start()
+    public function start(): void
     {
         if ($this->state != self::STATE_READY) {
             return;
@@ -505,7 +504,7 @@ class Draft
         $this->date_started = Turn::getTimeInSeconds($draft_info['date_started']);
     }
 
-    public function finish()
+    public function finish(): void
     {
         if ($this->state != self::STATE_STARTED) {
             return;
@@ -516,7 +515,7 @@ class Draft
         $this->state = self::STATE_DONE;
     }
 
-    public function getDisabledPicks()
+    public function getDisabledPicks(): array
     {
         if ($this->player_role == Player::PLAYER_NONE) {
             return [];
@@ -562,7 +561,7 @@ class Draft
         return $disabled_picks;
     }
 
-    public function getDisabledBans()
+    public function getDisabledBans(): array
     {
         if ($this->player_role == Player::PLAYER_NONE) {
             return [];
@@ -610,7 +609,7 @@ class Draft
         return $disabled_bans;
     }
 
-    private function insertTurn($turn_no, $civ, $role, $action, $hidden)
+    private function insertTurn($turn_no, $civ, $role, $action, $hidden): void
     {
         $turn_id = service()->db->insert('turn', [
             'game_id' => $this->id,
@@ -623,7 +622,7 @@ class Draft
         ]);
     }
 
-    private function getRandomCiv($disabled_civs)
+    private function getRandomCiv($disabled_civs): int
     {
         $enabled_civs = [];
         for ($i = 1; $i <= $this->getCivCount(); $i++) {
@@ -640,18 +639,18 @@ class Draft
         return Constants::CIV_RANDOM;
     }
 
-    private function isValidTurnNo($turn_no)
+    private function isValidTurnNo($turn_no): bool
     {
         $next_turn = $this->getNextTurn();
         return $next_turn == $turn_no;
     }
 
-    private function isPlayersTurn($preset_role)
+    private function isPlayersTurn($preset_role): bool
     {
         return $this->getPlayerRole() == Player::getEffectivePlayer($preset_role);
     }
 
-    public function addTurn($turn_no, $civ)
+    public function addTurn($turn_no, $civ): string
     {
         if (!$this->isStarted()) {
             return _("Not started.");
@@ -724,7 +723,7 @@ class Draft
         return "";
     }
 
-    private function checkForAdminTurns()
+    private function checkForAdminTurns(): void
     {
         if (!$this->isStarted()) {
             return;
@@ -761,7 +760,7 @@ class Draft
         }
     }
 
-    public static function getLast($count = 6, $activePreset = true)
+    public static function getLast($count = 6, $activePreset = true): array
     {
         $queryString = '
             SELECT g.id, g.type, g.preset_id, g.aoe_version, g.state, g.code, g.date_started
@@ -789,7 +788,7 @@ class Draft
         return $last_drafts;
     }
 
-    public static function getLastWithPreset(Preset $preset, $count = 6)
+    public static function getLastWithPreset(Preset $preset, $count = 6): array
     {
         $draft_infos = service()->db->query('
             SELECT *

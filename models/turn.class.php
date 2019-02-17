@@ -1,6 +1,8 @@
 <?php
-
+declare(strict_types=1);
 namespace Aoe2CM;
+
+use \DateTime;
 
 class Turn
 {
@@ -92,52 +94,51 @@ class Turn
         }
     }
 
-
-    public static function getTimeInSeconds($dateString)
+    public static function getTimeInSeconds($dateString): float
     {
         $date = new DateTime($dateString);
         return floatval($date->getTimestamp().'.'.$date->format('u'));
     }
 
-    public function isReveal()
+    public function isReveal(): bool
     {
         return $this->action == self::DO_REVEAL_PICKS ||
             $this->action == self::DO_REVEAL_BANS ||
             $this->action == self::DO_REVEAL_ALL;
     }
 
-    public function isRevealPick()
+    public function isRevealPick(): bool
     {
         return $this->action == self::DO_REVEAL_PICKS || $this->action == self::DO_REVEAL_ALL;
     }
 
-    public function isRevealBan()
+    public function isRevealBan(): bool
     {
         return $this->action == self::DO_REVEAL_BANS || $this->action == self::DO_REVEAL_ALL;
     }
 
-    public function isHidden()
+    public function isHidden(): bool
     {
         return $this->hidden == self::TURN_HIDDEN;
     }
 
-    public function isHiddenBan()
+    public function isHiddenBan(): bool
     {
         return $this->hidden == self::TURN_HIDDEN && $this->isBan();
     }
 
-    public function isHiddenPick()
+    public function isHiddenPick(): bool
     {
         return $this->hidden == self::TURN_HIDDEN && $this->isPick();
     }
 
-    public function getDisabledEmpty()
+    public function getDisabledEmpty(): array
     {
 
         return [Player::PLAYER_1 => [], Player::PLAYER_2 => []];
     }
 
-    public function getCiv()
+    public function getCiv(): int
     {
         if ($this->civ >= Constants::RANDOM_CHOICE_OFFSET) {
             return $this->civ - Constants::RANDOM_CHOICE_OFFSET;
@@ -145,12 +146,12 @@ class Turn
         return $this->civ;
     }
 
-    public function isRandomlyChosen()
+    public function isRandomlyChosen(): bool
     {
         return $this->civ >= Constants::RANDOM_CHOICE_OFFSET;
     }
 
-    public function getDisabledPicks()
+    public function getDisabledPicks(): array
     {
         if ($this->getCiv() <= Constants::CIV_RANDOM) {
             return self::DISABLED_EMPTY;
@@ -188,7 +189,7 @@ class Turn
         return $disabled_civs;
     }
 
-    public function getDisabledBans()
+    public function getDisabledBans(): array
     {
         if ($this->getCiv() <= Constants::CIV_RANDOM) {
             return self::DISABLED_EMPTY;
@@ -220,7 +221,7 @@ class Turn
         return $disabled_civs;
     }
 
-    public function getClientAction()
+    public function getClientAction(): int
     {
         if (self::actionIsPick($this->action)) {
             return self::DO_PICK;
@@ -232,42 +233,42 @@ class Turn
         return self::DO_OTHER;
     }
 
-    public function isPick()
+    public function isPick(): bool
     {
         return in_array($this->action, self::PICK_ACTIONS);
     }
 
-    public function isBan()
+    public function isBan(): bool
     {
         return in_array($this->action, self::BAN_ACTIONS);
     }
 
-    public function isHide()
+    public function isHide(): bool
     {
         return $this->action == self::DO_HIDE;
     }
 
-    public static function actionIsPick($action)
+    public static function actionIsPick($action): bool
     {
         return in_array($action, self::PICK_ACTIONS);
     }
     
-    public static function actionIsBan($action)
+    public static function actionIsBan($action): bool
     {
         return in_array($action, self::BAN_ACTIONS);
     }
 
-    public static function actionIsHide($action)
+    public static function actionIsHide($action): bool
     {
         return $action == self::DO_HIDE;
     }
 
-    public static function actionIsGlobal($action)
+    public static function actionIsGlobal($action): bool
     {
         return $action == self::DO_GLOBAL_BAN || $action == self::DO_GLOBAL_PICK;
     }
 
-    public static function actionIsAdmin($action, $player)
+    public static function actionIsAdmin($action, $player): bool
     {
         if ($player == Player::PLAYER_NONE) {
             return true;
@@ -276,7 +277,7 @@ class Turn
         return in_array($action, self::ADMIN_ACTIONS);
     }
 
-    public static function actionGetType($action)
+    public static function actionGetType($action): int
     {
         if (self::actionIsPick($action)) {
             return Turn::DO_PICK;
@@ -287,7 +288,7 @@ class Turn
         }
     }
 
-    public static function getDoStrings()
+    public static function getDoStrings(): array
     {
         return [
             self::DO_PICK => _('pick'),
@@ -306,7 +307,7 @@ class Turn
         ];
     }
 
-    public static function getFancyDoStrings()
+    public static function getFancyDoStrings(): array
     {
         return [
             self::DO_PICK => _('pick'),

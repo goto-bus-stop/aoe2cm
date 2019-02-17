@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace Aoe2CM;
 
 class Tournament
@@ -27,7 +27,7 @@ class Tournament
         }
     }
 
-    private function loadFromInfo($info)
+    private function loadFromInfo($info): void
     {
         $this->id = intval($info['id']);
         $this->name = $info['name'];
@@ -35,7 +35,7 @@ class Tournament
         $this->code = $info['code'];
     }
 
-    public function loadData()
+    public function loadData(): void
     {
         if (!$this->exists()) {
             return;
@@ -47,7 +47,7 @@ class Tournament
         }
     }
 
-    public static function findAll()
+    public static function findAll(): array
     {
         $tourney_db = service()->db->select('tournament', '*');
         $ret_array = [];
@@ -59,8 +59,7 @@ class Tournament
         return $ret_array;
     }
 
-
-    public function save()
+    public function save(): void
     {
         if (!$this->exists()) {
             service()->db->insert('tournament', [
@@ -90,7 +89,7 @@ class Tournament
         }
     }
 
-    public function delete()
+    public function delete(): void
     {
         if (!$this->exists()) {
             return;
@@ -99,7 +98,7 @@ class Tournament
         service()->db->delete('tournament', ['id' => $this->id]);
     }
 
-    public function exists()
+    public function exists(): bool
     {
         return $this->id > 0;
     }

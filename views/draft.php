@@ -1,9 +1,8 @@
 <?php
-require_once 'lib/civgrid.class.php';
-require_once 'lib/constants.class.php';
-require_once 'lib/TurnsGrid.class.php';
-require_once 'controllers/draft.class.php';
-require_once 'views/overlay.php';
+use Aoe2CM\CivGrid;
+use Aoe2CM\TurnsGrid;
+use Aoe2CM\Constants;
+use Aoe2CM\DraftController;
 
 $draft = $this->draft;
 $preset_turns = $this->preset_turns;
@@ -58,6 +57,7 @@ $(document).ready(function(){
 });
 </script>
 
+<?php require_once __DIR__.'/overlay.php'; ?>
 <?php overlay_view($draft->code); ?> 
 
 <div class="draft-content">
