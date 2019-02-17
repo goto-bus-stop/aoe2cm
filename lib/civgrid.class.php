@@ -1,6 +1,5 @@
 <?php
-
-require_once 'models/draft.class.php';
+namespace Aoe2CM;
 
 class CivGrid
 {
@@ -54,9 +53,9 @@ class CivGrid
         $this->aoe_version = $aoe_version;
     }
 
-    public function setup_tooltips_js()
+    public function printJsTooltips()
     {
-?>
+        ?>
       $(".choice").each(function(index) {
          $(".choice").eq(index).tooltipster({
             theme: 'aoecm-tooltip',
@@ -68,21 +67,22 @@ class CivGrid
             content: $('.civ-'+$(this).data('civ'))
          });
       });
-<?php
+        <?php
     }
 
-    public function setup_tooltips_data()
+    public function printTooltipsData()
     {
-        if($this->aoe_version > Draft::AOE_VERSION_AOC) {
-            return $this->setup_dlc_tooltips_data();
+        if ($this->aoe_version > Draft::AOE_VERSION_AOC) {
+            return $this->printDLCTooltipsData();
         }
 
-        return $this->setup_aoc_tooltips_data();
+        return $this->printAoCTooltipsData();
     }
 
-    public function setup_aoc_tooltips_data()
+    public function printAoCTooltipsData()
     {
-?>
+        // phpcs:disable Generic.Files.LineLength.TooLong
+        ?>
 <div id="#civ-bonuses" style="display: none">
 <div class="civ-bonus civ-random">
    <span class="civ-title"><?php echo _("Unknown"); ?></span>
@@ -344,12 +344,14 @@ class CivGrid
    <span class="team-bonus"><?php /* xgettext:no-php-format */  echo _("Docks are 25% cheaper"); ?><span>
 </div>
 </div>
-<?php
+        <?php
+        // phpcs:enable Generic.Files.LineLength.TooLong
     }
 
-    public function setup_dlc_tooltips_data()
+    public function printDLCTooltipsData()
     {
-?>
+        // phpcs:disable Generic.Files.LineLength.TooLong
+        ?>
 <div id="#civ-bonuses" style="display: none">
 <div class="civ-bonus civ-random">
    <span class="civ-title"><?php echo _("Unknown"); ?></span>
@@ -787,19 +789,20 @@ class CivGrid
    <span class="team-bonus"><?php  /* xgettext:no-php-format */ echo _("Docks cost -15%"); ?><span>
 </div>
 </div>
-<?php
+        <?php
+        // phpcs:enable Generic.Files.LineLength.TooLong
     }
 
-    public function get_civs()
+    public function getCivs()
     {
         $civs = self::$aoc_civs;
-        if($this->aoe_version >= Draft::AOE_VERSION_AOF) {
+        if ($this->aoe_version >= Draft::AOE_VERSION_AOF) {
             $civs = array_merge($civs, self::$aof_civs);
         }
-        if($this->aoe_version >= Draft::AOE_VERSION_AOAK) {
+        if ($this->aoe_version >= Draft::AOE_VERSION_AOAK) {
             $civs = array_merge($civs, self::$aoak_civs);
         }
-        if($this->aoe_version >= Draft::AOE_VERSION_AOR) {
+        if ($this->aoe_version >= Draft::AOE_VERSION_AOR) {
             $civs = array_merge($civs, self::$aor_civs);
         }
 
@@ -809,19 +812,19 @@ class CivGrid
         return $civs;
     }
 
-    public function display_grid()
+    public function printGrid()
     {
-        $civs = $this->get_civs();
-?>
+        $civs = $this->getCivs();
+        ?>
    <div id="civgrid" class="chooser card">
       <div class="pure-g chooser-grid box-content">
-<?php
-        foreach( $civs as $civ ) {
+        <?php
+        foreach ($civs as $civ) {
             $civ_img = $civ.".png";
-            if($this->aoe_version < Draft::AOE_VERSION_AOF) {
+            if ($this->aoe_version < Draft::AOE_VERSION_AOF) {
                 $civ_img = $civ."_orig.png";
             }
-?>
+            ?>
             <div class="pure-u-1-12 choice" data-civ="<?php echo $civ; ?>">
                <div class='stretchy-wrapper'>
                   <div class='stretchy-image'>
@@ -832,9 +835,9 @@ class CivGrid
                   </div>
                </div>
             </div>
-<?php
+            <?php
         }
-?>
+        ?>
          <div class="pure-u-1-12 choice" style="display:none">
                <div class='stretchy-wrapper chosen-hidden'>
                   <div class='stretchy-image'>
@@ -845,6 +848,6 @@ class CivGrid
       </div>
       <div class="card-background"></div>
    </div>
-<?php
+        <?php
     }
 }

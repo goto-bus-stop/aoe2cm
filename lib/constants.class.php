@@ -1,8 +1,5 @@
 <?php
-
-require_once 'models/draft.class.php';
-require_once 'models/player.class.php';
-require_once 'models/turn.class.php';
+namespace Aoe2CM;
 
 class Constants
 {
@@ -17,7 +14,8 @@ class Constants
     const AOR_CIV_COUNT = 31;
     const RANDOM_CHOICE_OFFSET = 36;
 
-        public static function js_constants() {
+    public static function printJsConstants()
+    {
         ?>
 <script>
 var STATE_ERROR = <?php echo Draft::STATE_ERROR; ?>;
@@ -41,5 +39,4 @@ var PLAYER_2 = <?php echo Player::PLAYER_2; ?>;
 </script>
         <?php
     }
-
 }

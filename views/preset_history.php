@@ -18,24 +18,26 @@
         </thead>
         <tbody>
             <?php
-            foreach($last_drafts as $draft) {
-            ?>
+            foreach ($last_drafts as $draft) {
+                ?>
             <tr>
                 <td class='recent-title'><?php echo $draft->code; ?></td>
-                <td class='recent-users'><?php echo $draft->players[0]->name." "._(" vs ")." ".$draft->players[1]->name; ?></td>
+                <td class='recent-users'>
+                    <?php echo $draft->players[0]->name." "._(" vs ")." ".$draft->players[1]->name; ?>
+                </td>
                 <td class='recent-date'><?php echo $draft->date_started_str; ?></td>
                 <td class='recent-action'><?php
                     echo "<a href=\"".ROOTDIR."/spectate?code=".$draft->code."\" class=\"text-primary shadowbutton\">";
-                    if($draft->is_done()) {
-                        echo _("Watch");
-                    } else {
-                        echo _("Watch Live");
-                    }
+                if ($draft->isDone()) {
+                    echo _("Watch");
+                } else {
+                    echo _("Watch Live");
+                }
                     echo "</a>";
-                    ?>
+                ?>
                 </td>
             </tr>
-            <?php
+                <?php
             }
             ?>
         </tbody>

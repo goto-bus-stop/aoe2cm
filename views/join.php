@@ -40,7 +40,13 @@ $(document).ready(function(){
 </script>
 
 <div style="position:absolute;top:8px;right:8px; ">
-    <div id="captain-name"><?php if(isset($_COOKIE['username'])){ echo $_COOKIE['username']; } ?></div>
+    <div id="captain-name">
+        <?php
+        if (isset($_COOKIE['username'])) {
+            echo $_COOKIE['username'];
+        }
+        ?>
+    </div>
     <div id="themeswitcher"><span>switch theme</span></div>
 </div>
 
@@ -50,28 +56,41 @@ $(document).ready(function(){
     <div class="pure-g">
         <div class="pure-u-1-1" >
             <div id="join_games" class="card home_card">
-                <h1><span><span class="red-glow"><?php echo $draft->players[0]->name."</span> "._(" vs ")." <span class=\"blue-glow\">".$draft->players[1]->name; ?></span></h1>
+                <h1>
+                    <span class="red-glow"><?= $draft->players[0]->name ?></span>
+                    <?= _(" vs ") ?>
+                    <span class="blue-glow"><?= $draft->players[1]->name ?></span>
+                </h1>
             <?php
-                if(!$join) {
-            ?>
+            if (!$join) {
+                ?>
                 <br />
                 <span class="text-primary">Looks like the draft is already under way. You can't join.</span>
                 <br />
                 <br />
                 <div class="centered">
-                    <div class="bspectate shadowbutton blue-glow" style="color: #fff;"><?php echo _("Spectate"); ?></div>
+                    <div class="bspectate shadowbutton blue-glow" style="color: #fff;">
+                        <?php echo _("Spectate"); ?>
+                    </div>
                 </div>
-            <?php
-                } else {
-            ?>
+                <?php
+            } else {
+                ?>
                 <div class="pure-g">
-                    <div class="centered pure-u-1-2"><div class="bspectate shadowbutton blue-glow" style="color: #fff;"><?php echo _("Spectate"); ?></div> </div>
-                    <div class="centered pure-u-1-2"><div class="bjoin shadowbutton green-glow" style="color: #fff;"><?php echo _("Join"); ?></div></div>
+                    <div class="centered pure-u-1-2">
+                        <div class="bspectate shadowbutton blue-glow" style="color: #fff;">
+                            <?php echo _("Spectate"); ?>
+                        </div>
+                    </div>
+                    <div class="centered pure-u-1-2">
+                        <div class="bjoin shadowbutton green-glow" style="color: #fff;">
+                            <?php echo _("Join"); ?>
+                        </div>
+                    </div>
                 </div>
-            <?php
-                }
+                <?php
+            }
             ?>
-            
             </div>
         </div>
     </div>

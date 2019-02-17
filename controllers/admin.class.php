@@ -1,13 +1,9 @@
 <?php
+namespace Aoe2CM;
 
-use Klein\{Request, Response, ServiceProvider};
-
-require_once 'models/tournament.class.php';
-require_once 'models/preset.class.php';
-
-$ADMINS = [
-    'user' => md5('passwordhash'),
-];
+use Klein\Request;
+use Klein\Response;
+use Klein\ServiceProvider;
 
 class AdminController
 {
@@ -19,8 +15,8 @@ class AdminController
 
         $service->render(__DIR__.'/../views/admin_home.php', [
             'title' => 'Admin',
-            'tournaments' => Tournament::find_all(),
-            'presets' => Preset::find_all(),
+            'tournaments' => Tournament::findAll(),
+            'presets' => Preset::findAll(),
         ]);
     }
 
@@ -51,12 +47,12 @@ class AdminController
         }
 
         //load preset
-        if(!is_numeric($request->param('p'))) {
+        if (!is_numeric($request->param('p'))) {
             return $response->code(400);
         }
 
         $preset = new Preset($request->param('p'));
-        if(!$preset->exists()) {
+        if (!$preset->exists()) {
             return $response->code(404);
         }
 
@@ -74,12 +70,12 @@ class AdminController
         }
 
         //load preset
-        if(!is_numeric($request->param('p'))) {
+        if (!is_numeric($request->param('p'))) {
             return $response->code(400);
         }
 
         $preset = new Preset($request->param('p'));
-        if(!$preset->exists()) {
+        if (!$preset->exists()) {
             return $response->code(404);
         }
 
@@ -87,7 +83,7 @@ class AdminController
             'title' => 'Preset - History',
             'preset' => $preset,
             'home' => false,
-            'last_drafts' => Draft::get_last_with_preset($preset, 150),
+            'last_drafts' => Draft::getLastWithPreset($preset, 150),
         ]);
     }
 
@@ -110,7 +106,7 @@ class AdminController
             return $response->code(404);
         }
 
-        $preset->set_state($request->param('e'));
+        $preset->setState($request->param('e'));
 
         $response->redirect(ROOTDIR.'/admin', null, false, true);
     }
@@ -183,10 +179,13 @@ class AdminController
 
     public static function processLogin(Request $request, Response $response, ServiceProvider $service)
     {
-        global $ADMINS;
         // Confirm the password is correct
         $user = $request->param('user');
         $password = $request->param('pass');
+
+        $ADMINS = [
+            'user' => md5('passwordhash'),
+        ];
 
         if (!array_key_exists($user, $ADMINS) || strcmp(md5($password), $ADMINS[$user]) != 0) {
             return $response->redirect(ROOTDIR.'/login?msg='.urlencode('User or password is incorrect'));

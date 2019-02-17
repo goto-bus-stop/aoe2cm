@@ -1,5 +1,7 @@
 <?php
 
+namespace Aoe2CM;
+
 class Tournament
 {
     const STATE_DISABLED = 0;
@@ -13,40 +15,44 @@ class Tournament
     public $code = "";
     public $html = "";
 
-    public function __construct($db_info = null) {
-        if(is_array($db_info)) {
-            $this->load_from_info($db_info);
-        } else if(is_numeric($db_info)) {
+    public function __construct($db_info = null)
+    {
+        if (is_array($db_info)) {
+            $this->loadFromInfo($db_info);
+        } elseif (is_numeric($db_info)) {
             $info = service()->db->get('tournament', '*', ['id' => $db_info]);
-            if(!empty($info)) {
-                $this->load_from_info($info);
+            if (!empty($info)) {
+                $this->loadFromInfo($info);
             }
         }
     }
 
-    private function load_from_info($info) {
+    private function loadFromInfo($info)
+    {
         $this->id = intval($info['id']);
         $this->name = $info['name'];
         $this->description = intval($info['state']);
         $this->code = $info['code'];
     }
 
-    public function load_data() {
-        if(!$this->exists()) {
+    public function loadData()
+    {
+        if (!$this->exists()) {
             return;
         }
 
         $data = service()->db->get('tournament_data', '*', ['tournament_id' => $this->id]);
-        if(!empty($data)) {
+        if (!empty($data)) {
             $this->html = $data['html'];
         }
     }
 
-    public static function find_all() {
+    public static function findAll()
+    {
         $tourney_db = service()->db->select('tournament', '*');
-        $ret_array = array();
-        if(!empty($tourney_db)) {
-            foreach($tourney_db as $tourney_info) {
+        $ret_array = [];
+        if (!empty($tourney_db)) {
+            foreach ($tourney_db as $tourney_info) {
                 $ret_array[] = new Tournament($tourney_info);
             }
         }
@@ -54,8 +60,9 @@ class Tournament
     }
 
 
-    public function save() {
-        if(!$this->exists()) {
+    public function save()
+    {
+        if (!$this->exists()) {
             service()->db->insert('tournament', [
                 'name' => $this->name,
                 'state' => $this->state,
@@ -64,13 +71,12 @@ class Tournament
             ]);
             $this->id = service()->db->id();
 
-            if($this->exists()) {
+            if ($this->exists()) {
                 service()->db->insert('tournament_data', [
                     'tournement_id' => $this->id,
                     'html' => $this->html,
                 ]);
             }
-
         } else {
             service()->db->update('tournament', [
                 'name' => $this->name,
@@ -84,16 +90,17 @@ class Tournament
         }
     }
 
-    public function delete() {
-        if(!$this->exists()) {
+    public function delete()
+    {
+        if (!$this->exists()) {
             return;
         }
 
         service()->db->delete('tournament', ['id' => $this->id]);
     }
 
-    public function exists() {
+    public function exists()
+    {
         return $this->id > 0;
     }
-
 }

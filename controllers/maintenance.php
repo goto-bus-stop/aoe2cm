@@ -1,16 +1,13 @@
 <?php
+namespace Aoe2CM;
 
-use Klein\{Request, Response, ServiceProvider};
+use Klein\Request;
+use Klein\Response;
+use Klein\ServiceProvider;
 use Medoo\Medoo;
 
-require_once 'lib/constants.class.php';
-require_once 'controllers/draft.class.php';
-require_once 'lib/civgrid.class.php';
-require_once 'models/draft.class.php';
-require_once 'models/player.class.php';
-require_once 'models/turn.class.php';
-
-function maintenance() {
+function maintenance()
+{
     //delete all unfinished games
     require_once "views/header.php";
     echo "<div class=\"content\">";
@@ -32,20 +29,26 @@ function maintenance() {
     require_once "views/footer.php";
 }
 
-function export_finished() {
+function export_finished()
+{
     //delete all unfinished games
-    $game_infos = service()->db->query('SELECT * FROM game WHERE (state='.Constants::DRAFT_STATE_DONE.') && (type & '.Draft::PRACTICE_MASK.')!='.Draft::PRACTICE.' ORDER BY date_started DESC')->fetchAll();
+    $game_infos = service()->db->query('
+        SELECT *
+        FROM game
+        WHERE (state='.Constants::DRAFT_STATE_DONE.')
+          AND (type & '.Draft::PRACTICE_MASK.') != '.Draft::PRACTICE.'
+        ORDER BY date_started DESC
+    ')->fetchAll();
     $last_games = array();
-    $do_strings = Turn::get_do_strings();
-    foreach($game_infos as $game_info) {
-
+    $do_strings = Turn::getDoStrings();
+    foreach ($game_infos as $game_info) {
         $draft = new Draft($game_info);
-        $cgrid = new CivGrid($draft->get_aoe_version());
-        $civs = $cgrid->get_civs();
+        $cgrid = new CivGrid($draft->getAoeVersion());
+        $civs = $cgrid->getCivs();
 
         echo $draft->code." - ".$draft->title."\n";
         echo $draft->players[0]->name." vs ".$draft->players[1]->name."\n";
-        foreach($draft->get_turns() as $turn) {
+        foreach ($draft->getTurns() as $turn) {
             echo $turn->turn_no.": ".$turn->player_role."-".$do_strings[$turn->action]." ".$civs[$turn->civ]."\n";
         }
         echo "\n\n";

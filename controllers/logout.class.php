@@ -1,10 +1,13 @@
 <?php
+namespace Aoe2CM;
 
-use Klein\{Request, Response, ServiceProvider};
+use Klein\Request;
+use Klein\Response;
+use Klein\ServiceProvider;
 
 class LogoutController
 {
-    static public function processLogout(Request $request, Response $response, ServiceProvider $service)
+    public static function processLogout(Request $request, Response $response, ServiceProvider $service)
     {
         // Redirect to the logged in home page
         $service->session(Constants::LOGGED_IN, false);
