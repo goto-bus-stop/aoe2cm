@@ -1,0 +1,10 @@
+dist: xenial
+os:
+  - linux
+  # - windows once travis supports
+language: php
+php: 7.3
+install:
+  - composer install
+script:
+  - composer run-script lint
