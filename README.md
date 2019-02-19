@@ -1,6 +1,25 @@
 # Age of Empires 2 Captains mode
-This is a discontinued project. If anyone would like to continue, feel free to do so.
 
-Resource wise, I think there is a lot to take from this.
+A PHP application for civ drafting.
 
-Please be aware though. Dragons ahead. The quality of the code is bad, security wise is a big no-no. 
+Download composer: https://getcomposer.org/download/
+
+```
+git clone https://github.com/goto-bus-stop/aoe2cm
+cd aoe2cm
+git checkout next
+php composer.phar install
+docker-compose up
+```
+
+## Goals
+
+The goals of this fork are:
+ - modernizing the code
+ - adding map drafting
+ - enabling tournament organizer tools like crossing out used civs after a game is played
+ - adding a public API
+
+## License
+
+waiting for pip's opinion lol
